@@ -25,17 +25,6 @@
   --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
 }
 
-body.light-theme {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --bg-card: rgba(255, 255, 255, 0.95);
-  --border-color: rgba(0, 0, 0, 0.08);
-  --border-focus: rgba(2, 132, 199, 0.4);
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-dim: #94a3b8;
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -59,10 +48,6 @@ body {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
   padding: 14px 24px;
-}
-
-body.light-theme .evaluator-header {
-  background: rgba(255, 255, 255, 0.9);
 }
 
 .evaluator-nav {

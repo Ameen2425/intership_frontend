@@ -170,6 +170,18 @@ The pre-compiled `css/styles.css` file is included and verified out-of-the-box s
 
 ---
 
+## 🚀 GitHub Pages Deployment
+
+This project is 100% compatible with **GitHub Pages** (`https://<username>.github.io/<repository-name>/`).
+
+- **Zero Root-Relative Links:** All assets and pages use relative links, ensuring no broken paths when served in repository subfolders.
+- **Jekyll Bypassed:** Includes `.nojekyll` to preserve SCSS partials and dotfiles.
+- **Automated Actions Workflow:** Includes `.github/workflows/deploy.yml` for automated 1-click deployment upon pushing to `main`.
+
+For detailed instructions, see the [GitHub Pages Deployment Guide](documentation/github-pages-deployment.md).
+
+---
+
 ## 🧪 Quality Assurance & Verification
 
 Before submitting, the project was audited against the following standards:
