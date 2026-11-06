@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 06: Form Styling and Client-Side Validation - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 06: Form Validation &amp; UX | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 06: Form Validation &amp; UX</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 3: Advanced</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 06 &mdash; Form Styling and Client-Side Validation</h1>
+      <p class="task-tagline">
+        Building an accessible candidate application form featuring real-time regex input verification, password entropy strength metering, character counters, and submission modals.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Build a registration/contact form with Full Name, Email, Phone Number, Password, Confirm Password, Gender, and Message. Validate required fields, email format, phone numbers, password length, and password matching. Display error messages, success notifications, password toggle, character counter, and clear form functionality.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> Web forms collect critical user inputs. Client-side validation inspects and verifies data in the user's browser before allowing submission to a server. This task creates instant, accessible visual feedback that highlights errors as the user types, guides corrective action, and prevents erroneous form submissions.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> Forms represent the primary conversion point of web applications (sign-ups, checkouts, lead forms). Client validation prevents unnecessary network round-trips for invalid payloads, shields backends from garbage submissions, and dramatically improves user experience through clear, contextual feedback.
+      </p>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">JavaScript (ES6+)</span>
+        <span class="concept-tag">Regular Expressions (Regex)</span>
+        <span class="concept-tag">HTML5 Form Validation API</span>
+        <span class="concept-tag">Password Entropy Meter</span>
+        <span class="concept-tag">Live Character Counter</span>
+        <span class="concept-tag">Accessible Feedback (aria-invalid)</span>
+        <span class="concept-tag">Custom CSS Form Controls</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>Strict Input Regex Patterns:</strong> Full Name (3-50 letters/spaces), Email (RFC-compliant address pattern), and Phone (10+ digits).</li>
+        <li><strong>Live Multi-Tier Password Entropy Bar:</strong> 4-tier strength calculation (Weak, Fair, Good, Excellent) evaluating length, uppercase letters, digits, and special symbols.</li>
+        <li><strong>Synchronous Password Confirmation:</strong> Real-time matching between password and confirm password fields.</li>
+        <li><strong>Password Peek / Unmask Toggle:</strong> An eye button switching input types between <code>type="password"</code> and <code>type="text"</code>.</li>
+        <li><strong>Live Character Counter:</strong> Dynamic character count with visual alerts approaching the 500-character limit.</li>
+        <li><strong>Success Verification Modal:</strong> Renders a structured summary payload of the candidate's submission upon valid submission.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & How It Works -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">How the Implementation Works</h2>
+      <p class="prose-text">
+        The form leverages event listeners on both <code>input</code> (live typing) and <code>submit</code>:
+      </p>
+      <ol class="testing-steps">
+        <li><strong>Input-level Validation:</strong> As the user types into any field, dedicated validation functions evaluate the current string against regex rules and length constraints.</li>
+        <li><strong>Visual State Reflection:</strong> The helper function <code>setFieldState()</code> toggles <code>.has-error</code> or <code>.has-success</code> classes on the parent container, sets <code>aria-invalid="true/false"</code>, and updates contextual error labels.</li>
+        <li><strong>Submit Event Interception:</strong> The <code>submit</code> event calls <code>e.preventDefault()</code>. If any field fails validation, submission is halted and focus automatically jumps to the first erroneous input.</li>
+        <li><strong>Submission Confirmation:</strong> When all 8 checks succeed, candidate data is compiled into a structured summary and presented inside the success modal.</li>
+      </ol>
+    </section>
+
+    <!-- 5. Code Walkthrough -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Key Snippets</h2>
+      <p class="prose-text">
+        Below are the key validation patterns from <code>script.js</code>.
+      </p>
+
+      <p class="prose-text"><strong>1. Regular Expression Validation for Email &amp; Phone:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>script.js (Regex Validation Logic)</span>
+          <span class="code-lang-badge">JavaScript ES6+</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">const</span> EMAIL_REGEX = <span class="syn-val">/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/</span>;
+<span class="syn-kw">const</span> PHONE_REGEX = <span class="syn-val">/^\+?(\d[\d-. ]+)?(\([\d-. ]+\))?[\d-. ]{10,15}$/</span>;
+
+<span class="syn-kw">function</span> <span class="syn-fn">validateEmail</span>() {
+  <span class="syn-kw">const</span> val = emailInput.value.trim();
+  <span class="syn-kw">if</span> (!val) {
+    <span class="syn-fn">setFieldState</span>(<span class="syn-val">'group-email'</span>, <span class="syn-kw">false</span>, <span class="syn-val">'Email address is required.'</span>);
+    <span class="syn-kw">return false</span>;
+  }
+  <span class="syn-kw">if</span> (!EMAIL_REGEX.<span class="syn-fn">test</span>(val)) {
+    <span class="syn-fn">setFieldState</span>(<span class="syn-val">'group-email'</span>, <span class="syn-kw">false</span>, <span class="syn-val">'Please enter a valid email address.'</span>);
+    <span class="syn-kw">return false</span>;
+  }
+  <span class="syn-fn">setFieldState</span>(<span class="syn-val">'group-email'</span>, <span class="syn-kw">true</span>);
+  <span class="syn-kw">return true</span>;
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Applies strict email format verification and sets accessible error or success classes on the parent group.
+      </p>
+
+      <p class="prose-text"><strong>2. Password Entropy Strength Meter:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>script.js (Entropy Scoring)</span>
+          <span class="code-lang-badge">JavaScript ES6+</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">function</span> <span class="syn-fn">evaluatePasswordStrength</span>(val) {
+  <span class="syn-kw">let</span> score = <span class="syn-val">0</span>;
+  <span class="syn-kw">if</span> (val.length &gt;= <span class="syn-val">8</span>) score += <span class="syn-val">1</span>;
+  <span class="syn-kw">if</span> (<span class="syn-val">/[A-Z]/</span>.<span class="syn-fn">test</span>(val)) score += <span class="syn-val">1</span>;
+  <span class="syn-kw">if</span> (<span class="syn-val">/[0-9]/</span>.<span class="syn-fn">test</span>(val)) score += <span class="syn-val">1</span>;
+  <span class="syn-kw">if</span> (<span class="syn-val">/[^A-Za-z0-9]/</span>.<span class="syn-fn">test</span>(val)) score += <span class="syn-val">1</span>;
+
+  <span class="syn-comment">/* Updates meter bar width (25%, 50%, 75%, 100%) and color dynamically */</span>
+  <span class="syn-kw">return</span> score;
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Evaluates password entropy across character classes and updates the progress bar color from red to green in real time.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        Test the live registration form below. Try submitting with empty fields, type passwords to watch the strength meter, or complete a valid submission to view the summary modal.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 06 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Tip: Click the eye icon next to password inputs to unmask characters.</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing & Expected Output -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; Expected Output</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> Clear error indicators on invalid inputs, real-time feedback resolving errors into green checkmarks, password strength meter animation, character counter updates, and a success summary modal on valid submission.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Open Demo:</strong> Open <code>demo.html</code> or view in the embedded window.</li>
+        <li><strong>Test Empty Submit:</strong> Click "Submit Application" immediately. Confirm that all required fields highlight red with error messages and focus shifts to the Full Name field.</li>
+        <li><strong>Test Regex Live Validation:</strong> Type "Al" in Full Name (fails &lt;3 chars), then type "Alex Vance" (turns green). Type "invalid-email" in Email (fails), then type "alex@cognifyz.com" (turns green).</li>
+        <li><strong>Test Password Strength:</strong> Type "test" (Weak &rarr; red), then "Test12" (Fair &rarr; orange), then "Test12#$" (Excellent &rarr; green).</li>
+        <li><strong>Test Visibility Toggle:</strong> Click the eye icon to unmask and mask password characters.</li>
+        <li><strong>Test Message Counter:</strong> Type inside the textarea. Verify the counter shows <code>X / 500 characters</code>.</li>
+        <li><strong>Test Successful Submission:</strong> Complete all fields correctly, check the terms checkbox, and submit. Confirm that the success modal displays the candidate summary breakdown.</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Handling form events and preventing default page reloads with <code>e.preventDefault()</code>.</li>
+        <li>Applying regular expression patterns to validate names, emails, and phone numbers.</li>
+        <li>Calculating password entropy and updating visual strength bars.</li>
+        <li>Managing accessible form states using <code>aria-invalid</code> and contextual alert elements.</li>
+        <li>Delivering accessible success verification dialogs upon valid submission.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 06 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

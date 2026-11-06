@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 05: Public REST API Integration - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 05: API Integration | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 05: Public REST API Integration</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 3: Advanced</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 05 &mdash; Asynchronous REST API Integration</h1>
+      <p class="task-tagline">
+        Consuming public REST endpoints via the Fetch API and async/await, featuring skeleton loading, live query filtering, author sorting, pagination, and modal comment streams.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Integrate a public REST API using Fetch API with JSONPlaceholder (<code>https://jsonplaceholder.typicode.com/posts</code>), fetch data, parse JSON, dynamically display posts in cards, add loading animations, handle errors, add search, pagination, and retry functionality.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> Web applications rarely store business data statically inside HTML. Instead, they interact with web servers over HTTP protocols by issuing asynchronous network requests to REST endpoints, parsing the returned JSON data, and rendering elements dynamically onto the DOM.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> Asynchronous JavaScript (Promises, <code>async/await</code>, and the <code>fetch()</code> API) is arguably the most critical skill in modern frontend development. Handling network latency, skeleton states, search filtering, and resilient error recovery is essential for any real-world production application.
+      </p>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">JavaScript Fetch API</span>
+        <span class="concept-tag">Async / Await Syntax</span>
+        <span class="concept-tag">JSON Parsing (response.json())</span>
+        <span class="concept-tag">HTTP Protocols &amp; Status Codes</span>
+        <span class="concept-tag">Skeleton Loading UX</span>
+        <span class="concept-tag">Try / Catch Exception Recovery</span>
+        <span class="concept-tag">Nested Modal Comments Ingestion</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>Public Endpoint:</strong> Consuming real JSON records from JSONPlaceholder (<code>https://jsonplaceholder.typicode.com/posts</code>).</li>
+        <li><strong>Performance Latency Tracking:</strong> Measuring round-trip time in milliseconds using <code>performance.now()</code>.</li>
+        <li><strong>Skeleton Loading Placeholders:</strong> Shimmering animated placeholder cards displayed while waiting for asynchronous responses.</li>
+        <li><strong>Live Search &amp; Author Filters:</strong> Instant real-time filtering across post title and body, plus an Author User ID selector (1 to 10).</li>
+        <li><strong>Configurable Pagination:</strong> Configurable items-per-page (9, 18, 36, or All) with Previous/Next controls.</li>
+        <li><strong>Interactive Discussion Modal:</strong> Clicking any card opens a modal that fires a secondary REST request to <code>/posts/{id}/comments</code> to load real-time user discussion threads.</li>
+        <li><strong>Error Handling &amp; Simulation:</strong> A built-in "Simulate Error" button that calls an invalid endpoint (404) to demonstrate error alerts and the "Retry Connection" recovery pipeline.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & How It Works -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">How the Implementation Works</h2>
+      <p class="prose-text">
+        The application lifecycle follows a clean asynchronous flow:
+      </p>
+      <ol class="testing-steps">
+        <li><strong>Initialization:</strong> When the page loads, <code>fetchPosts()</code> is called. Skeleton placeholder cards are injected immediately into the DOM.</li>
+        <li><strong>Network Ingestion:</strong> <code>await fetch(endpointUrl)</code> transmits an HTTP GET request to JSONPlaceholder.</li>
+        <li><strong>Status &amp; Parsing:</strong> If <code>response.ok</code> is true, the response is parsed via <code>await response.json()</code> into the <code>allPosts</code> array. If not, an error is thrown.</li>
+        <li><strong>Filtering &amp; Slicing:</strong> <code>applyFiltersAndRender()</code> applies active search terms, author constraints, and pagination limits, appending generated card elements to the grid.</li>
+        <li><strong>Secondary Comments Stream:</strong> When a user clicks "View Discussion &amp; Comments", the post modal opens and initiates a secondary asynchronous request to fetch that post's specific comments.</li>
+      </ol>
+    </section>
+
+    <!-- 5. Code Walkthrough -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Key Snippets</h2>
+      <p class="prose-text">
+        The following snippets from <code>script.js</code> highlight how asynchronous requests, latency tracking, and error handling are implemented.
+      </p>
+
+      <p class="prose-text"><strong>1. Fetching Data with Async / Await and Latency Measurement:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>script.js (Fetch API &amp; Async/Await)</span>
+          <span class="code-lang-badge">JavaScript ES6+</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">async function</span> <span class="syn-fn">fetchPosts</span>(endpointUrl = API_ENDPOINT) {
+  <span class="syn-fn">renderSkeletonLoader</span>();
+  <span class="syn-kw">const</span> startTime = performance.now();
+
+  <span class="syn-kw">try</span> {
+    <span class="syn-kw">const</span> response = <span class="syn-kw">await</span> <span class="syn-fn">fetch</span>(endpointUrl);
+    <span class="syn-kw">const</span> endTime = performance.now();
+    statLatency.textContent = <span class="syn-val">`${Math.round(endTime - startTime)} ms`</span>;
+
+    <span class="syn-kw">if</span> (!response.ok) {
+      <span class="syn-kw">throw new</span> Error(<span class="syn-val">`HTTP Error ${response.status}: ${response.statusText}`</span>);
+    }
+
+    <span class="syn-kw">const</span> data = <span class="syn-kw">await</span> response.<span class="syn-fn">json</span>();
+    allPosts = data;
+    <span class="syn-fn">applyFiltersAndRender</span>();
+  } <span class="syn-kw">catch</span> (error) {
+    <span class="syn-fn">displayErrorNotice</span>(error.message);
+  }
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Clean <code>try/catch</code> flow using standard <code>async/await</code>. Measures performance latency and gracefully captures any network or HTTP exceptions.
+      </p>
+
+      <p class="prose-text"><strong>2. Secondary Comments Fetching in Modal:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>script.js (Nested Resource Fetch)</span>
+          <span class="code-lang-badge">JavaScript ES6+</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">async function</span> <span class="syn-fn">openPostModal</span>(post) {
+  modalPostTitle.textContent = post.title;
+  modalPostBody.textContent = post.body;
+  postModal.style.display = <span class="syn-val">'flex'</span>;
+
+  <span class="syn-kw">try</span> {
+    <span class="syn-kw">const</span> res = <span class="syn-kw">await</span> <span class="syn-fn">fetch</span>(<span class="syn-val">`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`</span>);
+    <span class="syn-kw">const</span> comments = <span class="syn-kw">await</span> res.<span class="syn-fn">json</span>();
+    <span class="syn-fn">renderCommentsList</span>(comments);
+  } <span class="syn-kw">catch</span> (err) {
+    commentsContainer.innerHTML = <span class="syn-val">'&lt;p&gt;Failed to load comments.&lt;/p&gt;'</span>;
+  }
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Demonstrates nested resource fetching where selecting an item triggers an additional API request for relational child data.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        Test the live implementation below. Observe live API ingestion from JSONPlaceholder, search filtering, and error handling.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 05 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Tip: Click "Simulate Error" to test error alerts, then click "Retry Connection".</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing & Expected Output -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; Expected Output</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> Rapid ingestion of 100 posts, latency counter in milliseconds, instant search filtering, page pagination, modal comment streams, and error resilience.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Open Demo:</strong> Open <code>demo.html</code> or view in the embedded frame.</li>
+        <li><strong>Observe Loading State:</strong> On page load, verify that skeleton cards animate while the request is in flight.</li>
+        <li><strong>Verify 200 OK &amp; Latency:</strong> Confirm that the status badge turns green ("200 OK") and shows request latency (typically 50–300 ms).</li>
+        <li><strong>Test Search Filtering:</strong> Type words like "aut" or "qui" into the search box. Confirm that matching post count updates dynamically.</li>
+        <li><strong>Test Author Filter:</strong> Select "Author 1" from the dropdown. Verify that only posts belonging to Author #1 appear.</li>
+        <li><strong>Test Modal Discussion:</strong> Click "View Discussion &amp; Comments" on any post. Verify that the modal opens and fetches live comments.</li>
+        <li><strong>Test Error Resilience:</strong> Click "Simulate Error". Verify that the red error banner appears. Then click "Retry Connection" to verify recovery.</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Making asynchronous HTTP GET requests using modern <code>fetch()</code> and <code>async/await</code>.</li>
+        <li>Parsing JSON payloads and dynamically constructing DOM cards.</li>
+        <li>Designing realistic skeleton loading animations to enhance perceived application performance.</li>
+        <li>Implementing robust error handling using <code>try...catch</code> and user-facing retry mechanisms.</li>
+        <li>Filtering, sorting, and paginating large in-memory data collections.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 05 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+// ==========================================================================
+// COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
+// SASS PREPROCESSING ARCHITECTURE: _mixins.scss
+// ==========================================================================
+
+@use "sass:math";
+@use "sass:map";
+@use "variables" as *;
+
+// --- SASS FUNCTIONS ---
+
+// Function: Convert pixel values to rem units
+@function to-rem($pixel) {
+  @return math.div($pixel, 16) * 1rem;
+}
+
+// Function: Opacity tinting shortcut
+@function alpha-color($color, $alpha: 0.5) {
+  @return rgba($color, $alpha);
+}
+
+// --- SASS MIXINS ---
+
+// Mixin: Flexbox layout helper
+@mixin flex($justify: flex-start, $align: stretch, $direction: row, $wrap: nowrap) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+// Mixin: Quick center with flex
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin: Glassmorphic surface
+@mixin glassmorphism($blur: 14px, $opacity: 0.82) {
+  background: rgba($color-navy-card, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: $border-glass;
+}
+
+// Mixin: Gradient text clip
+@mixin gradient-text($gradient: $gradient-primary) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+// Mixin: Responsive breakpoint manager using modern sass:map
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}`. Please check `$breakpoints` map in _variables.scss.";
+  }
+}
+
+// Mixin: Button variant generator
+@mixin btn-variant($bg-color, $text-color, $border-color: transparent) {
+  background: $bg-color;
+  color: $text-color;
+  border: 1px solid $border-color;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba($bg-color, 0.4);
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+  }
+}
+
+// Mixin: Custom Scrollbar
+@mixin custom-scrollbar($width: 6px, $track-color: $color-navy-dark, $thumb-color: $color-slate-border) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $border-radius-pill;
+    &:hover {
+      background: $color-cyan;
+    }
+  }
+}

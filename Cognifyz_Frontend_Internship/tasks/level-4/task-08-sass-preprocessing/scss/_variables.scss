@@ -1,0 +1,85 @@
+// ==========================================================================
+// COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
+// SASS PREPROCESSING ARCHITECTURE: _variables.scss
+// ==========================================================================
+
+// --- BRAND COLOR SYSTEM ---
+$color-navy-darkest:  #050811;
+$color-navy-dark:     #0a0f1d;
+$color-navy-card:     #0f172a;
+$color-navy-card-alt: #1e293b;
+$color-slate-border:  #334155;
+
+$color-cyan:          #38bdf8;
+$color-indigo:        #6366f1;
+$color-purple:        #a855f7;
+$color-pink:          #ec4899;
+$color-emerald:       #10b981;
+$color-amber:         #f59e0b;
+
+$color-text-primary:   #f8fafc;
+$color-text-secondary: #94a3b8;
+$color-text-muted:     #64748b;
+
+// --- GRADIENTS ---
+$gradient-primary: linear-gradient(135deg, $color-cyan 0%, $color-indigo 50%, $color-purple 100%);
+$gradient-accent:  linear-gradient(135deg, $color-indigo 0%, $color-pink 100%);
+$gradient-surface: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+
+// --- TYPOGRAPHY ---
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-mono: Consolas, Monaco, "Courier New", Courier, monospace;
+
+$font-size-base: 1rem;       // 16px
+$font-size-xs:   0.75rem;    // 12px
+$font-size-sm:   0.875rem;   // 14px
+$font-size-md:   1rem;       // 16px
+$font-size-lg:   1.25rem;    // 20px
+$font-size-xl:   1.75rem;    // 28px
+$font-size-2xl:  2.5rem;     // 40px
+
+$font-weight-light:  300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold:   700;
+$font-weight-black:  900;
+
+// --- SPACING SCALE ---
+$spacing-1: 0.25rem;  // 4px
+$spacing-2: 0.5rem;   // 8px
+$spacing-3: 0.75rem;  // 12px
+$spacing-4: 1rem;     // 16px
+$spacing-5: 1.5rem;   // 24px
+$spacing-6: 2rem;     // 32px
+$spacing-7: 3rem;     // 48px
+$spacing-8: 4rem;     // 64px
+
+// --- BORDERS & RADIUS ---
+$border-radius-sm: 6px;
+$border-radius-md: 10px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+$border-radius-pill: 9999px;
+
+$border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+$border-glass:  1px solid rgba(255, 255, 255, 0.14);
+
+// --- SHADOWS ---
+$shadow-sm:  0 2px 4px rgba(0, 0, 0, 0.2);
+$shadow-md:  0 4px 12px rgba(0, 0, 0, 0.35);
+$shadow-lg:  0 10px 25px rgba(0, 0, 0, 0.5);
+$shadow-glow: 0 0 20px rgba(56, 189, 248, 0.3);
+
+// --- TRANSITIONS ---
+$transition-fast: 0.18s ease;
+$transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 0.45s ease;
+
+// --- RESPONSIVE BREAKPOINTS MAP ---
+$breakpoints: (
+  'mobile':  576px,
+  'tablet':  768px,
+  'laptop':  1024px,
+  'desktop': 1200px
+);
+

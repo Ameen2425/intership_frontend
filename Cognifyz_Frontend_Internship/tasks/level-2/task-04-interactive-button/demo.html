@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 04: Interactive Color Controller | Cognifyz Technologies</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-body">
+
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="../../../index.html" class="brand-link">
+          <span class="brand-badge">COGNIFYZ</span>
+          <span class="brand-text">Frontend Internship</span>
+        </a>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="return-portal-btn">&larr; Task Explanation</a>
+        <a href="../../../index.html" class="return-portal-btn">Main Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="control-card">
+      <div class="card-header">
+        <div class="task-badge">Level 2 &bull; Task 04</div>
+        <h1 class="card-title">Interactive Background Controller</h1>
+        <p class="card-subtitle">
+          Use the buttons and palette controls below to dynamically change the page background color via JavaScript.
+        </p>
+      </div>
+
+      <!-- Current Color Monitor -->
+      <section class="color-monitor" aria-label="Selected Color Monitor">
+        <div class="color-swatch-preview" id="active-swatch-preview"></div>
+        <div class="color-values">
+          <div class="color-val-group">
+            <span class="val-label">HEX VALUE</span>
+            <span class="val-code" id="hex-code-display">#0A0F1D</span>
+          </div>
+          <div class="color-val-group">
+            <span class="val-label">RGB FORMAT</span>
+            <span class="val-code" id="rgb-code-display">rgb(10, 15, 29)</span>
+          </div>
+          <div class="color-val-group">
+            <span class="val-label">CONTRAST MODE</span>
+            <span class="val-badge" id="contrast-mode-display">Light Text</span>
+          </div>
+        </div>
+        <button id="copy-color-btn" class="copy-btn">
+          <span>📋</span>
+          <span id="copy-btn-text">Copy HEX</span>
+        </button>
+      </section>
+
+      <!-- Primary Action Controls -->
+      <section class="primary-controls">
+        <button id="random-color-btn" class="btn btn-interactive">
+          <span>✨</span>
+          <span>Generate Random Color</span>
+        </button>
+        <button id="reset-color-btn" class="btn btn-reset">
+          <span>↺ Reset to Default</span>
+        </button>
+      </section>
+
+      <!-- Preset Theme Palettes -->
+      <section class="palette-section">
+        <h2 class="section-heading">Preset Color Palettes</h2>
+        <div class="palette-grid" id="palette-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Custom OS Color Picker -->
+      <section class="custom-picker-section">
+        <label for="native-color-picker" class="picker-label">
+          <span>Custom Color Picker:</span>
+          <div class="picker-wrapper">
+            <input type="color" id="native-color-picker" value="#0a0f1d" aria-label="Custom color picker">
+            <span class="picker-instruction">Choose any custom color</span>
+          </div>
+        </label>
+      </section>
+
+      <!-- Recent Color History -->
+      <section class="history-section">
+        <div class="history-header">
+          <h3 class="history-title">Recent Colors (This Session)</h3>
+          <button id="clear-history-btn" class="clear-history-btn">Clear</button>
+        </div>
+        <div class="history-pills" id="history-pills">
+          <span class="history-empty">Click "Generate Random Color" or select a preset to log colors here.</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Copy Toast Notification -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toast-message">Color copied to clipboard!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

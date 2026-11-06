@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 06: Form Validation &amp; UX | Cognifyz Technologies</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Ribbon -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="../../../index.html" class="brand-link">
+          <span class="brand-badge">COGNIFYZ</span>
+          <span class="brand-text">Frontend Internship</span>
+        </a>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="return-portal-btn">&larr; Task Explanation</a>
+        <a href="../../../index.html" class="return-portal-btn">Main Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="form-wrapper">
+    <div class="form-container">
+      
+      <header class="form-header">
+        <div class="badge-row">
+          <span class="task-badge">Level 3 &bull; Task 06</span>
+          <span class="sub-badge">Client-Side JavaScript Validation</span>
+        </div>
+        <h1 class="form-title">Candidate Registration Form</h1>
+        <p class="form-subtitle">
+          Submit your profile for the Cognifyz Frontend Internship program. 
+          Real-time input validation, password strength analysis, and accessible feedback.
+        </p>
+      </header>
+
+      <!-- Registration Form -->
+      <form id="registration-form" novalidate autocomplete="off">
+        
+        <!-- Full Name -->
+        <div class="form-group" id="group-fullname">
+          <label for="fullname" class="form-label">
+            Full Name <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="field-icon">👤</span>
+            <input type="text" id="fullname" name="fullname" class="form-input" placeholder="e.g. Alex Vance" aria-describedby="err-fullname" required>
+            <span class="validation-status-icon" aria-hidden="true"></span>
+          </div>
+          <span class="error-msg" id="err-fullname" role="alert">Full name must contain at least 3 letters (letters &amp; spaces only).</span>
+        </div>
+
+        <!-- Email & Phone Row -->
+        <div class="form-row">
+          <div class="form-group" id="group-email">
+            <label for="email" class="form-label">
+              Email Address <span class="required-star">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="field-icon">✉️</span>
+              <input type="email" id="email" name="email" class="form-input" placeholder="name@company.com" aria-describedby="err-email" required>
+              <span class="validation-status-icon" aria-hidden="true"></span>
+            </div>
+            <span class="error-msg" id="err-email" role="alert">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group" id="group-phone">
+            <label for="phone" class="form-label">
+              Phone Number <span class="required-star">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="field-icon">📞</span>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. 555-123-4567" aria-describedby="err-phone" required>
+              <span class="validation-status-icon" aria-hidden="true"></span>
+            </div>
+            <span class="error-msg" id="err-phone" role="alert">Please enter a valid 10+ digit phone number.</span>
+          </div>
+        </div>
+
+        <!-- Password & Confirm Password Row -->
+        <div class="form-row">
+          <div class="form-group" id="group-password">
+            <label for="password" class="form-label">
+              Password <span class="required-star">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="field-icon">🔒</span>
+              <input type="password" id="password" name="password" class="form-input" placeholder="Min. 8 characters" aria-describedby="err-password" required>
+              <button type="button" class="eye-toggle-btn" id="toggle-password-btn" aria-label="Toggle password visibility">👁️</button>
+              <span class="validation-status-icon" aria-hidden="true"></span>
+            </div>
+            
+            <!-- Live Password Strength Meter -->
+            <div class="strength-meter-box" id="strength-box">
+              <div class="meter-bar-track">
+                <div class="meter-bar-fill" id="strength-meter-bar"></div>
+              </div>
+              <div class="meter-labels">
+                <span class="meter-text">Strength: <strong id="strength-label">None</strong></span>
+                <span class="meter-hint" id="strength-hint">Min. 8 chars, 1 uppercase, 1 digit, 1 symbol</span>
+              </div>
+            </div>
+
+            <span class="error-msg" id="err-password" role="alert">Password must be at least 8 characters long.</span>
+          </div>
+
+          <div class="form-group" id="group-confirm-password">
+            <label for="confirm-password" class="form-label">
+              Confirm Password <span class="required-star">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="field-icon">🔐</span>
+              <input type="password" id="confirm-password" name="confirm-password" class="form-input" placeholder="Repeat your password" aria-describedby="err-confirm-password" required>
+              <button type="button" class="eye-toggle-btn" id="toggle-confirm-password-btn" aria-label="Toggle confirm password visibility">👁️</button>
+              <span class="validation-status-icon" aria-hidden="true"></span>
+            </div>
+            <span class="error-msg" id="err-confirm-password" role="alert">Passwords do not match.</span>
+          </div>
+        </div>
+
+        <!-- Gender Selection -->
+        <div class="form-group" id="group-gender">
+          <label class="form-label">Gender <span class="required-star">*</span></label>
+          <div class="gender-radio-group">
+            <label class="radio-card">
+              <input type="radio" name="gender" value="Male" required>
+              <span class="radio-custom"></span>
+              <span class="radio-text">Male</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="gender" value="Female">
+              <span class="radio-custom"></span>
+              <span class="radio-text">Female</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="gender" value="Non-Binary">
+              <span class="radio-custom"></span>
+              <span class="radio-text">Non-Binary</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="gender" value="Prefer not to say">
+              <span class="radio-custom"></span>
+              <span class="radio-text">Prefer not to say</span>
+            </label>
+          </div>
+          <span class="error-msg" id="err-gender" role="alert">Please select an option.</span>
+        </div>
+
+        <!-- Message / Motivation with Character Counter -->
+        <div class="form-group" id="group-message">
+          <div class="label-with-counter">
+            <label for="message" class="form-label">
+              Motivation Statement / Message <span class="required-star">*</span>
+            </label>
+            <span class="char-counter" id="char-counter">0 / 500 characters</span>
+          </div>
+          <textarea id="message" name="message" class="form-textarea" rows="4" maxlength="500" placeholder="Why are you interested in Cognifyz Technologies frontend internship? (min 20 characters)" aria-describedby="err-message" required></textarea>
+          <span class="error-msg" id="err-message" role="alert">Message must be at least 20 characters.</span>
+        </div>
+
+        <!-- Terms Checkbox -->
+        <div class="form-group" id="group-terms">
+          <label class="checkbox-container">
+            <input type="checkbox" id="terms" name="terms" required>
+            <span class="checkmark-box"></span>
+            <span class="checkbox-label-text">
+              I agree to the terms and verify that all submitted candidate information is accurate.
+            </span>
+          </label>
+          <span class="error-msg" id="err-terms" role="alert">You must agree before submitting.</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-submit" id="submit-btn">
+            <span>Submit Application</span>
+            <span>&rarr;</span>
+          </button>
+          <button type="button" class="btn btn-clear" id="clear-btn">
+            Clear Form
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Success Submission Modal -->
+  <div id="success-modal" class="modal-backdrop" role="dialog" aria-modal="true" style="display: none;">
+    <div class="modal-card">
+      <div class="success-icon-badge">✓</div>
+      <h2 class="modal-title">Application Submitted Successfully!</h2>
+      <p class="modal-desc">
+        Your registration details passed all client-side validation rules.
+      </p>
+
+      <div class="submission-summary" id="submission-summary"></div>
+
+      <button id="close-success-modal-btn" class="btn btn-submit" style="width: 100%;">
+        Done / Return to Form
+      </button>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div>Cognifyz Technologies &bull; Task 06: Form Styling and Client Validation</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 08: Sass Preprocessor Architecture | Cognifyz Technologies</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  
+  <!-- Compiled CSS generated from scss/styles.scss via Dart Sass -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (Styled via SCSS Components) -->
+  <nav class="site-nav">
+    <div class="site-nav__container">
+      <a href="../../../index.html" class="site-nav__brand">
+        <span class="site-nav__brand-badge">SASS ENGINE</span>
+        <span class="site-nav__brand-title">Cognifyz SCSS Hub</span>
+      </a>
+      <div>
+        <a href="index.html" class="site-nav__portal-link" style="margin-right: 10px;">&larr; Task Explanation</a>
+        <a href="../../../index.html" class="site-nav__portal-link">Main Portal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner (Styled via SCSS Mixins & Variables) -->
+  <header class="hero-banner">
+    <div class="hero-banner__wrapper">
+      <div class="hero-banner__badge-group">
+        <span class="feature-panel__tag feature-panel__tag--partials">Level 4 &bull; Task 08</span>
+        <span class="feature-panel__tag feature-panel__tag--mixins">Dart Sass Engine</span>
+      </div>
+      <h1 class="hero-banner__title">
+        CSS Preprocessing with <span class="accent-gradient">Sass / SCSS</span>
+      </h1>
+      <p class="hero-banner__subtitle">
+        Architecting design tokens, modular partials, reusable mixins, and automated compilation pipelines using Dart Sass.
+      </p>
+      <div>
+        <a href="#code-architecture" class="btn-sass btn-sass--primary">Inspect Architecture</a>
+        <a href="#compilation-pipeline" class="btn-sass btn-sass--outline">View Build Pipeline</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Showcase Grid -->
+  <main class="main-wrapper" id="code-architecture">
+    
+    <div class="section-intro">
+      <h2 class="section-intro__heading">Sass Architectural Pillars</h2>
+      <p class="section-intro__sub">
+        Demonstrating how SCSS partials, design tokens, mixins, and BEM nesting combine into maintainable stylesheets.
+      </p>
+    </div>
+
+    <div class="sass-grid">
+      
+      <!-- Panel 1: Variables -->
+      <article class="feature-panel">
+        <div class="feature-panel__header">
+          <span class="feature-panel__tag feature-panel__tag--variables">Design Tokens</span>
+          <span style="font-size: 1.2rem;">🎨</span>
+        </div>
+        <h3 class="feature-panel__title">1. Reusable Variables</h3>
+        <p class="feature-panel__desc">
+          Centralized brand tokens for colors, spacing, typography, and breakpoints declared in <code>_variables.scss</code>.
+        </p>
+        <pre class="feature-panel__code-block"><code>// _variables.scss
+$color-navy-dark:  #0a0f1d;
+$color-cyan:       #38bdf8;
+$color-indigo:     #6366f1;
+$spacing-4:        1rem;
+$border-radius-lg: 16px;</code></pre>
+      </article>
+
+      <!-- Panel 2: Mixins & Functions -->
+      <article class="feature-panel">
+        <div class="feature-panel__header">
+          <span class="feature-panel__tag feature-panel__tag--mixins">Mixins &amp; Math</span>
+          <span style="font-size: 1.2rem;">⚙️</span>
+        </div>
+        <h3 class="feature-panel__title">2. Parametric Mixins</h3>
+        <p class="feature-panel__desc">
+          Reusable mixins for glassmorphism, responsive media queries, and <code>to-rem()</code> math conversion functions.
+        </p>
+        <pre class="feature-panel__code-block"><code>// _mixins.scss
+@mixin glassmorphism($blur: 14px) {
+  background: rgba($color-navy-card, 0.85);
+  backdrop-filter: blur($blur);
+  border: $border-glass;
+}
+
+@function to-rem($pixel) {
+  @return math.div($pixel, 16) * 1rem;
+}</code></pre>
+      </article>
+
+      <!-- Panel 3: Nested Selectors & BEM -->
+      <article class="feature-panel">
+        <div class="feature-panel__header">
+          <span class="feature-panel__tag feature-panel__tag--nesting">BEM &amp; Scope</span>
+          <span style="font-size: 1.2rem;">🌳</span>
+        </div>
+        <h3 class="feature-panel__title">3. Nested Selectors &amp; '&amp;'</h3>
+        <p class="feature-panel__desc">
+          Clean DOM nesting with pseudo-states (<code>&:hover</code>) and BEM element/modifier scoping without repeating class names.
+        </p>
+        <pre class="feature-panel__code-block"><code>// _components.scss
+.btn-sass {
+  display: inline-flex;
+  &--primary {
+    @include btn-variant($color-cyan, #050811);
+  }
+  &:hover {
+    transform: translateY(-2px);
+  }
+}</code></pre>
+      </article>
+
+      <!-- Panel 4: Partials & @use -->
+      <article class="feature-panel">
+        <div class="feature-panel__header">
+          <span class="feature-panel__tag feature-panel__tag--partials">Modularity</span>
+          <span style="font-size: 1.2rem;">📦</span>
+        </div>
+        <h3 class="feature-panel__title">4. Partials &amp; @use Directive</h3>
+        <p class="feature-panel__desc">
+          Organizing stylesheets into modular files imported via <code>@use</code> to prevent global namespace pollution.
+        </p>
+        <pre class="feature-panel__code-block"><code>// styles.scss
+@use "variables" as *;
+@use "mixins" as *;
+@use "components" as *;</code></pre>
+      </article>
+
+    </div>
+
+    <!-- Compilation Pipeline Workflow -->
+    <section class="pipeline-flow" id="compilation-pipeline">
+      <div class="feature-panel__header">
+        <span class="feature-panel__tag feature-panel__tag--partials">Build Workflow</span>
+        <span style="color: var(--color-cyan); font-family: monospace; font-size: 0.82rem;">package.json scripts</span>
+      </div>
+      <h3 style="color: #ffffff; margin-top: 8px;">Dart Sass Build &amp; Watch Lifecycle</h3>
+      <p style="color: #94a3b8; font-size: 0.9rem;">
+        The development process leverages npm scripts to compile SCSS partials into standard cross-browser CSS in real time:
+      </p>
+
+      <div class="pipeline-flow__steps">
+        <div class="pipeline-flow__step-card">
+          <span class="step-num">STEP 01</span>
+          <h4>Authoring SCSS</h4>
+          <p>Developers write structured SCSS in <code>_variables.scss</code>, <code>_mixins.scss</code>, and <code>_components.scss</code>.</p>
+        </div>
+        <div class="pipeline-flow__step-card">
+          <span class="step-num">STEP 02</span>
+          <h4>NPM Build Command</h4>
+          <p>Run <code>npm run build:sass</code> to invoke Dart Sass and generate expanded CSS with source maps.</p>
+        </div>
+        <div class="pipeline-flow__step-card">
+          <span class="step-num">STEP 03</span>
+          <h4>Live Watcher</h4>
+          <p>Run <code>npm run watch:sass</code> to automatically recompile when any SCSS partial is modified.</p>
+        </div>
+        <div class="pipeline-flow__step-card">
+          <span class="step-num">STEP 04</span>
+          <h4>Browser Output</h4>
+          <p>The compiled <code>css/styles.css</code> file is linked directly to HTML with full browser compatibility.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="brand-statement">Cognifyz Technologies &bull; Task 08: CSS Preprocessing with Sass</div>
+    <div>Compiled via Dart Sass &bull; Node.js Architecture</div>
+  </footer>
+
+</body>
+</html>
+

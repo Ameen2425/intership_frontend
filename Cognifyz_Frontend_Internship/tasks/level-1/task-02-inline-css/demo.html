@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 02: Inline CSS Styling | Cognifyz Technologies</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+</head>
+<body style="margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; background-color: #0b1120; color: #f1f5f9; line-height: 1.6;">
+
+  <!-- Header Bar -->
+  <header style="background-color: #030712; padding: 14px 28px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2937;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="background: linear-gradient(135deg, #38bdf8, #818cf8); color: #0b1120; font-weight: 800; font-size: 13px; padding: 4px 8px; border-radius: 6px;">COGNIFYZ</span>
+      <span style="font-weight: 600; font-size: 14px; color: #94a3b8;">Frontend Internship</span>
+    </div>
+    <nav>
+      <a href="index.html" style="color: #38bdf8; text-decoration: none; font-size: 14px; font-weight: 600; margin-right: 16px;">&larr; Task Explanation</a>
+      <a href="../../../index.html" style="color: #94a3b8; text-decoration: none; font-size: 14px;">Main Portal</a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1000px; margin: 32px auto; padding: 0 20px;">
+
+    <!-- Hero Card -->
+    <section style="background: linear-gradient(135deg, #1e1b4b, #0f172a); border: 1px solid #3b82f6; border-radius: 16px; padding: 36px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);">
+      <span style="display: inline-block; background-color: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #7dd3fc; font-size: 12px; font-weight: 700; text-transform: uppercase; padding: 4px 12px; border-radius: 9999px; margin-bottom: 14px;">
+        Level 1 &bull; Task 02
+      </span>
+      <h1 style="font-size: 32px; line-height: 1.2; margin: 0 0 12px 0; color: #ffffff;">
+        Inline CSS Styling Demonstration
+      </h1>
+      <p style="font-size: 16px; color: #94a3b8; margin: 0 0 20px 0; max-width: 720px;">
+        Demonstrating how font color, font size, background gradients, flexbox layouts, borders, and shadows are applied directly to HTML elements using the style attribute.
+      </p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <span style="background: rgba(255, 255, 255, 0.06); padding: 8px 14px; border-radius: 6px; font-size: 13px; color: #38bdf8;">Scope: 100% Inline CSS</span>
+        <span style="background: rgba(255, 255, 255, 0.06); padding: 8px 14px; border-radius: 6px; font-size: 13px; color: #ec4899;">Specificity: (1, 0, 0, 0)</span>
+      </div>
+    </section>
+
+    <!-- 1. Comparison: Default Unstyled vs Inline Styled -->
+    <section style="margin-bottom: 32px;">
+      <h2 style="font-size: 20px; color: #ffffff; border-bottom: 1px solid #1e293b; padding-bottom: 8px; margin-bottom: 16px;">
+        1. Comparative Example: Unstyled vs. Inline-Styled
+      </h2>
+
+      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <!-- Unstyled Block -->
+        <div style="flex: 1 1 280px; background-color: #ffffff; color: #000000; padding: 20px; border-radius: 6px; border: 1px solid #cbd5e1;">
+          <div style="font-size: 11px; text-transform: uppercase; font-weight: bold; color: #64748b; margin-bottom: 8px;">Default Browser Styling</div>
+          <h3 style="margin: 0 0 8px 0; font-size: 18px;">Cognifyz Technologies</h3>
+          <p style="margin: 0 0 12px 0; font-size: 14px;">Default black text, standard serif font, unpadded borders.</p>
+          <button>Default Button</button>
+        </div>
+
+        <!-- Inline Styled Block -->
+        <div style="flex: 1 1 280px; background: linear-gradient(135deg, #0f172a, #1e293b); color: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #6366f1; box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);">
+          <div style="font-size: 11px; text-transform: uppercase; font-weight: bold; color: #a5b4fc; margin-bottom: 8px;">Enhanced via Inline CSS</div>
+          <h3 style="margin: 0 0 8px 0; font-size: 18px; color: #38bdf8;">Cognifyz Technologies</h3>
+          <p style="margin: 0 0 12px 0; font-size: 14px; color: #94a3b8;">Custom font size, cyan text color, gradient background, rounded corners.</p>
+          <button style="background: linear-gradient(90deg, #38bdf8, #6366f1); color: #ffffff; border: none; padding: 8px 16px; font-weight: 600; font-size: 13px; border-radius: 6px; cursor: pointer;">
+            Styled Button
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Core CSS Properties Examples -->
+    <section style="margin-bottom: 32px;">
+      <h2 style="font-size: 20px; color: #ffffff; border-bottom: 1px solid #1e293b; padding-bottom: 8px; margin-bottom: 16px;">
+        2. Demonstrated CSS Properties
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+        
+        <!-- Typography and Font Colors -->
+        <div style="background-color: #111827; border: 1px solid #1f2937; border-radius: 10px; padding: 18px;">
+          <h3 style="margin-top: 0; font-size: 15px; color: #38bdf8;">Font Color &amp; Font Size</h3>
+          <p style="color: #ef4444; font-size: 14px; margin: 6px 0;">color: #ef4444 (Crimson)</p>
+          <p style="color: #f59e0b; font-size: 16px; margin: 6px 0;">font-size: 16px; color: #f59e0b (Amber)</p>
+          <p style="color: #10b981; font-size: 18px; font-weight: 700; margin: 6px 0;">font-weight: 700; color: #10b981 (Emerald)</p>
+          <p style="color: #a855f7; font-size: 20px; letter-spacing: 1px; margin: 6px 0;">letter-spacing: 1px; color: #a855f7 (Purple)</p>
+        </div>
+
+        <!-- Backgrounds & Gradients -->
+        <div style="background-color: #111827; border: 1px solid #1f2937; border-radius: 10px; padding: 18px;">
+          <h3 style="margin-top: 0; font-size: 15px; color: #c084fc;">Background Colors &amp; Gradients</h3>
+          <div style="background: linear-gradient(90deg, #ec4899, #8b5cf6); padding: 10px; border-radius: 6px; color: #ffffff; font-weight: 600; text-align: center; margin-bottom: 8px; font-size: 13px;">
+            Linear Gradient (Pink &rarr; Purple)
+          </div>
+          <div style="background-color: #0284c7; padding: 10px; border-radius: 6px; color: #ffffff; font-weight: 600; text-align: center; margin-bottom: 8px; font-size: 13px;">
+            Solid Background (#0284c7)
+          </div>
+          <div style="background-color: rgba(59, 130, 246, 0.2); border: 1px dashed #3b82f6; padding: 8px; border-radius: 6px; color: #93c5fd; text-align: center; font-size: 13px;">
+            RGBA Transparency (Alpha: 0.2)
+          </div>
+        </div>
+
+        <!-- Box Model, Borders & Shadows -->
+        <div style="background-color: #111827; border: 1px solid #1f2937; border-radius: 10px; padding: 18px;">
+          <h3 style="margin-top: 0; font-size: 15px; color: #34d399;">Borders, Radius &amp; Shadows</h3>
+          <div style="border: 2px solid #38bdf8; border-radius: 20px; padding: 8px; text-align: center; margin-bottom: 8px; font-size: 13px; color: #38bdf8;">
+            Pill Radius (border-radius: 20px)
+          </div>
+          <div style="border-left: 4px solid #f59e0b; background-color: #1e293b; padding: 8px 12px; margin-bottom: 8px; font-size: 13px;">
+            Callout Accent Left Border
+          </div>
+          <div style="background-color: #1e1b4b; box-shadow: 0 0 12px rgba(139, 92, 246, 0.5); border-radius: 6px; padding: 8px; text-align: center; color: #c4b5fd; font-size: 13px;">
+            Glowing Box Shadow
+          </div>
+        </div>
+
+        <!-- Flexbox Alignment -->
+        <div style="background-color: #111827; border: 1px solid #1f2937; border-radius: 10px; padding: 18px;">
+          <h3 style="margin-top: 0; font-size: 15px; color: #f472b6;">Inline Flexbox Layout</h3>
+          <div style="display: flex; justify-content: space-between; align-items: center; background-color: #1e293b; padding: 8px 12px; border-radius: 6px; margin-bottom: 8px;">
+            <span style="font-size: 13px;">justify-content: space-between</span>
+            <span style="background-color: #10b981; color: #022c22; font-size: 11px; font-weight: bold; padding: 2px 6px; border-radius: 4px;">OK</span>
+          </div>
+          <div style="display: flex; gap: 8px; justify-content: center; background-color: #1e293b; padding: 8px; border-radius: 6px;">
+            <span style="background: #3b82f6; padding: 4px 10px; border-radius: 4px; font-size: 12px;">Flex 1</span>
+            <span style="background: #6366f1; padding: 4px 10px; border-radius: 4px; font-size: 12px;">Flex 2</span>
+            <span style="background: #8b5cf6; padding: 4px 10px; border-radius: 4px; font-size: 12px;">Flex 3</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Specificity Explanation Section -->
+    <section style="background-color: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 30px;">
+      <h2 style="font-size: 18px; color: #ffffff; margin-top: 0; margin-bottom: 8px;">
+        3. CSS Specificity Weight: (1, 0, 0, 0)
+      </h2>
+      <p style="color: #94a3b8; font-size: 14px; margin-bottom: 16px;">
+        Inline CSS carries the highest natural specificity weight before the <code>!important</code> rule.
+      </p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <div style="flex: 1 1 180px; background: #1e293b; padding: 12px; border-radius: 6px; border-left: 3px solid #ef4444;">
+          <div style="font-size: 11px; color: #f87171; font-weight: bold;">(1, 0, 0, 0) Highest</div>
+          <div style="font-weight: bold; font-size: 14px; color: #ffffff;">Inline Styles</div>
+        </div>
+        <div style="flex: 1 1 180px; background: #1e293b; padding: 12px; border-radius: 6px; border-left: 3px solid #f59e0b;">
+          <div style="font-size: 11px; color: #fbbf24; font-weight: bold;">(0, 1, 0, 0) High</div>
+          <div style="font-weight: bold; font-size: 14px; color: #ffffff;">ID Selectors</div>
+        </div>
+        <div style="flex: 1 1 180px; background: #1e293b; padding: 12px; border-radius: 6px; border-left: 3px solid #3b82f6;">
+          <div style="font-size: 11px; color: #60a5fa; font-weight: bold;">(0, 0, 1, 0) Medium</div>
+          <div style="font-weight: bold; font-size: 14px; color: #ffffff;">Classes &amp; Attributes</div>
+        </div>
+        <div style="flex: 1 1 180px; background: #1e293b; padding: 12px; border-radius: 6px; border-left: 3px solid #10b981;">
+          <div style="font-size: 11px; color: #34d399; font-weight: bold;">(0, 0, 0, 1) Low</div>
+          <div style="font-weight: bold; font-size: 14px; color: #ffffff;">Elements &amp; Tags</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background-color: #030712; border-top: 1px solid #1f2937; padding: 20px; text-align: center; color: #64748b; font-size: 13px;">
+    Cognifyz Technologies &bull; Task 02 Complete &bull; Where Data Meets Intelligence
+  </footer>
+
+</body>
+</html>
+

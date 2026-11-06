@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build and Temp outputs
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Sass map files (optional, comment out if needed in production)
+*.css.map
+

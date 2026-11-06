@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 03: Responsive Design - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 03: Responsive Design | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 03: Responsive Design</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 2: Intermediate</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 03 &mdash; Fluid Responsive Design &amp; Media Queries</h1>
+      <p class="task-tagline">
+        Building cross-device layouts with external CSS media queries, CSS Grid, Flexbox, and zero horizontal overflow.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Create a responsive webpage using an external <code>styles.css</code> file, implementing CSS media queries for mobile, tablet, laptop, and desktop screen sizes, testing layouts, and avoiding horizontal overflow.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> Web users access digital products from vastly different screen resolutions &mdash; ranging from small smartphones (360px) to ultra-wide desktop monitors (1920px+). Responsive design ensures that layouts automatically reflow, adjust typography, collapse navigation bars, and restack multi-column grids smoothly without requiring separate websites.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> In professional frontend engineering, responsive design is mandatory. Mobile traffic represents the majority of global web consumption. A website that clips content, displays an unwanted horizontal scrollbar, or provides unclickable tap targets creates severe usability degradation and suffers in search engine rankings.
+      </p>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">External CSS3 (styles.css)</span>
+        <span class="concept-tag">CSS Media Queries (@media)</span>
+        <span class="concept-tag">CSS Grid (repeat, 1fr)</span>
+        <span class="concept-tag">Flexbox Alignment</span>
+        <span class="concept-tag">Fluid Units (clamp, %, vw)</span>
+        <span class="concept-tag">Zero Overflow (overflow-x: hidden)</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>4-Tier Breakpoints:</strong> Mobile (<code>&lt; 576px</code>), Tablet (<code>576px &ndash; 768px</code>), Laptop (<code>769px &ndash; 1024px</code>), and Desktop (<code>&gt; 1024px</code>).</li>
+        <li><strong>Pure CSS Hamburger Drawer:</strong> An accessible checkbox hack (<code>input[type="checkbox"] + label</code>) that expands and collapses mobile navigation without any JavaScript dependencies.</li>
+        <li><strong>Adaptive CSS Grid Matrix:</strong> Reordering feature cards from 4 columns on desktop, to 2 columns on tablet/laptop, down to a single-column stack on mobile.</li>
+        <li><strong>Responsive Table Protection:</strong> An overflow-x wrapper preventing wide tabular data from distorting the mobile viewport.</li>
+        <li><strong>Real-time Breakpoint Badge:</strong> A dynamic floating badge powered via CSS pseudo-elements (<code>::before</code>) displaying the currently active media query tier.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & How It Works -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">How the Implementation Works</h2>
+      <p class="prose-text">
+        The task structure links <code>demo.html</code> directly to <code>styles.css</code>. The CSS architecture establishes mobile-friendly baseline values and applies progressive media queries:
+      </p>
+
+      <ul class="feature-list">
+        <li><code>@media (max-width: 1024px)</code>: Laptop adjustments; collapses 4-column card grid into a 2-column layout.</li>
+        <li><code>@media (max-width: 768px)</code>: Tablet adjustments; switches desktop navigation links into a collapsible slide-down drawer triggered by the hamburger icon.</li>
+        <li><code>@media (max-width: 575.98px)</code>: Mobile adjustments; collapses grids into a single vertical column, scales down button widths to 100%, and refines heading typography using <code>clamp()</code>.</li>
+        <li><code>overflow-x: hidden</code> on <code>html</code> and <code>body</code> ensures zero horizontal scrolling at any viewport width.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Code Walkthrough -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Key Snippets</h2>
+      <p class="prose-text">
+        Below are the essential media query rules and layout declarations from <code>styles.css</code>.
+      </p>
+
+      <p class="prose-text"><strong>1. CSS Grid Multi-Device Column Reordering:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>styles.css (Grid Columns &amp; Breakpoints)</span>
+          <span class="code-lang-badge">CSS3</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-comment">/* Desktop default: 4 Columns */</span>
+<span class="syn-tag">.responsive-card-grid</span> {
+  <span class="syn-attr">display</span>: <span class="syn-val">grid</span>;
+  <span class="syn-attr">grid-template-columns</span>: <span class="syn-val">repeat(4, 1fr)</span>;
+  <span class="syn-attr">gap</span>: <span class="syn-val">16px</span>;
+}
+
+<span class="syn-comment">/* Laptop breakpoint: 2 Columns */</span>
+<span class="syn-kw">@media</span> (<span class="syn-attr">max-width</span>: <span class="syn-val">1024px</span>) {
+  <span class="syn-tag">.responsive-card-grid</span> {
+    <span class="syn-attr">grid-template-columns</span>: <span class="syn-val">repeat(2, 1fr)</span>;
+  }
+}
+
+<span class="syn-comment">/* Mobile breakpoint: 1 Column */</span>
+<span class="syn-kw">@media</span> (<span class="syn-attr">max-width</span>: <span class="syn-val">575.98px</span>) {
+  <span class="syn-tag">.responsive-card-grid</span> {
+    <span class="syn-attr">grid-template-columns</span>: <span class="syn-val">1fr</span>;
+  }
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        This cleanly manages the grid's column track sizing across desktop, laptop, and mobile devices without duplicated markup.
+      </p>
+
+      <p class="prose-text"><strong>2. Pure CSS Mobile Hamburger Menu Toggle:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>styles.css (CSS-Only Drawer)</span>
+          <span class="code-lang-badge">CSS3</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">@media</span> (<span class="syn-attr">max-width</span>: <span class="syn-val">768px</span>) {
+  <span class="syn-tag">.nav-toggle-label</span> { <span class="syn-attr">display</span>: <span class="syn-val">flex</span>; }
+  <span class="syn-tag">.nav-menu</span> {
+    <span class="syn-attr">display</span>: <span class="syn-val">none</span>;
+    <span class="syn-attr">position</span>: <span class="syn-val">absolute</span>;
+    <span class="syn-attr">top</span>: <span class="syn-val">100%</span>;
+    <span class="syn-attr">left</span>: <span class="syn-val">0</span>;
+    <span class="syn-attr">right</span>: <span class="syn-val">0</span>;
+  }
+  <span class="syn-comment">/* When checkbox is checked, display the navigation drawer */</span>
+  <span class="syn-tag">.nav-toggle-checkbox:checked ~ .nav-menu</span> {
+    <span class="syn-attr">display</span>: <span class="syn-val">flex</span>;
+  }
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Leverages the sibling selector (<code>~</code>) with a hidden checkbox to build an accessible mobile drawer requiring zero JavaScript.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        The embedded frame below runs the responsive implementation. Resize your browser or open the standalone demo to observe real-time layout adaptations.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 03 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Notice the live breakpoint indicator badge in the bottom-right corner.</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing & Expected Output -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; Expected Output</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> A fluid webpage reflowing effortlessly across all screen sizes, with a collapsible mobile menu, adaptive card matrix, and zero horizontal overflow.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Open Standalone Demo:</strong> Click "Open Standalone Demo ↗".</li>
+        <li><strong>Activate DevTools Responsive Mode:</strong> Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> in Chrome/Edge/Firefox.</li>
+        <li><strong>Test Breakpoint Badges:</strong> Drag the width slider from 320px to 1200px:
+          <ul style="margin: 8px 0; padding-left: 20px;">
+            <li><code>&lt; 576px</code>: Badge shows "Mobile XS" and cards stack in 1 column.</li>
+            <li><code>576px - 768px</code>: Badge shows "Tablet MD" and cards reorder into 2 columns.</li>
+            <li><code>769px - 1024px</code>: Badge shows "Laptop LG".</li>
+            <li><code>&gt; 1024px</code>: Badge shows "Desktop XL" with 4 columns.</li>
+          </ul>
+        </li>
+        <li><strong>Test Mobile Drawer:</strong> At <code>&lt; 768px</code>, tap the hamburger icon to expand and collapse navigation links.</li>
+        <li><strong>Verify No Horizontal Scroll:</strong> Confirm there is no horizontal scrollbar at any screen width.</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Authoring media queries in external stylesheets across standard mobile, tablet, and desktop breakpoints.</li>
+        <li>Utilizing modern CSS Grid with <code>grid-template-columns</code> for responsive column reflow.</li>
+        <li>Creating CSS-only interactive mobile navigation components.</li>
+        <li>Preventing horizontal overflow and layout clipping across all viewports.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 03 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

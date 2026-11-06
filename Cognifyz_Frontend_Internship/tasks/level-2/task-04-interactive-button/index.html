@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 04: Interactive Button - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 04: Interactive Button | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 04: Interactive Button</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 2: Intermediate</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 04 &mdash; Interactive Button &amp; Dynamic State</h1>
+      <p class="task-tagline">
+        Handling DOM click events, dynamic background manipulation, luminance contrast evaluation, and runtime state management using JavaScript ES6+.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Create an interactive webpage with a button, using JavaScript to change the page background color when clicked, adding multiple color options, displaying the selected color, providing a reset button, and ensuring smooth transitions.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> Static websites display content, while interactive applications react to user gestures. This assignment bridges HTML and JavaScript by attaching event listeners to user controls, generating dynamic hexadecimal color values, and updating inline styles on the document body in real time.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> Event handling (<code>addEventListener</code>) and DOM manipulation are core competencies of modern frontend engineering. Understanding how client-side state is stored, mutated, and reflected on screen forms the direct foundation for state-driven libraries and real-time user experiences.
+      </p>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">JavaScript (ES6+)</span>
+        <span class="concept-tag">Event Handling (click, input)</span>
+        <span class="concept-tag">DOM Style Mutation</span>
+        <span class="concept-tag">Hex &amp; RGB Color Math</span>
+        <span class="concept-tag">Luminance Contrast Algorithm</span>
+        <span class="concept-tag">Clipboard API</span>
+        <span class="concept-tag">CSS Transitions</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>Random Hex Generator:</strong> Mathematical string generator synthesizing random 24-bit hexadecimal color codes.</li>
+        <li><strong>Curated Swatches &amp; Native Picker:</strong> Allowing the user to select predefined brand palettes or choose custom colors via <code>&lt;input type="color"&gt;</code>.</li>
+        <li><strong>Live Perceived Luminance Algorithm:</strong> Using the ITU-R BT.601 formula <code>(0.299*R + 0.587*G + 0.114*B)</code> to automatically toggle dark or light text so the UI remains accessible on all backgrounds.</li>
+        <li><strong>One-Click Clipboard Copy:</strong> Copying hex codes directly to system memory using <code>navigator.clipboard.writeText</code> with toast feedback.</li>
+        <li><strong>Session History Stack:</strong> Maintaining an array of recent color selections that can be clicked to restore previous themes.</li>
+        <li><strong>Reset Action:</strong> Restoring the original Cognifyz default navy theme (<code>#0A0F1D</code>) with smooth CSS transition easing.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & How It Works -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">How the Implementation Works</h2>
+      <p class="prose-text">
+        When a user triggers an action (such as clicking <strong>"Generate Random Color"</strong> or clicking a preset swatch):
+      </p>
+      <ol class="testing-steps">
+        <li>JavaScript captures the desired hex code and applies it to <code>pageBody.style.backgroundColor</code>.</li>
+        <li>The hex code is converted to red, green, and blue integer channels via bitwise shift operations in <code>hexToRgb()</code>.</li>
+        <li>The perceived luminance is calculated. If the brightness score exceeds 140, the <code>.light-theme</code> class is added to <code>document.body</code>, flipping text to dark slate. Otherwise, the class is removed.</li>
+        <li>The monitor UI updates the HEX code, RGB format, and contrast indicator.</li>
+        <li>The color is prepended to the <code>colorHistory</code> array and rendered as a clickable pill button.</li>
+      </ol>
+    </section>
+
+    <!-- 5. Code Walkthrough -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Key Snippets</h2>
+      <p class="prose-text">
+        Below are the essential JavaScript functions from <code>script.js</code> driving the interactive color controller.
+      </p>
+
+      <p class="prose-text"><strong>1. Generating Random Hex &amp; Applying Color:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>script.js (State Mutation)</span>
+          <span class="code-lang-badge">JavaScript ES6+</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">function</span> <span class="syn-fn">generateRandomHex</span>() {
+  <span class="syn-kw">const</span> chars = <span class="syn-val">'0123456789ABCDEF'</span>;
+  <span class="syn-kw">let</span> color = <span class="syn-val">'#'</span>;
+  <span class="syn-kw">for</span> (<span class="syn-kw">let</span> i = <span class="syn-val">0</span>; i &lt; <span class="syn-val">6</span>; i++) {
+    color += chars[Math.floor(Math.random() * <span class="syn-val">16</span>)];
+  }
+  <span class="syn-kw">return</span> color;
+}
+
+<span class="syn-kw">function</span> <span class="syn-fn">applyColor</span>(hex, saveToHistory = <span class="syn-kw">true</span>) {
+  currentColor = hex.toUpperCase();
+  pageBody.style.backgroundColor = currentColor;
+
+  <span class="syn-kw">const</span> { r, g, b } = <span class="syn-fn">hexToRgb</span>(currentColor);
+  activeSwatchPreview.style.backgroundColor = currentColor;
+  hexCodeDisplay.textContent = currentColor;
+  rgbCodeDisplay.textContent = <span class="syn-val">`rgb(${r}, ${g}, ${b})`</span>;
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Directly alters the DOM body background and updates the visual swatch and text displays synchronously.
+      </p>
+
+      <p class="prose-text"><strong>2. Accessibility &amp; Contrast Adaptation:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>script.js (Luminance Calculation)</span>
+          <span class="code-lang-badge">JavaScript ES6+</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">function</span> <span class="syn-fn">calculateLuminance</span>(r, g, b) {
+  <span class="syn-comment">/* ITU-R BT.601 formula for perceived brightness */</span>
+  <span class="syn-kw">return</span> <span class="syn-val">0.299</span> * r + <span class="syn-val">0.587</span> * g + <span class="syn-val">0.114</span> * b;
+}
+
+<span class="syn-comment">/* Toggle contrast class based on brightness threshold */</span>
+<span class="syn-kw">const</span> brightness = <span class="syn-fn">calculateLuminance</span>(r, g, b);
+<span class="syn-kw">if</span> (brightness &gt; <span class="syn-val">140</span>) {
+  pageBody.classList.add(<span class="syn-val">'light-theme'</span>);
+  contrastModeDisplay.textContent = <span class="syn-val">'Dark Text (Light BG)'</span>;
+} <span class="syn-kw">else</span> {
+  pageBody.classList.remove(<span class="syn-val">'light-theme'</span>);
+  contrastModeDisplay.textContent = <span class="syn-val">'Light Text (Dark BG)'</span>;
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Ensures WCAG accessibility compliance by evaluating luminance so text never becomes illegible when bright backgrounds are applied.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        Test the live implementation below. Click <strong>"Generate Random Color"</strong>, pick presets, or choose custom colors to observe dynamic updates.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 04 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Tip: Try selecting "Pure Snow" preset to watch the contrast mode invert text color automatically.</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing & Expected Output -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; Expected Output</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> Smooth background color changes on button click, live updating monitor values, contrast mode adaptation, copy feedback, and session history pills.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Test Random Generator:</strong> Click "Generate Random Color" multiple times. Verify that the background smoothly transitions and the HEX/RGB values update accurately.</li>
+        <li><strong>Test Preset Swatches:</strong> Click preset swatches (e.g. "Pure Snow" or "Amber Glow"). Confirm that the page background shifts immediately.</li>
+        <li><strong>Test Contrast Mode:</strong> Select a bright color (like "Pure Snow"). Confirm that the card and text flip to dark slate text for readability.</li>
+        <li><strong>Test Clipboard Copy:</strong> Click "Copy HEX". Confirm that the toast alert appears and paste the value into a text editor.</li>
+        <li><strong>Test Color History:</strong> Click on any historical pill to restore that previous color.</li>
+        <li><strong>Test Reset Button:</strong> Click "Reset to Default" to restore the original navy theme (<code>#0A0F1D</code>).</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Connecting JavaScript event listeners (<code>click</code>, <code>input</code>) to UI elements.</li>
+        <li>Altering inline CSS properties on DOM elements at runtime.</li>
+        <li>Working with color models: converting Hex to RGB and evaluating perceived luminance.</li>
+        <li>Managing client-side session state and arrays to deliver interactive features like color history.</li>
+        <li>Leveraging modern browser APIs like <code>navigator.clipboard</code>.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 04 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 05: Public REST API Integration | Cognifyz Technologies</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Ribbon -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="../../../index.html" class="brand-link">
+          <span class="brand-badge">COGNIFYZ API</span>
+          <span class="brand-text">Frontend Internship</span>
+        </a>
+      </div>
+      <div class="header-meta">
+        <span class="endpoint-badge">
+          <span class="status-indicator online" id="api-status-dot"></span>
+          JSONPlaceholder /posts
+        </span>
+        <a href="index.html" class="return-portal-btn">&larr; Task Explanation</a>
+        <a href="../../../index.html" class="return-portal-btn">Main Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    
+    <!-- Hero Header -->
+    <section class="api-hero-card">
+      <div class="badge-row">
+        <span class="level-tag">Level 3 &bull; Task 05</span>
+        <span class="tech-tag">Fetch API &bull; Async / Await</span>
+      </div>
+      <h1 class="page-title">Public REST API Integration</h1>
+      <p class="page-subtitle">
+        Asynchronous data fetching from JSONPlaceholder with search filtering, author sorting, 
+        modal discussion threads, and skeleton loading states.
+      </p>
+
+      <!-- Live Stats Monitor -->
+      <div class="api-stats-bar">
+        <div class="stat-box">
+          <span class="stat-label">Total Records</span>
+          <strong class="stat-value" id="stat-total">0</strong>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Matching Visible</span>
+          <strong class="stat-value" id="stat-visible">0</strong>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Request Latency</span>
+          <strong class="stat-value" id="stat-latency">-- ms</strong>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">HTTP Status</span>
+          <strong class="stat-value stat-status" id="stat-status">Idle</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar: Search & Filters -->
+    <section class="toolbar-card">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search posts by title or keyword..." aria-label="Search posts">
+        <button id="clear-search-btn" class="clear-btn" title="Clear Search" style="display: none;">✕</button>
+      </div>
+
+      <div class="filter-controls">
+        <div class="select-group">
+          <label for="author-filter">Author:</label>
+          <select id="author-filter" aria-label="Filter by Author ID">
+            <option value="all">All Authors (Users 1-10)</option>
+            <option value="1">Author 1</option>
+            <option value="2">Author 2</option>
+            <option value="3">Author 3</option>
+            <option value="4">Author 4</option>
+            <option value="5">Author 5</option>
+            <option value="6">Author 6</option>
+            <option value="7">Author 7</option>
+            <option value="8">Author 8</option>
+            <option value="9">Author 9</option>
+            <option value="10">Author 10</option>
+          </select>
+        </div>
+
+        <div class="select-group">
+          <label for="sort-select">Sort:</label>
+          <select id="sort-select" aria-label="Sort Posts">
+            <option value="id-asc">Post ID (Ascending)</option>
+            <option value="id-desc">Post ID (Descending)</option>
+            <option value="title-asc">Title (A &rarr; Z)</option>
+          </select>
+        </div>
+
+        <div class="select-group">
+          <label for="per-page-select">Per Page:</label>
+          <select id="per-page-select" aria-label="Posts per page">
+            <option value="9">9 Posts</option>
+            <option value="18" selected>18 Posts</option>
+            <option value="36">36 Posts</option>
+            <option value="all">All</option>
+          </select>
+        </div>
+
+        <div class="action-buttons">
+          <button id="refresh-api-btn" class="btn btn-outline" title="Reload from API">
+            🔄 Refresh
+          </button>
+          <button id="simulate-error-btn" class="btn btn-danger" title="Simulate 404 Endpoint">
+            ⚠️ Simulate Error
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error Alert Notice -->
+    <div id="error-notice" class="error-notice" style="display: none;" role="alert">
+      <div class="error-icon">⚠️</div>
+      <div class="error-content">
+        <h3 id="error-title">Network Request Failed</h3>
+        <p id="error-desc">An error occurred while fetching posts.</p>
+      </div>
+      <button id="retry-btn" class="btn btn-retry">
+        🔄 Retry Connection
+      </button>
+    </div>
+
+    <!-- Posts Grid -->
+    <section class="posts-grid-wrapper">
+      <div id="posts-container" class="posts-grid" aria-live="polite">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Pagination Controls -->
+    <section class="pagination-bar" id="pagination-controls">
+      <button id="prev-page-btn" class="btn btn-page" disabled>&larr; Previous</button>
+      <span class="page-indicator" id="page-indicator">Page 1 of 6</span>
+      <button id="next-page-btn" class="btn btn-page">Next &rarr;</button>
+    </section>
+
+  </main>
+
+  <!-- Discussion & Comments Modal Dialog -->
+  <div id="post-modal" class="modal-backdrop" role="dialog" aria-modal="true" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-badge-group">
+          <span class="modal-badge" id="modal-post-id">Post #0</span>
+          <span class="modal-badge user-badge" id="modal-user-id">Author #0</span>
+        </div>
+        <button id="close-modal-btn" class="modal-close-btn" aria-label="Close dialog">✕</button>
+      </div>
+      
+      <div class="modal-body">
+        <h2 id="modal-post-title" class="modal-title">Post Title</h2>
+        <p id="modal-post-body" class="modal-text">Post Body text...</p>
+        
+        <hr class="modal-divider">
+
+        <div class="comments-section">
+          <div class="comments-header">
+            <h3>Comments &amp; Responses</h3>
+            <span class="comments-count" id="comments-count-badge">Loading...</span>
+          </div>
+          <div id="modal-comments-list" class="comments-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div>Cognifyz Technologies &bull; Task 05: Public REST API Integration</div>
+      <div>Powered by JSONPlaceholder &bull; Fetch API</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

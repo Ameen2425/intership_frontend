@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 07: Component-Based Styling with Bootstrap 5 - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 07: Component-Based Styling | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 07: Component-Based Styling</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 4: Expert</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 07 &mdash; Component-Based Styling with Bootstrap 5</h1>
+      <p class="task-tagline">
+        Building a professional, modular interface using Bootstrap 5 components elevated into a bespoke Cognifyz dark SaaS design system.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Use Bootstrap 5, build a professional webpage using reusable Bootstrap components, create a responsive navbar, use the Bootstrap grid system, create responsive cards, add badges, buttons, alerts, and modal components, customize Bootstrap styles using additional CSS, and maintain a consistent design system.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> Frontend development at scale relies on standardized component libraries. Instead of authoring thousands of CSS lines from scratch, engineers compose layouts using pre-tested, accessible components (navbars, grids, cards, modals, tabs, and alerts) and customize them to align with corporate design guidelines.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> Frameworks like Bootstrap 5 ensure rapid development velocity, solve cross-browser quirks automatically, enforce responsive grid math, and provide built-in WAI-ARIA accessibility. Understanding how to customize and elevate a framework without breaking upgrades is a core senior frontend skill.
+      </p>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">Bootstrap 5 (v5.3.3)</span>
+        <span class="concept-tag">12-Column Responsive Grid</span>
+        <span class="concept-tag">Bootstrap Icons</span>
+        <span class="concept-tag">Interactive Modals &amp; Toasts</span>
+        <span class="concept-tag">Navigation Pills &amp; Tabs</span>
+        <span class="concept-tag">Collapsible FAQ Accordion</span>
+        <span class="concept-tag">CSS Custom Token Overrides</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>Responsive 12-Column Grid:</strong> Leveraging <code>.container</code>, <code>.row</code>, and responsive column classes (<code>.col-lg-7</code>, <code>.col-lg-5</code>, <code>.row-cols-md-3</code>).</li>
+        <li><strong>Interactive Modal Dialog:</strong> Managed through the Bootstrap 5 JavaScript API with accessible backdrop blur, focus trapping, and dismiss controls.</li>
+        <li><strong>Collapsible Accordion:</strong> Accessible FAQ toggle component built with <code>.accordion</code> and <code>.accordion-collapse</code>.</li>
+        <li><strong>Tabbed Interface Switching:</strong> Dynamic pane switching using <code>nav-pills</code> and <code>tab-content</code> with zero page reloads.</li>
+        <li><strong>Dismissible Alerts &amp; Live Toasts:</strong> Real-time feedback alerts using Bootstrap's Alert and Toast JavaScript instances.</li>
+        <li><strong>Custom Theme Elevation:</strong> Overriding Bootstrap's default light styling via <code>styles.css</code> to match Cognifyz's dark navy, electric cyan, and indigo palette.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & How It Works -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">How the Implementation Works</h2>
+      <p class="prose-text">
+        The task loads Bootstrap 5 via official CDN. A custom stylesheet (<code>styles.css</code>) is loaded immediately following Bootstrap to selectively elevate component colors, card backgrounds, and gradient buttons:
+      </p>
+      <ul class="feature-list">
+        <li><strong>Navbar:</strong> Built with <code>.navbar-expand-lg</code>, <code>.navbar-dark</code>, and custom class <code>.bg-dark-navy</code>. The mobile toggler automatically handles small screens.</li>
+        <li><strong>Grid Matrix:</strong> Cards are structured using <code>.row-cols-1 .row-cols-md-3 .g-4</code>, automatically reflowing into a single column on mobile.</li>
+        <li><strong>Interactive Plugins:</strong> A small initialization script in <code>demo.html</code> activates Tooltips (<code>bootstrap.Tooltip</code>), Popovers (<code>bootstrap.Popover</code>), and Toasts (<code>bootstrap.Toast</code>).</li>
+      </ul>
+    </section>
+
+    <!-- 5. Code Walkthrough -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Key Snippets</h2>
+      <p class="prose-text">
+        The snippets below from <code>demo.html</code> show how Bootstrap 5 components are structured and customized.
+      </p>
+
+      <p class="prose-text"><strong>1. Bootstrap 12-Column Grid Structure:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Bootstrap Grid Layout)</span>
+          <span class="code-lang-badge">Bootstrap 5 HTML</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"container py-4"</span><span class="syn-tag">&gt;</span>
+  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"row align-items-center g-5"</span><span class="syn-tag">&gt;</span>
+    <span class="syn-comment">&lt;!-- Left Column: 7 of 12 tracks on desktop --&gt;</span>
+    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"col-lg-7"</span><span class="syn-tag">&gt;</span>
+      <span class="syn-tag">&lt;h1</span> <span class="syn-attr">class</span>=<span class="syn-val">"display-5 fw-bold text-white"</span><span class="syn-tag">&gt;</span>Component Architecture<span class="syn-tag">&lt;/h1&gt;</span>
+    <span class="syn-tag">&lt;/div&gt;</span>
+    <span class="syn-comment">&lt;!-- Right Column: 5 of 12 tracks on desktop --&gt;</span>
+    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"col-lg-5"</span><span class="syn-tag">&gt;</span>
+      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"card bg-card-dark border-card"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>
+    <span class="syn-tag">&lt;/div&gt;</span>
+  <span class="syn-tag">&lt;/div&gt;</span>
+<span class="syn-tag">&lt;/div&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Uses Bootstrap's responsive column classes (<code>col-lg-7</code> and <code>col-lg-5</code>) to create an asymmetrical split layout that automatically stacks vertically on smaller devices.
+      </p>
+
+      <p class="prose-text"><strong>2. Interactive Modal Dialog Component:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Bootstrap Modal)</span>
+          <span class="code-lang-badge">Bootstrap 5 HTML</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"modal fade"</span> <span class="syn-attr">id</span>=<span class="syn-val">"curriculumModal"</span> <span class="syn-attr">tabindex</span>=<span class="syn-val">"-1"</span><span class="syn-tag">&gt;</span>
+  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"modal-dialog modal-dialog-centered"</span><span class="syn-tag">&gt;</span>
+    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"modal-content bg-card-dark text-white"</span><span class="syn-tag">&gt;</span>
+      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"modal-header"</span><span class="syn-tag">&gt;</span>
+        <span class="syn-tag">&lt;h5</span> <span class="syn-attr">class</span>=<span class="syn-val">"modal-title"</span><span class="syn-tag">&gt;</span>Task 07 Verification Modal<span class="syn-tag">&lt;/h5&gt;</span>
+        <span class="syn-tag">&lt;button</span> <span class="syn-attr">class</span>=<span class="syn-val">"btn-close btn-close-white"</span> <span class="syn-attr">data-bs-dismiss</span>=<span class="syn-val">"modal"</span><span class="syn-tag">&gt;&lt;/button&gt;</span>
+      <span class="syn-tag">&lt;/div&gt;</span>
+      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"modal-body"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>
+    <span class="syn-tag">&lt;/div&gt;</span>
+  <span class="syn-tag">&lt;/div&gt;</span>
+<span class="syn-tag">&lt;/div&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Declares a centered modal dialog wired to <code>data-bs-toggle="modal"</code> and <code>data-bs-dismiss="modal"</code> attributes.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        Test the live Bootstrap 5 component implementation below. Open the modal, trigger toasts, and test the accordion FAQ and navigation tabs.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 07 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Tip: Click "Launch Interactive Modal" and "Trigger Toast" to test JS plugins.</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing & Expected Output -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; Expected Output</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> A polished dark SaaS interface featuring a responsive Bootstrap navbar, 12-column grid reflow, working modal dialog, smooth tab switching, collapsible accordion FAQ, and live toast alerts.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Open Demo:</strong> Open <code>demo.html</code> or view in the embedded window.</li>
+        <li><strong>Test Interactive Modal:</strong> Click "Launch Interactive Modal". Confirm that the dialog emerges with backdrop blur and closes via the close button or clicking outside.</li>
+        <li><strong>Test Navigation Tabs:</strong> Click through the "Cognifyz Vision", "Curriculum Levels", and "Framework Benefits" tabs. Confirm that panes switch smoothly.</li>
+        <li><strong>Test Collapsible Accordion:</strong> Click the FAQ accordion headers. Verify that panels expand and collapse with animated chevrons.</li>
+        <li><strong>Test Toast Alerts:</strong> Click "Trigger Toast" in the navbar. Confirm that the toast notification pops up in the bottom-right corner.</li>
+        <li><strong>Test Responsive Navbar:</strong> Resize window to mobile width (&lt; 992px) and tap the hamburger button to confirm mobile dropdown collapse.</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Integrating and utilizing the Bootstrap 5 component framework via CDN.</li>
+        <li>Designing responsive multi-column layouts with the 12-column flexbox grid system.</li>
+        <li>Initializing and orchestrating interactive JavaScript components (Modals, Toasts, Tooltips, Popovers).</li>
+        <li>Overriding CSS framework styles with custom stylesheets to maintain unique brand identity.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 07 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

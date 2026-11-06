@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 01: Basic HTML Page - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 01: Basic HTML Page | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 01: Basic HTML Page</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 1: Beginner</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 01 &mdash; Basic HTML Page Architecture</h1>
+      <p class="task-tagline">
+        Building a clean, accessible, and semantically structured informational webpage for Cognifyz Technologies using pure HTML5 standards.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Create a complete <code>index.html</code> with correct HTML5 document structure, headings, paragraphs, images, tables, lists, native disclosure elements, and clear semantic landmarks.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> This task focuses on understanding how content is organized on the web using semantic HTML5 tags. Instead of relying on generic <code>&lt;div&gt;</code> elements, the page uses purpose-driven elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;figure&gt;</code>, and <code>&lt;footer&gt;</code> to clearly define each structural role.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> Semantic markup is the bedrock of frontend development. It enables screen readers (assistive technologies for visually impaired users) to navigate documents logically, helps search engine crawlers index content accurately for SEO, and keeps the document tree clean and maintainable before any styling is applied.
+      </p>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">HTML5 Living Standard</span>
+        <span class="concept-tag">Semantic Landmarks</span>
+        <span class="concept-tag">Heading Outlines (H1-H6)</span>
+        <span class="concept-tag">Tabular Data (table, thead, tbody, tfoot)</span>
+        <span class="concept-tag">Native Disclosures (details, summary)</span>
+        <span class="concept-tag">WAI-ARIA Landmark Roles</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>Document Boilerplate:</strong> Proper <code>&lt;!DOCTYPE html&gt;</code> declaration, <code>lang="en"</code> attribute, UTF-8 charset, and mobile viewport meta tags.</li>
+        <li><strong>Strict Heading Hierarchy:</strong> Logical outline from <code>&lt;h1&gt;</code> down to <code>&lt;h6&gt;</code> without skipping levels.</li>
+        <li><strong>Rich Data Types:</strong> Ordered lists for linear steps, unordered lists for technical stacks, and description lists (<code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code>) for terminology.</li>
+        <li><strong>Tabular Architecture:</strong> Data tables structured with <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;tfoot&gt;</code>, with explicit <code>scope="col"</code> and <code>scope="row"</code> headers.</li>
+        <li><strong>Zero-JavaScript Interactivity:</strong> HTML5 <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements delivering native accordion collapse functionality.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & How It Works -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">How the Implementation Works</h2>
+      <p class="prose-text">
+        The implementation represents an informational overview of <strong>Cognifyz Technologies</strong> &mdash; detailing company operations in data science and AI, the 4-tier internship track, and web architecture foundations.
+      </p>
+      <p class="prose-text">
+        The document is structured into distinct landmark sections:
+      </p>
+      <ul class="feature-list">
+        <li><code>&lt;header class="top-bar"&gt;</code> provides top branding and navigational links.</li>
+        <li><code>&lt;main&gt;</code> wraps primary content, divided into modular <code>&lt;section&gt;</code> blocks each labeled by an internal heading.</li>
+        <li><code>&lt;figure&gt;</code> encapsulates the Cognifyz logo with an associated <code>&lt;figcaption&gt;</code> for accessible illustration.</li>
+        <li><code>&lt;table&gt;</code> cleanly maps out all 8 internship milestones and their completion statuses.</li>
+        <li><code>&lt;footer&gt;</code> holds copyright information and the company motto.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Code Walkthrough -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Key Snippets</h2>
+      <p class="prose-text">
+        Below are the essential structural snippets from <code>demo.html</code> showing semantic elements in practical use.
+      </p>
+
+      <p class="prose-text"><strong>1. Semantic Document Shell &amp; Metadata:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Document Boilerplate)</span>
+          <span class="code-lang-badge">HTML5</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="syn-tag">&lt;html</span> <span class="syn-attr">lang</span>=<span class="syn-val">"en"</span><span class="syn-tag">&gt;</span>
+<span class="syn-tag">&lt;head&gt;</span>
+  <span class="syn-tag">&lt;meta</span> <span class="syn-attr">charset</span>=<span class="syn-val">"UTF-8"</span><span class="syn-tag">&gt;</span>
+  <span class="syn-tag">&lt;meta</span> <span class="syn-attr">name</span>=<span class="syn-val">"viewport"</span> <span class="syn-attr">content</span>=<span class="syn-val">"width=device-width, initial-scale=1.0"</span><span class="syn-tag">&gt;</span>
+  <span class="syn-tag">&lt;title&gt;</span>Task 01: Semantic HTML Page | Cognifyz Technologies<span class="syn-tag">&lt;/title&gt;</span>
+<span class="syn-tag">&lt;/head&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Declares HTML5 mode, specifies UTF-8 encoding for universal characters, and defines responsive viewport scaling for mobile devices.
+      </p>
+
+      <p class="prose-text"><strong>2. Tabular Data Representation:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Structured Data Table)</span>
+          <span class="code-lang-badge">HTML5</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;table&gt;</span>
+  <span class="syn-tag">&lt;caption&gt;&lt;strong&gt;</span>Cognifyz Frontend Internship Milestone Summary<span class="syn-tag">&lt;/strong&gt;&lt;/caption&gt;</span>
+  <span class="syn-tag">&lt;thead&gt;</span>
+    <span class="syn-tag">&lt;tr&gt;</span>
+      <span class="syn-tag">&lt;th</span> <span class="syn-attr">scope</span>=<span class="syn-val">"col"</span><span class="syn-tag">&gt;</span>Task ID<span class="syn-tag">&lt;/th&gt;</span>
+      <span class="syn-tag">&lt;th</span> <span class="syn-attr">scope</span>=<span class="syn-val">"col"</span><span class="syn-tag">&gt;</span>Level<span class="syn-tag">&lt;/th&gt;</span>
+      <span class="syn-tag">&lt;th</span> <span class="syn-attr">scope</span>=<span class="syn-val">"col"</span><span class="syn-tag">&gt;</span>Status<span class="syn-tag">&lt;/th&gt;</span>
+    <span class="syn-tag">&lt;/tr&gt;</span>
+  <span class="syn-tag">&lt;/thead&gt;</span>
+  <span class="syn-tag">&lt;tbody&gt;</span>
+    <span class="syn-tag">&lt;tr&gt;</span>
+      <span class="syn-tag">&lt;td&gt;</span>Task 01<span class="syn-tag">&lt;/td&gt;</span>
+      <span class="syn-tag">&lt;td&gt;</span>Level 1<span class="syn-tag">&lt;/td&gt;</span>
+      <span class="syn-tag">&lt;td&gt;</span>Completed<span class="syn-tag">&lt;/td&gt;</span>
+    <span class="syn-tag">&lt;/tr&gt;</span>
+  <span class="syn-tag">&lt;/tbody&gt;</span>
+<span class="syn-tag">&lt;/table&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        The <code>scope="col"</code> attribute explicitly establishes a relationship between header cells and column data for assistive screen readers.
+      </p>
+
+      <p class="prose-text"><strong>3. Native Disclosures:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Native Interactive Details)</span>
+          <span class="code-lang-badge">HTML5</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;details</span> <span class="syn-attr">open</span><span class="syn-tag">&gt;</span>
+  <span class="syn-tag">&lt;summary&gt;</span>What services does Cognifyz Technologies provide?<span class="syn-tag">&lt;/summary&gt;</span>
+  <span class="syn-tag">&lt;p&gt;</span>Cognifyz specializes in data science, AI, machine learning, and training.<span class="syn-tag">&lt;/p&gt;</span>
+<span class="syn-tag">&lt;/details&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        The <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> tags provide built-in collapse/expand interactivity directly in the browser with zero JavaScript.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        The embedded frame below runs the actual <code>demo.html</code> file created for this task. You can interact with the disclosure accordions and examine the content directly.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 01 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Tip: Click the details/summary headers inside the preview to toggle their visibility.</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing & Expected Output -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; Expected Output</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> A clean informational page displaying Cognifyz company details, heading hierarchy (H1 to H6), milestone summary table, lists, and working disclosure widgets.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Open Demo:</strong> Click "Open Standalone Demo" or test inside the embedded frame.</li>
+        <li><strong>Inspect Heading Hierarchy:</strong> Open browser DevTools (<code>F12</code>) &rarr; Elements tab, and verify that headings follow a strict sequence (H1 &rarr; H2 &rarr; H3 &rarr; H4 &rarr; H5 &rarr; H6).</li>
+        <li><strong>Test Interactive Disclosures:</strong> Click on the questions under Section 6. Verify that they toggle open and closed cleanly without page reloads.</li>
+        <li><strong>Verify Semantic Tags:</strong> Inspect the DOM to confirm the presence of <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, and <code>&lt;footer&gt;</code>.</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Creating standards-compliant HTML5 documents from scratch.</li>
+        <li>Using semantic HTML elements to communicate document hierarchy and meaning.</li>
+        <li>Structuring tabular datasets with proper accessible caption and scope associations.</li>
+        <li>Employing native HTML5 interaction widgets (<code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code>) without external scripts.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 01 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

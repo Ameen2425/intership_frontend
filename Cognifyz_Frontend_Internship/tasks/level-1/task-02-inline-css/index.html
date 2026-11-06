@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 02: Inline CSS Styling - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 02: Inline CSS Styling | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 02: Inline CSS Styling</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 1: Beginner</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 02 &mdash; Inline CSS Styling Demonstration</h1>
+      <p class="task-tagline">
+        Understanding the syntax, mechanics, and cascade specificity of styling HTML elements directly using the style attribute.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Demonstrate inline CSS directly inside HTML elements to change font color, font size, and background color, with multiple styling examples showing how inline CSS transforms appearance.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> In CSS, styles can be applied through external sheets, internal <code>&lt;style&gt;</code> tags, or inline via the <code>style</code> attribute. This task focuses specifically on inline CSS declarations, examining how properties and values (such as <code>color: #38bdf8</code>, <code>font-size: 18px</code>, and <code>background: linear-gradient(...)</code>) are applied directly to HTML elements.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> While enterprise frontend architectures typically favor external stylesheets or CSS modules for maintainability, mastering inline CSS is vital for:
+      </p>
+      <ul class="feature-list">
+        <li><strong>Understanding CSS Specificity:</strong> Inline styles possess a specificity score of <code>(1, 0, 0, 0)</code>, overriding ID, class, and element selectors.</li>
+        <li><strong>HTML Email Templates:</strong> Most email clients (Outlook, Gmail) mandate inline CSS because they strip external stylesheets.</li>
+        <li><strong>Dynamic JavaScript Style Overrides:</strong> When JavaScript modifies <code>element.style.color</code>, it directly sets an inline CSS rule on that DOM node.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">HTML5 style attribute</span>
+        <span class="concept-tag">Font Color &amp; Typography</span>
+        <span class="concept-tag">Linear Gradients &amp; RGBA</span>
+        <span class="concept-tag">Box Model &amp; Box-Shadow</span>
+        <span class="concept-tag">Inline Flexbox (display: flex)</span>
+        <span class="concept-tag">CSS Specificity (1, 0, 0, 0)</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>Property &amp; Value Syntax:</strong> Declaring semicolon-delimited key-value declarations directly inside <code>style=""</code> attributes.</li>
+        <li><strong>Color Formats:</strong> Utilizing Hexadecimal (<code>#38bdf8</code>), RGBA with alpha transparency (<code>rgba(59, 130, 246, 0.2)</code>), and CSS linear gradients.</li>
+        <li><strong>Typography Controls:</strong> Tuning <code>font-size</code>, <code>font-weight</code>, <code>letter-spacing</code>, and <code>line-height</code>.</li>
+        <li><strong>Layout via Flexbox:</strong> Proving that modern layout engines like <code>display: flex</code>, <code>justify-content</code>, and <code>align-items</code> function natively inline.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & How It Works -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">How the Implementation Works</h2>
+      <p class="prose-text">
+        The task implementation file (<code>demo.html</code>) is constructed without any external CSS files or internal <code>&lt;style&gt;</code> blocks. Every visual rule &mdash; including the dark background, buttons, card borders, and layout containers &mdash; is rendered exclusively through inline <code>style="..."</code> declarations.
+      </p>
+      <p class="prose-text">
+        The page is partitioned into three illustrative zones:
+      </p>
+      <ol class="testing-steps">
+        <li><strong>Comparative Showcase:</strong> An unstyled browser-default block placed next to an inline-styled card to illustrate the contrast.</li>
+        <li><strong>Granular Property Panels:</strong> Distinct panels dedicated to typography colors, gradients, borders, shadows, and inline flexbox rows.</li>
+        <li><strong>Specificity Weighting Hierarchy:</strong> A clear architectural panel contrasting Inline <code>(1,0,0,0)</code> against IDs, Classes, and Elements.</li>
+      </ol>
+    </section>
+
+    <!-- 5. Code Walkthrough -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Key Snippets</h2>
+      <p class="prose-text">
+        The following code snippets from <code>demo.html</code> illustrate the implementation of font color, font size, background gradients, and layout.
+      </p>
+
+      <p class="prose-text"><strong>1. Changing Font Color, Font Size, and Weight:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Typography &amp; Color)</span>
+          <span class="code-lang-badge">HTML5 Inline CSS</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;p</span> <span class="syn-attr">style</span>=<span class="syn-val">"color: #10b981; font-size: 18px; font-weight: 700; margin: 6px 0;"</span><span class="syn-tag">&gt;</span>
+  font-weight: 700; color: #10b981 (Emerald)
+<span class="syn-tag">&lt;/p&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Applies an emerald green hexadecimal color, an explicit 18px font size, and bold font weight directly to the paragraph.
+      </p>
+
+      <p class="prose-text"><strong>2. Applying Linear Gradients &amp; Rounded Borders:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Backgrounds &amp; Radii)</span>
+          <span class="code-lang-badge">HTML5 Inline CSS</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;div</span> <span class="syn-attr">style</span>=<span class="syn-val">"background: linear-gradient(90deg, #ec4899, #8b5cf6); padding: 10px; border-radius: 6px; color: #ffffff; text-align: center;"</span><span class="syn-tag">&gt;</span>
+  Linear Gradient (Pink &rarr; Purple)
+<span class="syn-tag">&lt;/div&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        A CSS linear gradient spanning from pink (<code>#ec4899</code>) to purple (<code>#8b5cf6</code>) with custom padding and rounded corners.
+      </p>
+
+      <p class="prose-text"><strong>3. Inline Flexbox Container:</strong></p>
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>demo.html (Flexbox Layout Engine)</span>
+          <span class="code-lang-badge">HTML5 Inline CSS</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">&lt;div</span> <span class="syn-attr">style</span>=<span class="syn-val">"display: flex; justify-content: space-between; align-items: center; background-color: #1e293b; padding: 8px 12px; border-radius: 6px;"</span><span class="syn-tag">&gt;</span>
+  <span class="syn-tag">&lt;span</span> <span class="syn-attr">style</span>=<span class="syn-val">"font-size: 13px;"</span><span class="syn-tag">&gt;</span>justify-content: space-between<span class="syn-tag">&lt;/span&gt;</span>
+  <span class="syn-tag">&lt;span</span> <span class="syn-attr">style</span>=<span class="syn-val">"background-color: #10b981; color: #022c22; font-size: 11px; font-weight: bold; padding: 2px 6px; border-radius: 4px;"</span><span class="syn-tag">&gt;</span>OK<span class="syn-tag">&lt;/span&gt;</span>
+<span class="syn-tag">&lt;/div&gt;</span></code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        Creates a horizontal flex container spacing its child items to opposite ends with centered vertical alignment.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        The embedded frame below runs <code>demo.html</code> directly. Every element rendered inside is styled 100% via inline styles without external stylesheets.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 02 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Notice the comparative unstyled vs styled card, gradients, and specificity panel.</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing & Expected Output -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; Expected Output</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> A visual presentation demonstrating multiple colors, font sizes, background gradients, flexbox alignments, borders, and shadows rendered purely through the <code>style</code> attribute.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Open Demo:</strong> Open <code>demo.html</code> or view inside the embedded window.</li>
+        <li><strong>Inspect Source:</strong> Right-click on any element &rarr; choose "Inspect". Observe the <code>style="..."</code> attribute populated directly on the DOM node.</li>
+        <li><strong>Verify Lack of External CSS:</strong> Inspect the <code>&lt;head&gt;</code> element to confirm there are no <code>&lt;link rel="stylesheet"&gt;</code> or <code>&lt;style&gt;</code> tags.</li>
+        <li><strong>Observe Specificity:</strong> Notice how inline rules override default browser styles.</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Applying CSS properties and values directly to HTML elements via the <code>style</code> attribute.</li>
+        <li>Manipulating font colors, font sizes, background colors, and linear gradients.</li>
+        <li>Understanding CSS specificity calculation and why inline styles hold a <code>(1, 0, 0, 0)</code> priority.</li>
+        <li>Recognizing practical industry use-cases for inline CSS, such as HTML email authoring and programmatic JavaScript DOM styling.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 02 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

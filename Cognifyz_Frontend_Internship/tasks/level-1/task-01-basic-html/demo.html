@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 01: Semantic HTML Page | Cognifyz Technologies</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+    .top-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 900px;
+      margin: 32px auto;
+      background: #ffffff;
+      padding: 32px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+    }
+    blockquote {
+      border-left: 4px solid #38bdf8;
+      margin: 16px 0;
+      padding-left: 16px;
+      color: #475569;
+      font-style: italic;
+    }
+    details {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 12px 0;
+    }
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+    }
+    code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div><strong>Cognifyz Technologies</strong> &bull; Frontend Internship</div>
+    <nav>
+      <a href="index.html">&larr; Task Explanation</a> &bull;
+      <a href="../../../index.html">Main Portal</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <header>
+      <p style="color: #64748b; font-size: 0.9rem; text-transform: uppercase; font-weight: 700;">Level 1: Beginner &bull; Task 01</p>
+      <h1>Cognifyz Technologies &mdash; Frontend Foundations</h1>
+      <p>Company: <strong>Cognifyz Technologies</strong> | Tagline: <em>Where Data Meets Intelligence</em></p>
+      <hr>
+    </header>
+
+    <main>
+      <section id="introduction">
+        <h2>1. Company Profile &amp; Mission</h2>
+        <p>
+          Cognifyz Technologies is a technology company specializing in data science, artificial intelligence, 
+          machine learning, and data analytics. Through specialized training programs, Cognifyz equips aspiring 
+          developers with industry-level frontend development skills.
+        </p>
+
+        <blockquote cite="https://cognifyz.com">
+          "Where Data Meets Intelligence &mdash; Transforming complex data into actionable digital solutions."
+        </blockquote>
+      </section>
+
+      <section id="headings">
+        <h2>2. Heading Hierarchy Demonstration</h2>
+        <p>A structured heading outline is critical for accessibility and screen readers.</p>
+        <h3>H3: Frontend Specialization Overview</h3>
+        <p>Explores browser standards, client-side scripting, and modern layouts.</p>
+        <h4>H4: Core Technical Competencies</h4>
+        <p>Covers HTML5 markup, responsive design, APIs, and preprocessors.</p>
+        <h5>H5: Sub-component Specifications</h5>
+        <p>Ensures semantic nesting and correct landmark roles.</p>
+        <h6>H6: Operational Standard Notes</h6>
+        <p>Adheres strictly to W3C standards.</p>
+      </section>
+
+      <section id="curriculum">
+        <h2>3. Internship Curriculum Breakdown</h2>
+        
+        <h3>4 Progressive Levels (Ordered List)</h3>
+        <ol>
+          <li><strong>Level 1 (Beginner):</strong> Basic HTML &amp; Inline CSS Styling</li>
+          <li><strong>Level 2 (Intermediate):</strong> Responsive Design &amp; JavaScript Button Interactivity</li>
+          <li><strong>Level 3 (Advanced):</strong> REST API Integration &amp; Form Validation</li>
+          <li><strong>Level 4 (Expert):</strong> Bootstrap 5 Component Architecture &amp; Sass Preprocessing</li>
+        </ol>
+
+        <h3>Core Technologies (Unordered List)</h3>
+        <ul>
+          <li><strong>HTML5:</strong> Semantic elements and document structuring.</li>
+          <li><strong>CSS3:</strong> Responsive media queries, flexbox, and grid layouts.</li>
+          <li><strong>JavaScript:</strong> Asynchronous requests, event handling, and DOM manipulation.</li>
+          <li><strong>Bootstrap 5:</strong> Reusable components and 12-column grid system.</li>
+          <li><strong>Sass (SCSS):</strong> Modular variables, mixins, and CSS compilation.</li>
+        </ul>
+
+        <h3>Definition List</h3>
+        <dl>
+          <dt><strong>Semantic HTML</strong></dt>
+          <dd>HTML elements that convey their meaning and structural role to both browser and developer.</dd>
+          <dt><strong>DOM (Document Object Model)</strong></dt>
+          <dd>A programming interface representing the structured document tree for JavaScript interaction.</dd>
+        </dl>
+      </section>
+
+      <section id="tasks-table">
+        <h2>4. Internship Task Schedule (Tabular Data)</h2>
+        <table>
+          <caption><strong>Cognifyz Frontend Internship Milestone Summary</strong></caption>
+          <thead>
+            <tr>
+              <th scope="col">Task ID</th>
+              <th scope="col">Level</th>
+              <th scope="col">Task Title</th>
+              <th scope="col">Technologies</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Task 01</td>
+              <td>Level 1</td>
+              <td>Basic HTML Page</td>
+              <td>HTML5 Semantic Tags</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Task 02</td>
+              <td>Level 1</td>
+              <td>Inline CSS Styling</td>
+              <td>HTML5, style attribute</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Task 03</td>
+              <td>Level 2</td>
+              <td>Responsive Design</td>
+              <td>CSS3, Media Queries</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Task 04</td>
+              <td>Level 2</td>
+              <td>Interactive Button</td>
+              <td>JavaScript ES6+, DOM Events</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Task 05</td>
+              <td>Level 3</td>
+              <td>API Integration</td>
+              <td>Fetch API, Async/Await</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Task 06</td>
+              <td>Level 3</td>
+              <td>Form Validation</td>
+              <td>JavaScript Regex, HTML Forms</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Task 07</td>
+              <td>Level 4</td>
+              <td>Component Styling</td>
+              <td>Bootstrap 5, Custom CSS</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Task 08</td>
+              <td>Level 4</td>
+              <td>Sass Preprocessing</td>
+              <td>Dart Sass, SCSS Partials</td>
+              <td>Completed</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="4">Total Completed Milestones</th>
+              <td><strong>8 of 8 (100%)</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+
+      <section id="media">
+        <h2>5. Media Embedding with Figure and Figcaption</h2>
+        <figure>
+          <img src="../../../assets/icons/cognifyz-logo.svg" alt="Cognifyz Technologies Vector Logo" width="80" height="80">
+          <figcaption>Figure 1.1: Cognifyz Technologies official emblem representing interconnected data intelligence.</figcaption>
+        </figure>
+      </section>
+
+      <section id="details">
+        <h2>6. Native Collapsible Elements (Details &amp; Summary)</h2>
+        <details open>
+          <summary>What services does Cognifyz Technologies provide?</summary>
+          <p>
+            Cognifyz specializes in data science, artificial intelligence, machine learning, 
+            analytics consulting, and industry-oriented training programs.
+          </p>
+        </details>
+
+        <details>
+          <summary>Why is semantic HTML necessary before using CSS frameworks?</summary>
+          <p>
+            Semantic markup ensures accessibility for screen readers, improves search engine indexing, 
+            and creates maintainable, clean code before any framework styling is applied.
+          </p>
+        </details>
+      </section>
+    </main>
+
+    <aside>
+      <hr>
+      <h3>Task Notice</h3>
+      <p>This page demonstrates complete semantic HTML5 compliance for Task 01.</p>
+    </aside>
+
+    <footer>
+      <hr>
+      <p style="font-size: 0.85rem; color: #64748b;">
+        &copy; 2026 Cognifyz Technologies. All rights reserved. Where Data Meets Intelligence.
+      </p>
+    </footer>
+  </div>
+
+</body>
+</html>
+

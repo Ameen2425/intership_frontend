@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task 08: CSS Preprocessing with Sass - Cognifyz Technologies Frontend Internship Explanation">
+  <title>Task 08: Sass Preprocessing | Evaluator Guide</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../../css/task-detail.css">
+</head>
+<body>
+
+  <!-- Evaluator Top Navigation Ribbon -->
+  <header class="evaluator-header">
+    <div class="evaluator-nav">
+      <div class="brand-badge-group">
+        <a href="../../../index.html" class="brand-badge">COGNIFYZ</a>
+        <span class="nav-task-title">Task 08: CSS Preprocessing with Sass</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="nav-btn nav-btn-back">&larr; Back to Showcase</a>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-demo">Open Standalone Demo ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- 1. Task Hero / Overview -->
+    <header class="task-hero-card">
+      <div class="task-meta-pills">
+        <span class="meta-pill pill-level">Level 4: Expert</span>
+        <span class="meta-pill pill-status">Status: 100% Completed</span>
+      </div>
+      <h1 class="task-main-heading">Task 08 &mdash; CSS Preprocessing with Sass (SCSS)</h1>
+      <p class="task-tagline">
+        Architecting design tokens, modular partials, reusable mixin libraries, mathematical functions, and automated build pipelines using Dart Sass.
+      </p>
+    </header>
+
+    <!-- 2. Objective & What It Is About -->
+    <section class="detail-section">
+      <span class="section-label">Section 1</span>
+      <h2 class="section-heading">Task Objective &amp; Overview</h2>
+      
+      <div class="objective-callout">
+        <strong>Official Task Objective:</strong> Set up Sass/SCSS, create <code>styles.scss</code>, define reusable variables for colors, typography, spacing, and borders, use nested selectors, mixins, functions or reusable utilities, organize styles using partial files, compile SCSS into CSS, link the generated CSS file to index.html, and include package.json scripts for compiling and watching Sass.
+      </div>
+
+      <p class="prose-text">
+        <strong>What this task is about:</strong> CSS Preprocessors like Sass (Syntactically Awesome Style Sheets) extend vanilla CSS with programming constructs like variables, nested selector hierarchies, parametric mixins, and mathematical functions. Preprocessors organize code across small, modular partial files (e.g. <code>_variables.scss</code>, <code>_mixins.scss</code>) that are automatically compiled into standard, cross-browser CSS before delivery to the browser.
+      </p>
+
+      <p class="prose-text">
+        <strong>Why this task is important:</strong> Maintaining massive monolithic CSS files in large-scale enterprise projects leads to code duplication, naming collisions, and slow development velocity. Sass enforces the DRY (Don't Repeat Yourself) principle, allows centralized design token updates (change a color variable in one place to update hundreds of elements), and is an essential tool in production frontend engineering.
+      </p>
+    </section>
+
+    <!-- 3. Technologies Used & Concepts Demonstrated -->
+    <section class="detail-section">
+      <span class="section-label">Section 2</span>
+      <h2 class="section-heading">Technologies Used &amp; Key Concepts</h2>
+      
+      <div class="tag-grid">
+        <span class="concept-tag tech-tag">Dart Sass Engine</span>
+        <span class="concept-tag">SCSS Syntax</span>
+        <span class="concept-tag">Design Tokens ($variables)</span>
+        <span class="concept-tag">Modular Partials (_filename.scss)</span>
+        <span class="concept-tag">Modern @use Directive</span>
+        <span class="concept-tag">Parametric Mixins (@mixin / @include)</span>
+        <span class="concept-tag">Mathematical Functions (@function)</span>
+        <span class="concept-tag">BEM &amp; Nested Selectors (&amp;)</span>
+        <span class="concept-tag">NPM Build &amp; Watch Scripts</span>
+      </div>
+
+      <ul class="feature-list">
+        <li><strong>Design Tokens (<code>_variables.scss</code>):</strong> Centralized variables for colors (navy, cyan, indigo), typography scales, spacing units (<code>$spacing-1</code> to <code>$spacing-8</code>), and a responsive <code>$breakpoints</code> map.</li>
+        <li><strong>Parametric Mixins &amp; Math Functions (<code>_mixins.scss</code>):</strong> <code>@function to-rem($pixel)</code> converting pixels to rems, <code>@mixin glassmorphism()</code>, <code>@mixin respond-to($breakpoint)</code>, and <code>@mixin btn-variant()</code>.</li>
+        <li><strong>BEM Nested Components (<code>_components.scss</code>):</strong> Block-Element-Modifier scoping with the <code>&amp;</code> parent selector to avoid repeating class names.</li>
+        <li><strong>Main Manifest (<code>styles.scss</code>):</strong> Imports partials via <code>@use "variables" as *;</code>, sets base resets, and defines layout grids.</li>
+        <li><strong>Automated NPM Pipeline (<code>package.json</code>):</strong> Dedicated commands for compilation (<code>npm run build:sass</code>) and live watching (<code>npm run watch:sass</code>).</li>
+      </ul>
+    </section>
+
+    <!-- 4. Implementation Details & Architecture -->
+    <section class="detail-section">
+      <span class="section-label">Section 3</span>
+      <h2 class="section-heading">Architecture &amp; Relationship Between SCSS and CSS</h2>
+      <p class="prose-text">
+        Browsers do not natively execute SCSS files. Instead, the Dart Sass compiler processes the SCSS source tree and generates standard CSS:
+      </p>
+
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>File System Architecture</span>
+          <span class="code-lang-badge">Folder Layout</span>
+        </div>
+        <div class="code-content">
+<pre><code>tasks/level-4/task-08-sass-preprocessing/
+├── index.html                 <span class="syn-comment">&lt;-- Evaluator Guide &amp; Overview</span>
+├── demo.html                  <span class="syn-comment">&lt;-- Standalone Page (links to css/styles.css)</span>
+├── scss/
+│   ├── styles.scss            <span class="syn-comment">&lt;-- Main manifest compiling all partials</span>
+│   ├── _variables.scss        <span class="syn-comment">&lt;-- Design tokens: colors, spacing, fonts</span>
+│   ├── _mixins.scss           <span class="syn-comment">&lt;-- Reusable mixins &amp; math functions</span>
+│   └── _components.scss       <span class="syn-comment">&lt;-- BEM component styling</span>
+└── css/
+    ├── styles.css             <span class="syn-comment">&lt;-- Compiled CSS output consumed by demo.html</span>
+    └── styles.css.map         <span class="syn-comment">&lt;-- Source map for browser DevTools debugging</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Code Walkthrough: SCSS Source vs. Compiled CSS -->
+    <section class="detail-section">
+      <span class="section-label">Section 4</span>
+      <h2 class="section-heading">Code Walkthrough &amp; Compilation Comparison</h2>
+      <p class="prose-text">
+        The examples below contrast the author-friendly SCSS source code against the resulting compiled CSS output.
+      </p>
+
+      <p class="prose-text"><strong>1. Mixins &amp; Functions &mdash; SCSS Source vs. Compiled CSS:</strong></p>
+      
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>_mixins.scss (SCSS Source)</span>
+          <span class="code-lang-badge">SCSS</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-kw">@function</span> <span class="syn-fn">to-rem</span>($pixel) {
+  <span class="syn-kw">@return</span> math.div($pixel, <span class="syn-val">16</span>) * <span class="syn-val">1rem</span>;
+}
+
+<span class="syn-kw">@mixin</span> <span class="syn-fn">glassmorphism</span>($blur: <span class="syn-val">14px</span>) {
+  <span class="syn-attr">background</span>: rgba($color-navy-card, <span class="syn-val">0.85</span>);
+  <span class="syn-attr">backdrop-filter</span>: blur($blur);
+  <span class="syn-attr">border</span>: <span class="syn-val">1px solid rgba(255, 255, 255, 0.14)</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>css/styles.css (Compiled CSS Output)</span>
+          <span class="code-lang-badge">Compiled CSS</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">.feature-panel</span> {
+  <span class="syn-attr">background</span>: <span class="syn-val">rgba(15, 23, 42, 0.85)</span>;
+  <span class="syn-attr">backdrop-filter</span>: <span class="syn-val">blur(12px)</span>;
+  <span class="syn-attr">border</span>: <span class="syn-val">1px solid rgba(255, 255, 255, 0.14)</span>;
+}</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        The compiler evaluates mathematical functions (like <code>to-rem(32) &rarr; 2rem</code>) and expands mixins inline with exact vendor prefixes.
+      </p>
+
+      <p class="prose-text"><strong>2. BEM Selector Nesting with Parent Selector (<code>&amp;</code>):</strong></p>
+
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>_components.scss (SCSS Source)</span>
+          <span class="code-lang-badge">SCSS</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">.btn-sass</span> {
+  <span class="syn-attr">display</span>: <span class="syn-val">inline-flex</span>;
+  <span class="syn-attr">padding</span>: <span class="syn-val">0.75rem 1.5rem</span>;
+
+  <span class="syn-tag">&amp;--primary</span> {
+    <span class="syn-attr">background</span>: <span class="syn-val">$color-cyan</span>;
+    <span class="syn-attr">color</span>: <span class="syn-val">$color-navy-darkest</span>;
+  }
+
+  <span class="syn-tag">&amp;:hover</span> {
+    <span class="syn-attr">transform</span>: <span class="syn-val">translateY(-2px)</span>;
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="code-walkthrough-card">
+        <div class="code-header">
+          <span>css/styles.css (Compiled CSS Output)</span>
+          <span class="code-lang-badge">Compiled CSS</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="syn-tag">.btn-sass</span> { <span class="syn-attr">display</span>: <span class="syn-val">inline-flex</span>; <span class="syn-attr">padding</span>: <span class="syn-val">0.75rem 1.5rem</span>; }
+<span class="syn-tag">.btn-sass--primary</span> { <span class="syn-attr">background</span>: <span class="syn-val">#38bdf8</span>; <span class="syn-attr">color</span>: <span class="syn-val">#050811</span>; }
+<span class="syn-tag">.btn-sass:hover</span> { <span class="syn-attr">transform</span>: <span class="syn-val">translateY(-2px)</span>; }</code></pre>
+        </div>
+      </div>
+      <p class="prose-text">
+        The parent selector <code>&amp;</code> compiles into flat, high-performance CSS selectors without manual repetition.
+      </p>
+    </section>
+
+    <!-- 6. Live Demonstration -->
+    <section class="detail-section">
+      <span class="section-label">Section 5</span>
+      <h2 class="section-heading">Live Demonstration</h2>
+      <p class="prose-text">
+        The embedded window below runs <code>demo.html</code> which links to the compiled <code>css/styles.css</code> stylesheet generated by Dart Sass.
+      </p>
+
+      <div class="demo-preview-frame">
+        <iframe src="demo.html" title="Task 08 Live Demonstration"></iframe>
+      </div>
+
+      <div class="demo-actions">
+        <span class="demo-hint">Tip: Open demo.html and inspect styles in DevTools to view source map line numbers.</span>
+        <a href="demo.html" target="_blank" rel="noopener noreferrer" class="btn-open-demo">Open Standalone Demo ↗</a>
+      </div>
+    </section>
+
+    <!-- 7. Testing Guide & NPM Scripts -->
+    <section class="detail-section">
+      <span class="section-label">Section 6</span>
+      <h2 class="section-heading">Testing Guide &amp; NPM Build Scripts</h2>
+
+      <p class="prose-text"><strong>Expected Output:</strong> Clean SCSS compilation into <code>css/styles.css</code> with zero Dart Sass warnings, delivering a dark SaaS design system.</p>
+
+      <ol class="testing-steps">
+        <li><strong>Open Demo in Browser:</strong> Open <code>demo.html</code> or view in the embedded window. Verify that all styles, gradients, and layouts display properly.</li>
+        <li><strong>Verify Compiled CSS Link:</strong> Inspect the <code>&lt;head&gt;</code> of <code>demo.html</code> &mdash; confirm it links to <code>&lt;link rel="stylesheet" href="css/styles.css"&gt;</code>.</li>
+        <li><strong>Test NPM Build Script:</strong> Open a terminal in the root project folder (<code>Cognifyz_Frontend_Internship</code>) and run:
+          <div class="code-walkthrough-card" style="margin: 8px 0;">
+            <div class="code-content"><pre><code>npm run build:sass</code></pre></div>
+          </div>
+          Verify that Dart Sass compiles with exit code 0.
+        </li>
+        <li><strong>Test Live Watch Script:</strong> Run <code>npm run watch:sass</code>, modify a token value in <code>_variables.scss</code> (e.g. <code>$color-cyan</code>), and observe instant recompilation within milliseconds.</li>
+      </ol>
+    </section>
+
+    <!-- 8. Learning Outcome -->
+    <section class="detail-section">
+      <span class="section-label">Section 7</span>
+      <h2 class="section-heading">Final Learning Outcome</h2>
+      <p class="prose-text">
+        By completing this task, I have mastered:
+      </p>
+      <ul class="feature-list">
+        <li>Setting up and configuring Dart Sass with npm automation scripts.</li>
+        <li>Structuring enterprise design tokens using SCSS variables and partial files.</li>
+        <li>Writing parametric mixins and mathematical functions with modern <code>sass:math</code> and <code>sass:map</code>.</li>
+        <li>Implementing BEM nesting with the parent <code>&amp;</code> selector.</li>
+        <li>Linking compiled CSS output and debugging using development source maps.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="evaluator-footer">
+    Cognifyz Technologies Front-End Internship Showcase &bull; Task 08 Evaluation Guide &bull;
+    <a href="../../../index.html">Return to Portal</a>
+  </footer>
+
+</body>
+</html>

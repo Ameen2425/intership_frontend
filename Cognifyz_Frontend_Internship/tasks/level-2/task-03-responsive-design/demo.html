@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 03: Responsive Webpage | Cognifyz Technologies</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Active Breakpoint Badge (Updated via CSS Media Queries) -->
+  <aside class="breakpoint-indicator" aria-label="Current Screen Breakpoint">
+    <span class="indicator-dot"></span>
+    <span class="indicator-text">Breakpoint: </span>
+    <strong class="indicator-val"></strong>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="../../../index.html" class="brand-link">
+          <img src="../../../assets/icons/cognifyz-logo.svg" alt="Cognifyz" width="30" height="30">
+          <div class="brand-names">
+            <span class="brand-title">Cognifyz</span>
+            <span class="brand-sub">Technologies</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Pure CSS Hamburger Checkbox Toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-label="Toggle Navigation">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#overview" class="nav-link active">Overview</a></li>
+          <li><a href="#grid-showcase" class="nav-link">Grid Matrix</a></li>
+          <li><a href="#data-table" class="nav-link">Adaptive Table</a></li>
+          <li><a href="index.html" class="nav-link portal-btn">&larr; Task Explanation</a></li>
+          <li><a href="../../../index.html" class="nav-link portal-btn">Main Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="overview">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="level-badge">Level 2 &bull; Task 03</div>
+        <h1 class="hero-title">Fluid Responsive Architecture</h1>
+        <p class="hero-desc">
+          Crafting seamless cross-device layouts using external CSS media queries, CSS Grid, 
+          and Flexbox without horizontal overflow.
+        </p>
+        <div class="hero-actions">
+          <a href="#grid-showcase" class="btn btn-primary">Inspect Responsive Grid</a>
+          <a href="#data-table" class="btn btn-secondary">View Adaptive Table</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="device-mockup">
+          <div class="mockup-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="mockup-url">cognifyz.com/responsive</span>
+          </div>
+          <div class="mockup-screen">
+            <div class="screen-preview-grid">
+              <div class="preview-box box-1">Mobile (&lt;576px)</div>
+              <div class="preview-box box-2">Tablet (576-768px)</div>
+              <div class="preview-box box-3">Laptop (769-1024px)</div>
+              <div class="preview-box box-4">Desktop (&gt;1024px)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Media Query Tiers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Fluid Reflow</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0px</div>
+        <div class="stat-label">Horizontal Scroll Overflow</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Pure CSS</div>
+        <div class="stat-label">External Stylesheet</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-wrapper">
+    
+    <!-- Responsive Grid Matrix -->
+    <section class="section-block" id="grid-showcase">
+      <div class="section-header">
+        <h2 class="section-title">1. Multi-Device Column Reordering (CSS Grid)</h2>
+        <p class="section-subtitle">
+          Resize your viewport to observe how the layout reflows from 4 columns on desktop down to 2 on tablet and 1 on mobile.
+        </p>
+      </div>
+
+      <div class="responsive-card-grid">
+        <article class="feature-card">
+          <div class="card-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">📱</div>
+          <span class="card-tag">Tier 1</span>
+          <h3 class="card-title">Mobile (&lt; 576px)</h3>
+          <p class="card-text">Single-column stack, full-width touch buttons, and collapsible hamburger drawer.</p>
+          <div class="card-footer-meta"><code>@media (max-width: 575.98px)</code></div>
+        </article>
+
+        <article class="feature-card">
+          <div class="card-icon" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">📟</div>
+          <span class="card-tag">Tier 2</span>
+          <h3 class="card-title">Tablet (576px &ndash; 768px)</h3>
+          <p class="card-text">Two-column layout with optimized spacing and compact two-by-two statistics.</p>
+          <div class="card-footer-meta"><code>@media (min-width: 576px) and (max-width: 768px)</code></div>
+        </article>
+
+        <article class="feature-card">
+          <div class="card-icon" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">💻</div>
+          <span class="card-tag">Tier 3</span>
+          <h3 class="card-title">Laptop (769px &ndash; 1024px)</h3>
+          <p class="card-text">Three-column grid presentation with persistent horizontal desktop navigation.</p>
+          <div class="card-footer-meta"><code>@media (min-width: 769px) and (max-width: 1024px)</code></div>
+        </article>
+
+        <article class="feature-card">
+          <div class="card-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">🖥️</div>
+          <span class="card-tag">Tier 4</span>
+          <h3 class="card-title">Desktop (&gt; 1024px)</h3>
+          <p class="card-text">Four-column widescreen matrix with max-width container bounds and hover states.</p>
+          <div class="card-footer-meta"><code>@media (min-width: 1025px)</code></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Responsive Data Table -->
+    <section class="section-block" id="data-table">
+      <div class="section-header">
+        <h2 class="section-title">2. Responsive Data Matrix (Overflow Protected)</h2>
+        <p class="section-subtitle">
+          Tables often break small screens. This table is wrapped in a responsive container with internal scrolling on mobile.
+        </p>
+      </div>
+
+      <div class="table-responsive-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Device Category</th>
+              <th>Target Viewport</th>
+              <th>Columns</th>
+              <th>Navigation Style</th>
+              <th>Layout Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mobile Portrait</strong></td>
+              <td><code>&lt; 480px</code></td>
+              <td>1 Column</td>
+              <td>Collapsible Drawer</td>
+              <td>Vertical touch stack</td>
+            </tr>
+            <tr>
+              <td><strong>Tablet Devices</strong></td>
+              <td><code>576px &ndash; 768px</code></td>
+              <td>2 Columns</td>
+              <td>Compact Bar</td>
+              <td>Thumb-friendly dual zones</td>
+            </tr>
+            <tr>
+              <td><strong>Laptops</strong></td>
+              <td><code>769px &ndash; 1024px</code></td>
+              <td>2 &ndash; 3 Columns</td>
+              <td>Full Navigation</td>
+              <td>Desktop baseline</td>
+            </tr>
+            <tr>
+              <td><strong>Large Monitors</strong></td>
+              <td><code>&gt; 1024px</code></td>
+              <td>4 Columns</td>
+              <td>Expanded</td>
+              <td>Max-width bounded reading comfort</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">Cognifyz Technologies</div>
+        <p class="footer-tagline">Where Data Meets Intelligence</p>
+        <p class="footer-copy">Frontend Development Internship &bull; Level 2, Task 03</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#grid-showcase">Grid Matrix</a></li>
+          <li><a href="#data-table">Adaptive Table</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Portals</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">&larr; Task Explanation Page</a></li>
+          <li><a href="../../../index.html">Main Showcase Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Cognifyz Technologies. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
+
