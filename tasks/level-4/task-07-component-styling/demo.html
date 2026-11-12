@@ -3,66 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 07: Component Styling (Bootstrap 5) | Cognifyz Technologies</title>
+  <title>Cognifyz Enterprise Operations Dashboard | Task 07 Bootstrap 5</title>
   <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
 
-  <!-- Bootstrap 5 CDN -->
+  <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   
-  <!-- Custom Dark Theme Overrides -->
+  <!-- Custom Clean Business Dashboard Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Responsive Navbar Component -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark-navy sticky-top shadow-sm py-3" id="mainNavbar">
-    <div class="container">
+  <!-- 1. Bootstrap Responsive Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-corporate sticky-top py-2">
+    <div class="container-fluid px-lg-4">
       <a class="navbar-brand d-flex align-items-center gap-2" href="../../../index.html">
-        <span class="brand-pill">COGNIFYZ</span>
-        <span class="fw-bold tracking-tight text-white">Component Hub</span>
+        <span class="brand-badge-square">COGNIFYZ</span>
+        <span class="fw-bold text-dark fs-6">Operations Console</span>
       </a>
 
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="collapse navbar-collapse" id="dashboardNavbar">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
           <li class="nav-item">
-            <a class="nav-link active" href="#hero">Overview</a>
+            <a class="nav-link active fw-semibold" href="#metrics">Overview</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#components">Components</a>
+            <a class="nav-link" href="#projects-view">Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#tabs-section">Curriculum Tabs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#faq-section">FAQ Accordion</a>
+            <a class="nav-link" href="#policies">SLA Policies</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Internship Levels
+              Department Views
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark custom-dropdown">
-              <li><a class="dropdown-item" href="#components">Level 1: Beginner</a></li>
-              <li><a class="dropdown-item" href="#components">Level 2: Intermediate</a></li>
-              <li><a class="dropdown-item" href="#components">Level 3: Advanced</a></li>
+            <ul class="dropdown-menu shadow-sm border">
+              <li><a class="dropdown-item" href="#projects-view">Frontend Engineering</a></li>
+              <li><a class="dropdown-item" href="#projects-view">Data Science &amp; AI</a></li>
+              <li><a class="dropdown-item" href="#projects-view">Quality Assurance</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item active" href="#components">Level 4: Expert (Active)</a></li>
+              <li><a class="dropdown-item" href="#projects-view">Executive Reports</a></li>
             </ul>
           </li>
         </ul>
 
         <div class="d-flex align-items-center gap-2">
-          <button class="btn btn-outline-cyan btn-sm d-flex align-items-center gap-1" id="liveToastBtn">
-            <i class="bi bi-bell-fill"></i> Trigger Toast
+          <button class="btn btn-outline-secondary btn-sm" id="toastTriggerBtn" type="button">
+            <i class="bi bi-bell-fill text-warning me-1"></i> Trigger Alert
           </button>
-          <a href="index.html" class="btn btn-outline-light btn-sm">
+          <button type="button" class="btn btn-primary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#newProjectModal">
+            <i class="bi bi-plus-lg me-1"></i> New Project
+          </button>
+          <a href="index.html" class="btn btn-outline-dark btn-sm ms-2">
             &larr; Task Explanation
           </a>
-          <a href="../../../index.html" class="btn btn-gradient btn-sm">
+          <a href="../../../index.html" class="btn btn-light btn-sm border">
             Main Portal
           </a>
         </div>
@@ -70,323 +70,431 @@
     </div>
   </nav>
 
-  <!-- Hero Section (Bootstrap 12-Column Grid) -->
-  <header class="hero-block py-5" id="hero">
-    <div class="container py-lg-4">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-7">
-          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-indigo-subtle border border-indigo mb-3">
-            <span class="badge bg-primary">Level 4 &bull; Task 07</span>
-            <span class="text-indigo small fw-semibold">Bootstrap 5 Component Architecture</span>
-          </div>
-          <h1 class="display-5 fw-bold text-white tracking-tight mb-3">
-            Component-Driven Architecture with Bootstrap 5
-          </h1>
-          <p class="lead text-secondary mb-4">
-            Demonstrating production-ready frontend components: responsive 12-column grid, 
-            interactive modals, accordions, animated tabs, alerts, and custom CSS theme elevation.
-          </p>
-          <div class="d-flex flex-wrap gap-3">
-            <button type="button" class="btn btn-gradient px-4 py-2" data-bs-toggle="modal" data-bs-target="#curriculumModal">
-              <i class="bi bi-box-arrow-up-right me-1"></i> Launch Interactive Modal
-            </button>
-            <a href="#components" class="btn btn-outline-light px-4 py-2">
-              <i class="bi bi-grid-3x3-gap-fill me-1"></i> Explore Components
-            </a>
-          </div>
-        </div>
-        
-        <div class="col-lg-5">
-          <!-- Glassmorphic Card Preview -->
-          <div class="card bg-card-dark border-card shadow-lg p-3">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-success-subtle text-success border border-success">
-                  <i class="bi bi-check-circle-fill me-1"></i> CDN Active
-                </span>
-                <span class="text-secondary small font-monospace">Bootstrap v5.3.3</span>
-              </div>
-              <h5 class="card-title text-white fw-bold">Enterprise UI Components</h5>
-              <p class="card-text text-secondary small">
-                Rapidly accelerate interface development while ensuring strict accessibility, 
-                uniform visual hierarchy, and cross-browser consistency.
-              </p>
-              
-              <div class="mb-3">
-                <div class="d-flex justify-content-between small text-secondary mb-1">
-                  <span>Internship Mastery</span>
-                  <span class="text-cyan fw-bold">87.5%</span>
-                </div>
-                <div class="progress progress-dark" role="progressbar" aria-valuenow="87.5" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-gradient-cyan" style="width: 87.5%"></div>
-                </div>
-              </div>
+  <!-- Main Content Container -->
+  <main class="container-fluid px-lg-4 py-4">
 
-              <div class="d-flex gap-2">
-                <span class="badge bg-secondary-subtle text-secondary-emphasis" data-bs-toggle="tooltip" data-bs-title="12 Column Grid">Grid System</span>
-                <span class="badge bg-secondary-subtle text-secondary-emphasis" data-bs-toggle="tooltip" data-bs-title="Interactive Dialog">Modals</span>
-                <span class="badge bg-secondary-subtle text-secondary-emphasis" data-bs-toggle="tooltip" data-bs-title="Collapsible FAQ">Accordions</span>
-              </div>
+    <!-- 2. Bootstrap Dismissible Alert Banner -->
+    <div class="alert alert-primary alert-dismissible fade show d-flex align-items-center gap-2 mb-4" role="alert">
+      <i class="bi bi-info-circle-fill fs-5"></i>
+      <div>
+        <strong>Internship Evaluation Cycle Active:</strong> All 8 frontend milestones have been submitted and are available for inspection.
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- 3. KPI Metric Cards (Bootstrap 12-Column Grid) -->
+    <section class="row g-3 mb-4" id="metrics" aria-label="Key Performance Indicators">
+      
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="kpi-label">Active Workflows</div>
+              <div class="kpi-value">8 / 8</div>
+              <span class="badge bg-success-subtle text-success border border-success-subtle mt-2">
+                <i class="bi bi-arrow-up-right"></i> 100% Completed
+              </span>
+            </div>
+            <div class="kpi-icon-circle bg-primary-subtle text-primary">
+              <i class="bi bi-kanban"></i>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
 
-  <!-- Dismissible Alert Component -->
-  <section class="container my-4">
-    <div class="alert alert-cyan alert-dismissible fade show d-flex align-items-center gap-3 p-3 shadow-sm" role="alert">
-      <i class="bi bi-info-circle-fill fs-4 text-cyan"></i>
-      <div>
-        <strong>Cognifyz Engineering Notice:</strong> All components on this page are styled using Bootstrap 5 classes coupled with custom dark SaaS theme overrides in <code>styles.css</code>.
-      </div>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  </section>
-
-  <!-- Component Matrix (Cards & Grid) -->
-  <main class="container py-4" id="components">
-    <div class="text-center mb-4">
-      <span class="text-cyan text-uppercase fw-bold small">Modular Architecture</span>
-      <h2 class="text-white fw-bold mt-1">Reusable Component Library</h2>
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
-      <div class="col">
-        <div class="card h-100 bg-card-dark border-card hover-lift">
-          <div class="card-header bg-transparent border-bottom-0 pt-4 px-4 pb-0 d-flex justify-content-between">
-            <span class="badge bg-primary-subtle text-primary border border-primary">Layout</span>
-            <i class="bi bi-grid-1x2 text-secondary fs-5"></i>
-          </div>
-          <div class="card-body px-4">
-            <h5 class="card-title text-white fw-bold">12-Column Grid System</h5>
-            <p class="card-text text-secondary small">
-              Responsive column reflow using <code>.container</code>, <code>.row</code>, and <code>.col-*</code> classes.
-            </p>
-          </div>
-          <div class="card-footer bg-transparent border-top-0 px-4 pb-4">
-            <button class="btn btn-sm btn-outline-secondary w-100" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Bootstrap 12-column grid uses responsive flexbox tiers.">
-              Inspect Breakpoints
-            </button>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="kpi-label">Enrolled Interns</div>
+              <div class="kpi-value">48</div>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle mt-2">
+                <i class="bi bi-people"></i> 4 Cohorts Active
+              </span>
+            </div>
+            <div class="kpi-icon-circle bg-info-subtle text-info">
+              <i class="bi bi-mortarboard"></i>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100 bg-card-dark border-card hover-lift">
-          <div class="card-header bg-transparent border-bottom-0 pt-4 px-4 pb-0 d-flex justify-content-between">
-            <span class="badge bg-indigo-subtle text-indigo border border-indigo">Interactive</span>
-            <i class="bi bi-window-stack text-secondary fs-5"></i>
-          </div>
-          <div class="card-body px-4">
-            <h5 class="card-title text-white fw-bold">Modal Dialog Systems</h5>
-            <p class="card-text text-secondary small">
-              Accessible dialogs with backdrop blur, focus trapping, and smooth entry animations.
-            </p>
-          </div>
-          <div class="card-footer bg-transparent border-top-0 px-4 pb-4">
-            <button class="btn btn-sm btn-cyan w-100" data-bs-toggle="modal" data-bs-target="#curriculumModal">
-              Launch Live Modal
-            </button>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="kpi-label">Code Review Velocity</div>
+              <div class="kpi-value">98.4%</div>
+              <span class="badge bg-success-subtle text-success border border-success-subtle mt-2">
+                <i class="bi bi-speedometer2"></i> +4.2% this sprint
+              </span>
+            </div>
+            <div class="kpi-icon-circle bg-success-subtle text-success">
+              <i class="bi bi-check-circle"></i>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100 bg-card-dark border-card hover-lift">
-          <div class="card-header bg-transparent border-bottom-0 pt-4 px-4 pb-0 d-flex justify-content-between">
-            <span class="badge bg-pink-subtle text-pink border border-pink">Feedback</span>
-            <i class="bi bi-chat-square-dots text-secondary fs-5"></i>
-          </div>
-          <div class="card-body px-4">
-            <h5 class="card-title text-white fw-bold">Toast Notifications</h5>
-            <p class="card-text text-secondary small">
-              Lightweight notifications to communicate async outcomes and operational updates.
-            </p>
-          </div>
-          <div class="card-footer bg-transparent border-top-0 px-4 pb-4">
-            <button class="btn btn-sm btn-outline-pink w-100" id="cardToastTrigger">
-              Fire Toast Alert
-            </button>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="kpi-label">System Incident Rate</div>
+              <div class="kpi-value">0.00%</div>
+              <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle mt-2">
+                Zero High Severity Bugs
+              </span>
+            </div>
+            <div class="kpi-icon-circle bg-warning-subtle text-warning">
+              <i class="bi bi-shield-check"></i>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Navigation Tabs Component -->
-    <section class="card bg-card-dark border-card p-4 mb-5" id="tabs-section">
-      <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-        <h4 class="text-white fw-bold mb-0">Bootstrap Navigation Tabs</h4>
-        
-        <ul class="nav nav-pills custom-pills" id="curriculumTabs" role="tablist">
+    </section>
+
+    <!-- 4. Interactive Tabs & Tab Content -->
+    <section class="dashboard-card mb-4" id="projects-view">
+      <div class="dashboard-card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="dashboardTabs" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="overview-tab" data-bs-toggle="pill" data-bs-target="#overview-content" type="button" role="tab" aria-selected="true">
-              Cognifyz Vision
+            <button class="nav-link active" id="projects-tab" data-bs-toggle="tab" data-bs-target="#tab-projects" type="button" role="tab" aria-controls="tab-projects" aria-selected="true">
+              Active Project Modules
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="curriculum-tab" data-bs-toggle="pill" data-bs-target="#curriculum-content" type="button" role="tab" aria-selected="false">
-              Curriculum Levels
+            <button class="nav-link" id="team-tab" data-bs-toggle="tab" data-bs-target="#tab-team" type="button" role="tab" aria-controls="tab-team" aria-selected="false">
+              Engineering Team Roster
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tech-tab" data-bs-toggle="pill" data-bs-target="#tech-content" type="button" role="tab" aria-selected="false">
-              Framework Benefits
+            <button class="nav-link" id="audit-tab" data-bs-toggle="tab" data-bs-target="#tab-audit" type="button" role="tab" aria-controls="tab-audit" aria-selected="false">
+              Audit Logs &amp; Events
             </button>
           </li>
         </ul>
+
+        <div class="d-flex gap-2">
+          <span class="badge bg-light text-dark border align-self-center py-2 px-3">
+            Q4 2026 Production Sprint
+          </span>
+        </div>
       </div>
 
-      <div class="tab-content pt-2" id="curriculumTabContent">
-        <div class="tab-pane fade show active text-secondary" id="overview-content" role="tabpanel" aria-labelledby="overview-tab">
-          <p class="lead text-light">Cognifyz Technologies &mdash; Where Data Meets Intelligence.</p>
-          <p>
-            Cognifyz Technologies specializes in artificial intelligence, predictive machine learning, data engineering, and premier professional software internships.
-          </p>
+      <div class="tab-content" id="dashboardTabsContent">
+        
+        <!-- TAB 1: Projects Data Table -->
+        <div class="tab-pane fade show active" id="tab-projects" role="tabpanel" aria-labelledby="projects-tab">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">Task / Project</th>
+                  <th scope="col">Technical Lead</th>
+                  <th scope="col">Tech Stack</th>
+                  <th scope="col">Progress</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="fw-bold">Task 01: Semantic HTML Architecture</div>
+                    <small class="text-muted">Document landmarks &amp; accessibility</small>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar-initial">AL</div>
+                      <span class="small fw-semibold">Alex Vance</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-secondary">HTML5 Semantic</span></td>
+                  <td style="width: 180px;">
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 6px;">
+                        <div class="progress-bar bg-success" style="width: 100%"></div>
+                      </div>
+                      <span class="small text-muted">100%</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-success">Verified</span></td>
+                  <td class="text-end">
+                    <a href="../../level-1/task-01-basic-html/demo.html" class="btn btn-sm btn-outline-primary">View</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="fw-bold">Task 03: Fluid Responsive Architecture</div>
+                    <small class="text-muted">Mobile-first travel journal reflow</small>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar-initial">SR</div>
+                      <span class="small fw-semibold">Sophia Reed</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-secondary">CSS3 Media Queries</span></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 6px;">
+                        <div class="progress-bar bg-success" style="width: 100%"></div>
+                      </div>
+                      <span class="small text-muted">100%</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-success">Verified</span></td>
+                  <td class="text-end">
+                    <a href="../../level-2/task-03-responsive-design/demo.html" class="btn btn-sm btn-outline-primary">View</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="fw-bold">Task 05: Public REST API Integration</div>
+                    <small class="text-muted">Asynchronous article reader &amp; comments</small>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar-initial">MK</div>
+                      <span class="small fw-semibold">Marcus Kim</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-secondary">Fetch &bull; Async/Await</span></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 6px;">
+                        <div class="progress-bar bg-success" style="width: 100%"></div>
+                      </div>
+                      <span class="small text-muted">100%</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-success">Verified</span></td>
+                  <td class="text-end">
+                    <a href="../../level-3/task-05-api-integration/demo.html" class="btn btn-sm btn-outline-primary">View</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="fw-bold">Task 07: Bootstrap 5 Component Styling</div>
+                    <small class="text-muted">Enterprise operations console</small>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar-initial">EL</div>
+                      <span class="small fw-semibold">Elena Rostova</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-secondary">Bootstrap 5 &bull; Grid</span></td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 6px;">
+                        <div class="progress-bar bg-success" style="width: 100%"></div>
+                      </div>
+                      <span class="small text-muted">100%</span>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-primary">Active</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#newProjectModal">Details</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div class="tab-pane fade text-secondary" id="curriculum-content" role="tabpanel" aria-labelledby="curriculum-tab">
+        <!-- TAB 2: Team Roster -->
+        <div class="tab-pane fade p-4" id="tab-team" role="tabpanel" aria-labelledby="team-tab">
           <div class="row g-3">
-            <div class="col-md-6">
-              <div class="p-3 rounded bg-dark border border-secondary border-opacity-25">
-                <h6 class="text-cyan fw-bold">Levels 1 &amp; 2: Foundations</h6>
-                <p class="small mb-0">Semantic HTML5, inline CSS, responsive media queries, and JavaScript button events.</p>
+            <div class="col-md-4">
+              <div class="card h-100 border">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Frontend Intern Team A</h6>
+                  <p class="card-text text-muted small">Specialized in responsive UI, semantic HTML5, and vanilla JavaScript DOM manipulation.</p>
+                  <span class="badge bg-info-subtle text-info">12 Engineers Assigned</span>
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="p-3 rounded bg-dark border border-secondary border-opacity-25">
-                <h6 class="text-cyan fw-bold">Levels 3 &amp; 4: Advanced &amp; Expert</h6>
-                <p class="small mb-0">REST API integration, client form validation, Bootstrap component systems, and modular Sass compilation.</p>
+            <div class="col-md-4">
+              <div class="card h-100 border">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">API &amp; Systems Team B</h6>
+                  <p class="card-text text-muted small">Focused on client-side state, asynchronous REST pipelines, and secure form validation.</p>
+                  <span class="badge bg-info-subtle text-info">16 Engineers Assigned</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Design Systems Team C</h6>
+                  <p class="card-text text-muted small">Maintaining Bootstrap component extensions, SCSS design tokens, and modular pipelines.</p>
+                  <span class="badge bg-info-subtle text-info">20 Engineers Assigned</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="tab-pane fade text-secondary" id="tech-content" role="tabpanel" aria-labelledby="tech-tab">
-          <p class="lead text-light">Why use Bootstrap 5 over writing custom CSS from scratch?</p>
-          <ul class="small mb-0">
-            <li><strong>Development Velocity:</strong> Pre-built, tested interactive widgets save significant development time.</li>
-            <li><strong>Cross-Browser Parity:</strong> Solves flexbox bugs and subpixel quirks across Safari, Chrome, and Firefox.</li>
-            <li><strong>Built-In Accessibility:</strong> Manages ARIA attributes, keyboard navigation traps in modals, and screen-reader announcements.</li>
+        <!-- TAB 3: Audit Logs -->
+        <div class="tab-pane fade p-4" id="tab-audit" role="tabpanel" aria-labelledby="audit-tab">
+          <ul class="list-group list-group-flush small">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-check2 text-success me-2"></i> Task 08 SCSS design system tokens compiled via Dart Sass</span>
+              <span class="text-muted">Today at 14:32</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-check2 text-success me-2"></i> Candidate registration form validation test passed (100% regex match)</span>
+              <span class="text-muted">Today at 12:15</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-cloud-arrow-down text-primary me-2"></i> 100 JSONPlaceholder blog records retrieved without errors</span>
+              <span class="text-muted">Yesterday at 18:40</span>
+            </li>
           </ul>
         </div>
+
       </div>
     </section>
 
-    <!-- Collapsible Accordion Component -->
-    <section class="mb-5" id="faq-section">
-      <div class="text-center mb-3">
-        <h3 class="text-white fw-bold">Frequently Asked Questions (Accordion)</h3>
-      </div>
-
-      <div class="accordion custom-accordion" id="faqAccordion">
-        <div class="accordion-item bg-card-dark border-card mb-2 rounded overflow-hidden">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button bg-card-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              How does Bootstrap 5 differ from earlier versions?
+    <!-- 5. Bootstrap Accordion: Policies & Operations -->
+    <section class="dashboard-card mb-4 p-4" id="policies">
+      <h5 class="fw-bold mb-3">Cognifyz Engineering Standards &amp; FAQs</h5>
+      
+      <div class="accordion" id="dashboardAccordion">
+        
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              1. What distinguishes this Bootstrap 5 implementation from the rest of the project?
             </button>
           </h2>
-          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#dashboardAccordion">
             <div class="accordion-body text-secondary small">
-              Bootstrap 5 dropped jQuery in favor of pure vanilla JavaScript, added CSS custom properties (variables), introduced an expanded utility API, and improved grid gutter controls.
+              This assignment utilizes Bootstrap 5's native 12-column grid, responsive navigation, tabs, data tables, modals, alerts, and toasts within an authentic corporate business operations console layout, avoiding repeated dark-navy templates.
             </div>
           </div>
         </div>
 
-        <div class="accordion-item bg-card-dark border-card mb-2 rounded overflow-hidden">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button bg-card-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              How do we customize Bootstrap without breaking framework upgrades?
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              2. How are Bootstrap grid breakpoints configured?
             </button>
           </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#dashboardAccordion">
             <div class="accordion-body text-secondary small">
-              By loading a custom stylesheet (<code>styles.css</code>) after Bootstrap's stylesheet to override specific theme tokens, we preserve upgrade paths while customizing colors, borders, and shadows.
+              The layout adapts using <code>col-12</code> on mobile devices, <code>col-sm-6</code> on tablets, and <code>col-xl-3</code> on desktop monitors to guarantee fluid reflow without horizontal scrollbars.
             </div>
           </div>
         </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              3. Are Bootstrap JavaScript plugins initialized natively?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#dashboardAccordion">
+            <div class="accordion-body text-secondary small">
+              Yes, interactive components including the modal dialog, collapsible accordion panels, tab switches, and live toasts rely on Bootstrap 5 bundle scripts.
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- Interactive Modal Component -->
-  <div class="modal fade" id="curriculumModal" tabindex="-1" aria-labelledby="curriculumModalLabel" aria-hidden="true">
+  <!-- 6. Bootstrap Modal Component -->
+  <div class="modal fade" id="newProjectModal" tabindex="-1" aria-labelledby="newProjectModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content bg-card-dark border-card text-white">
-        <div class="modal-header border-secondary border-opacity-25">
-          <h5 class="modal-title fw-bold" id="curriculumModalLabel">
-            <i class="bi bi-award-fill text-cyan me-2"></i>Task 07 Verification Modal
-          </h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 fw-bold" id="newProjectModalLabel">Create New Milestone Item</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body text-secondary">
-          <p>This interactive modal is managed by the Bootstrap 5 JavaScript API and styled with Cognifyz dark SaaS branding.</p>
-          <div class="p-3 rounded bg-dark border border-secondary border-opacity-25">
-            <div class="text-cyan fw-bold mb-1">Demonstrated Components:</div>
-            <ul class="small mb-0 ps-3">
-              <li>Responsive Navbar with mobile toggler</li>
-              <li>12-column grid and flex utilities</li>
-              <li>Cards, Badges, and Alert bars</li>
-              <li>Tabbed navigation switcher</li>
-              <li>Collapsible Accordion FAQ</li>
-              <li>Active Tooltips &amp; Popovers</li>
-            </ul>
-          </div>
+        <div class="modal-body">
+          <form id="modalProjectForm">
+            <div class="mb-3">
+              <label for="projectName" class="form-label small fw-semibold">Milestone Name</label>
+              <input type="text" class="form-control" id="projectName" placeholder="e.g. Accessible Modal Dialog" required>
+            </div>
+            <div class="mb-3">
+              <label for="projectLead" class="form-label small fw-semibold">Assigned Developer</label>
+              <input type="text" class="form-control" id="projectLead" placeholder="Full Name" required>
+            </div>
+            <div class="mb-3">
+              <label for="projectTrack" class="form-label small fw-semibold">Curriculum Track</label>
+              <select class="form-select" id="projectTrack">
+                <option value="frontend">Frontend Architecture</option>
+                <option value="data">Data Science / AI</option>
+                <option value="devops">CI/CD &amp; Testing</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold d-block">Priority Tier</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="priorityOptions" id="priorityNormal" value="normal" checked>
+                <label class="form-check-label small" for="priorityNormal">Standard</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="priorityOptions" id="priorityHigh" value="high">
+                <label class="form-check-label small" for="priorityHigh">High Priority</label>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="modal-footer border-secondary border-opacity-25">
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close Dialog</button>
-          <a href="../../../index.html" class="btn btn-gradient btn-sm">Main Showcase</a>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary btn-sm" id="saveProjectBtn">Save Milestone</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Toast Notification Container -->
+  <!-- 7. Bootstrap Toast Container & Toast -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="liveToast" class="toast bg-card-dark border-cyan text-white" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-dark-navy text-white border-secondary border-opacity-25">
-        <span class="badge bg-primary me-2">COGNIFYZ</span>
-        <strong class="me-auto text-cyan">Bootstrap 5 Toast</strong>
-        <small class="text-secondary">Just now</small>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body small text-secondary">
-        Interactive Toast triggered successfully via Bootstrap 5 Toast API!
+    <div id="liveToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="bi bi-check-circle-fill text-success me-2"></i>
+          Operation executed: System notification triggered successfully.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>
   </div>
 
-  <footer class="bg-dark-navy border-top border-secondary border-opacity-25 py-4 text-center text-secondary small">
-    <div class="container">
-      Cognifyz Technologies &bull; Task 07: Component-Based Styling &bull; Bootstrap 5
-    </div>
-  </footer>
-
+  <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Tooltips & Popovers initialization
-      const tooltips = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-      [...tooltips].map(el => new bootstrap.Tooltip(el));
+    // Live Toast Trigger
+    const toastTriggerBtn = document.getElementById('toastTriggerBtn');
+    const toastLiveExample = document.getElementById('liveToast');
+    if (toastTriggerBtn && toastLiveExample) {
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      toastTriggerBtn.addEventListener('click', () => {
+        toastBootstrap.show();
+      });
+    }
 
-      const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
-      [...popovers].map(el => new bootstrap.Popover(el));
-
-      // Toast initialization
-      const toastTrigger = document.getElementById('liveToastBtn');
-      const cardToastTrigger = document.getElementById('cardToastTrigger');
-      const toastEl = document.getElementById('liveToast');
-
-      if (toastEl) {
-        const toastInstance = bootstrap.Toast.getOrCreateInstance(toastEl);
-        if (toastTrigger) toastTrigger.addEventListener('click', () => toastInstance.show());
-        if (cardToastTrigger) cardToastTrigger.addEventListener('click', () => toastInstance.show());
-      }
-    });
+    // Modal Save Handler
+    const saveProjectBtn = document.getElementById('saveProjectBtn');
+    if (saveProjectBtn) {
+      saveProjectBtn.addEventListener('click', () => {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('newProjectModal'));
+        if (modal) modal.hide();
+        alert('New milestone item logged to dashboard.');
+      });
+    }
   </script>
-
 </body>
 </html>
-

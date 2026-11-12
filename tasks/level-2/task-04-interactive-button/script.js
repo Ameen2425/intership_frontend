@@ -1,24 +1,24 @@
 /**
- * Cognifyz Technologies - Task 04: Interactive Button
- * Dynamically changes the page background color with contrast adaptation.
+ * Cognifyz Technologies - Task 04: Interactive Color Playground
+ * Controls background color transformations with contrast awareness.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const DEFAULT_COLOR = '#0A0F1D';
+  const DEFAULT_COLOR = '#F4F4F5';
 
-  const presetPalettes = [
-    { name: 'Cognifyz Navy', hex: '#0A0F1D' },
-    { name: 'Cyber Cyan', hex: '#0284C7' },
-    { name: 'Royal Indigo', hex: '#4338CA' },
-    { name: 'Electric Violet', hex: '#7C3AED' },
-    { name: 'Emerald AI', hex: '#059669' },
-    { name: 'Amber Glow', hex: '#D97706' },
-    { name: 'Crimson Data', hex: '#DC2626' },
-    { name: 'Pure Snow', hex: '#F8FAFC' }
+  const presets = [
+    { name: 'Warm Terracotta', hex: '#C2593F' },
+    { name: 'Forest Green', hex: '#2D5542' },
+    { name: 'Cobalt Blue', hex: '#1E40AF' },
+    { name: 'Golden Amber', hex: '#D97706' },
+    { name: 'Plum Violet', hex: '#6B21A8' },
+    { name: 'Slate Teal', hex: '#0F766E' },
+    { name: 'Charcoal Ink', hex: '#18181B' },
+    { name: 'Alabaster White', hex: '#F4F4F5' }
   ];
 
   let currentColor = DEFAULT_COLOR;
-  let colorHistory = [];
+  const history = [];
 
   // DOM Elements
   const pageBody = document.getElementById('page-body');
@@ -29,119 +29,105 @@ document.addEventListener('DOMContentLoaded', () => {
   const randomColorBtn = document.getElementById('random-color-btn');
   const resetColorBtn = document.getElementById('reset-color-btn');
   const copyColorBtn = document.getElementById('copy-color-btn');
-  const copyBtnText = document.getElementById('copy-btn-text');
   const nativeColorPicker = document.getElementById('native-color-picker');
-  const paletteGrid = document.getElementById('palette-grid');
-  const historyPills = document.getElementById('history-pills');
-  const clearHistoryBtn = document.getElementById('clear-history-btn');
-  const toast = document.getElementById('toast');
-  const toastMessage = document.getElementById('toast-message');
+  const swatchesGrid = document.getElementById('swatches-grid');
+  const historyDots = document.getElementById('history-dots');
+  const toast = document.getElementById('copied-toast');
 
+  // Convert HEX to RGB
   function hexToRgb(hex) {
     hex = hex.replace(/^#/, '');
     if (hex.length === 3) {
       hex = hex.split('').map(c => c + c).join('');
     }
-    const num = parseInt(hex, 16);
+    const intVal = parseInt(hex, 16);
     return {
-      r: (num >> 16) & 255,
-      g: (num >> 8) & 255,
-      b: num & 255
+      r: (intVal >> 16) & 255,
+      g: (intVal >> 8) & 255,
+      b: intVal & 255
     };
   }
 
-  // Calculate perceived brightness (ITU-R BT.601) to toggle text contrast
+  // Calculate perceived relative luminance
   function calculateLuminance(r, g, b) {
     return 0.299 * r + 0.587 * g + 0.114 * b;
   }
 
+  // Generate random 6-character hex
   function generateRandomHex() {
-    const chars = '0123456789ABCDEF';
-    let color = '#';
+    const hexChars = '0123456789ABCDEF';
+    let hex = '#';
     for (let i = 0; i < 6; i++) {
-      color += chars[Math.floor(Math.random() * 16)];
+      hex += hexChars[Math.floor(Math.random() * 16)];
     }
-    return color;
+    return hex;
   }
 
-  function applyColor(hex, saveToHistory = true) {
+  // Apply color to canvas
+  function applyColor(hex, logHistory = true) {
     hex = hex.toUpperCase();
     currentColor = hex;
 
     pageBody.style.backgroundColor = hex;
-
-    const { r, g, b } = hexToRgb(hex);
     activeSwatchPreview.style.backgroundColor = hex;
     hexCodeDisplay.textContent = hex;
+
+    const { r, g, b } = hexToRgb(hex);
     rgbCodeDisplay.textContent = `rgb(${r}, ${g}, ${b})`;
     nativeColorPicker.value = hex;
 
-    // Toggle dark or light contrast mode based on background brightness
-    const brightness = calculateLuminance(r, g, b);
-    if (brightness > 140) {
-      pageBody.classList.add('light-theme');
-      contrastModeDisplay.textContent = 'Dark Text (Light BG)';
-      contrastModeDisplay.style.color = '#0284c7';
-      contrastModeDisplay.style.background = 'rgba(2, 132, 199, 0.15)';
+    // Contrast check
+    const luminance = calculateLuminance(r, g, b);
+    if (luminance > 140) {
+      contrastModeDisplay.textContent = 'Light Canvas';
+      contrastModeDisplay.style.background = '#e4e4e7';
+      contrastModeDisplay.style.color = '#27272a';
     } else {
-      pageBody.classList.remove('light-theme');
-      contrastModeDisplay.textContent = 'Light Text (Dark BG)';
-      contrastModeDisplay.style.color = '#34d399';
-      contrastModeDisplay.style.background = 'rgba(16, 185, 129, 0.15)';
+      contrastModeDisplay.textContent = 'Dark Canvas';
+      contrastModeDisplay.style.background = '#27272a';
+      contrastModeDisplay.style.color = '#f4f4f5';
     }
 
-    if (saveToHistory) {
-      addToHistory(hex);
+    if (logHistory) {
+      addHistory(hex);
     }
   }
 
-  function addToHistory(hex) {
-    if (colorHistory.length > 0 && colorHistory[0] === hex) return;
-    colorHistory.unshift(hex);
-    if (colorHistory.length > 8) colorHistory.pop();
+  // Add to session history
+  function addHistory(hex) {
+    if (history.includes(hex)) {
+      history.splice(history.indexOf(hex), 1);
+    }
+    history.unshift(hex);
+    if (history.length > 6) {
+      history.pop();
+    }
     renderHistory();
   }
 
   function renderHistory() {
-    if (colorHistory.length === 0) {
-      historyPills.innerHTML = '<span class="history-empty">No colors generated yet.</span>';
-      return;
-    }
-
-    historyPills.innerHTML = '';
-    colorHistory.forEach(hex => {
-      const pill = document.createElement('button');
-      pill.className = 'history-pill';
-      pill.setAttribute('title', `Restore ${hex}`);
-      pill.innerHTML = `<span class="history-dot" style="background-color: ${hex};"></span><span>${hex}</span>`;
-      pill.addEventListener('click', () => applyColor(hex, false));
-      historyPills.appendChild(pill);
+    historyDots.innerHTML = '';
+    history.forEach(hex => {
+      const dot = document.createElement('button');
+      dot.className = 'history-dot';
+      dot.style.backgroundColor = hex;
+      dot.title = `Switch to ${hex}`;
+      dot.setAttribute('aria-label', `Switch to ${hex}`);
+      dot.addEventListener('click', () => applyColor(hex, false));
+      historyDots.appendChild(dot);
     });
   }
 
-  function populatePresetPalettes() {
-    paletteGrid.innerHTML = '';
-    presetPalettes.forEach(preset => {
-      const btn = document.createElement('button');
-      btn.className = 'swatch-btn';
-      btn.innerHTML = `
-        <span class="swatch-circle" style="background-color: ${preset.hex};"></span>
-        <span class="swatch-name">${preset.name}</span>
-      `;
-      btn.addEventListener('click', () => applyColor(preset.hex));
-      paletteGrid.appendChild(btn);
-    });
-  }
-
-  let toastTimer = null;
-  function showToast(message) {
-    toastMessage.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2200);
-  }
+  // Build preset swatches
+  presets.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'swatch-btn';
+    btn.style.backgroundColor = p.hex;
+    btn.title = `${p.name} (${p.hex})`;
+    btn.setAttribute('aria-label', `Select ${p.name}`);
+    btn.addEventListener('click', () => applyColor(p.hex));
+    swatchesGrid.appendChild(btn);
+  });
 
   // Event Listeners
   randomColorBtn.addEventListener('click', () => {
@@ -150,33 +136,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   resetColorBtn.addEventListener('click', () => {
     applyColor(DEFAULT_COLOR);
-    showToast('Reset to Cognifyz Default Navy');
-  });
-
-  copyColorBtn.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(currentColor);
-      copyBtnText.textContent = 'Copied!';
-      showToast(`Copied ${currentColor} to clipboard!`);
-      setTimeout(() => {
-        copyBtnText.textContent = 'Copy HEX';
-      }, 1500);
-    } catch {
-      showToast(`Selected: ${currentColor}`);
-    }
   });
 
   nativeColorPicker.addEventListener('input', (e) => {
     applyColor(e.target.value);
   });
 
-  clearHistoryBtn.addEventListener('click', () => {
-    colorHistory = [];
-    renderHistory();
-    showToast('History cleared.');
+  copyColorBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(currentColor).then(() => {
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 1800);
+    }).catch(() => {
+      prompt('Copy this color code:', currentColor);
+    });
   });
 
   // Initialize
-  populatePresetPalettes();
   applyColor(DEFAULT_COLOR, false);
 });

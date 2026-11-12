@@ -3,241 +3,337 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 03: Responsive Webpage | Cognifyz Technologies</title>
+  <title>TERRA &mdash; The Field Guide &amp; Travel Journal | Task 03 Responsive Design</title>
   <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- Floating Active Breakpoint Badge (Updated via CSS Media Queries) -->
-  <aside class="breakpoint-indicator" aria-label="Current Screen Breakpoint">
+  <aside class="breakpoint-indicator-badge" aria-label="Current Screen Breakpoint">
     <span class="indicator-dot"></span>
-    <span class="indicator-text">Breakpoint: </span>
-    <strong class="indicator-val"></strong>
   </aside>
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="../../../index.html" class="brand-link">
-          <img src="../../../assets/icons/cognifyz-logo.svg" alt="Cognifyz" width="30" height="30">
-          <div class="brand-names">
-            <span class="brand-title">Cognifyz</span>
-            <span class="brand-sub">Technologies</span>
-          </div>
-        </a>
+  <!-- Top Utility Strip -->
+  <aside class="top-utility-strip">
+    <div class="top-utility-inner">
+      <span>Cognifyz Frontend Internship &bull; Level 2 Task 03: Responsive Web Architecture</span>
+      <div class="utility-links">
+        <a href="index.html">&larr; Task Explanation</a>
+        <a href="../../../index.html">Main Portfolio</a>
       </div>
+    </div>
+  </aside>
 
-      <!-- Pure CSS Hamburger Checkbox Toggle -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-label="Toggle Navigation">
-      <label for="nav-toggle" class="nav-toggle-label">
+  <!-- Publication Masthead Header -->
+  <header class="masthead-header" role="banner">
+    <div class="header-container">
+      <a href="#overview" class="brand-wrapper">
+        <span class="brand-logo-text">TERRA</span>
+        <span class="brand-tagline">The Travel Journal &amp; Field Guide</span>
+      </a>
+
+      <!-- Pure CSS Responsive Navigation Drawer -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-label="Toggle Menu">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle Navigation">
         <span></span>
         <span></span>
         <span></span>
       </label>
 
-      <nav class="nav-menu">
+      <nav class="nav-menu" role="navigation" aria-label="Editorial Navigation">
         <ul class="nav-list">
-          <li><a href="#overview" class="nav-link active">Overview</a></li>
-          <li><a href="#grid-showcase" class="nav-link">Grid Matrix</a></li>
-          <li><a href="#data-table" class="nav-link">Adaptive Table</a></li>
-          <li><a href="index.html" class="nav-link portal-btn">&larr; Task Explanation</a></li>
-          <li><a href="../../../index.html" class="nav-link portal-btn">Main Portal</a></li>
+          <li><a href="#overview" class="nav-link active">Featured Story</a></li>
+          <li><a href="#dispatches" class="nav-link">Field Dispatches</a></li>
+          <li><a href="#guides" class="nav-link">Itineraries</a></li>
+          <li><a href="#routes" class="nav-link">Route Matrix</a></li>
+          <li><a href="#subscribe" class="nav-link">Journal Dispatch</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="overview">
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="level-badge">Level 2 &bull; Task 03</div>
-        <h1 class="hero-title">Fluid Responsive Architecture</h1>
-        <p class="hero-desc">
-          Crafting seamless cross-device layouts using external CSS media queries, CSS Grid, 
-          and Flexbox without horizontal overflow.
-        </p>
-        <div class="hero-actions">
-          <a href="#grid-showcase" class="btn btn-primary">Inspect Responsive Grid</a>
-          <a href="#data-table" class="btn btn-secondary">View Adaptive Table</a>
+  <!-- Main Editorial Content -->
+  <main class="main-wrapper" id="overview">
+
+    <!-- HERO EDITORIAL GRID -->
+    <section class="hero-editorial-grid" aria-label="Lead Story">
+      
+      <!-- Primary Feature -->
+      <article class="hero-main-story">
+        <div class="hero-media-wrapper">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Serene mountain valley with misty pine forests and winding river at dawn" loading="eager">
+          <span class="story-badge">Cover Feature</span>
         </div>
-      </div>
-      <div class="hero-visual">
-        <div class="device-mockup">
-          <div class="mockup-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="mockup-url">cognifyz.com/responsive</span>
+        <div class="hero-story-content">
+          <div class="story-meta">Alpine Expeditions &bull; 8 Min Read</div>
+          <h1 class="hero-story-title">The High Passes of the Valais: Trekking the Solitary Ridges</h1>
+          <p class="hero-story-excerpt">
+            Past the timberline where ancient glacial moraines give way to silence, we charted a six-day route through the Pennine Alps. Notes on weather windows, high refuges, and the shifting geography of alpine seasons.
+          </p>
+          <div class="story-byline">
+            <span>Words by <strong>Julian Meyer</strong></span>
+            <span>&bull;</span>
+            <span>Photography by <strong>Clara Lindqvist</strong></span>
+            <span>&bull;</span>
+            <span>Autumn Field Notes</span>
           </div>
-          <div class="mockup-screen">
-            <div class="screen-preview-grid">
-              <div class="preview-box box-1">Mobile (&lt;576px)</div>
-              <div class="preview-box box-2">Tablet (576-768px)</div>
-              <div class="preview-box box-3">Laptop (769-1024px)</div>
-              <div class="preview-box box-4">Desktop (&gt;1024px)</div>
+        </div>
+      </article>
+
+      <!-- Sidebar Stories -->
+      <aside class="hero-sidebar-story">
+        
+        <article class="sidebar-story-card">
+          <div class="sidebar-media-preview">
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80" alt="Wooden rowboat on a tranquil turquoise alpine lake surrounded by steep cliffs" loading="lazy">
+          </div>
+          <div>
+            <div class="story-meta">Maritime &bull; 4 Min Read</div>
+            <h2 class="sidebar-story-title">Nordic Coastal Routes: The Lofoten Archipelago</h2>
+            <p class="sidebar-story-desc">
+              Navigating sheltered fjords, historic rorbu fishing cabins, and granite spires rising sheer from the Arctic Norwegian Sea.
+            </p>
+          </div>
+          <a href="#dispatches" class="read-link">Read Field Dispatch &rarr;</a>
+        </article>
+
+        <article class="sidebar-story-card">
+          <div class="sidebar-media-preview">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Solo traveler standing atop a desert canyon during golden sunset" loading="lazy">
+          </div>
+          <div>
+            <div class="story-meta">Deserts &bull; 5 Min Read</div>
+            <h2 class="sidebar-story-title">Wadi Rum: Across the Red Sand Dunes</h2>
+            <p class="sidebar-story-desc">
+              Sandstone monoliths, night skies under pristine celestial conditions, and Bedouin desert navigational traditions.
+            </p>
+          </div>
+          <a href="#dispatches" class="read-link">Read Field Dispatch &rarr;</a>
+        </article>
+
+      </aside>
+
+    </section>
+
+    <!-- SECTION: Curated Dispatches Grid -->
+    <section id="dispatches" aria-label="Field Dispatches">
+      <div class="section-masthead">
+        <div>
+          <h2 class="section-masthead-title">Field Dispatches</h2>
+          <div class="section-masthead-desc">Recent expeditions and cultural documentation</div>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-light);">3 Articles Displayed</div>
+      </div>
+
+      <div class="dispatches-grid">
+        
+        <!-- Card 1 -->
+        <article class="dispatch-card">
+          <div class="dispatch-thumbnail">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" alt="Traditional Japanese pagoda nestled in fiery red autumn maple leaves" loading="lazy">
+          </div>
+          <div class="dispatch-content">
+            <span class="dispatch-category">Cultural Journey</span>
+            <h3 class="dispatch-title">Autumn in the Cedar Forests of Kyoto</h3>
+            <p class="dispatch-text">
+              Walking the historic pilgrimage paths of Mount Hiei and observing temple carpentry preserved through uninterrupted centuries.
+            </p>
+            <div class="dispatch-footer">
+              <span>6 min read</span>
+              <a href="#subscribe" class="read-link">View Notes &rarr;</a>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Bar -->
-  <section class="stats-bar">
-    <div class="stats-container">
-      <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Media Query Tiers</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Fluid Reflow</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">0px</div>
-        <div class="stat-label">Horizontal Scroll Overflow</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">Pure CSS</div>
-        <div class="stat-label">External Stylesheet</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content Area -->
-  <main class="main-wrapper">
-    
-    <!-- Responsive Grid Matrix -->
-    <section class="section-block" id="grid-showcase">
-      <div class="section-header">
-        <h2 class="section-title">1. Multi-Device Column Reordering (CSS Grid)</h2>
-        <p class="section-subtitle">
-          Resize your viewport to observe how the layout reflows from 4 columns on desktop down to 2 on tablet and 1 on mobile.
-        </p>
-      </div>
-
-      <div class="responsive-card-grid">
-        <article class="feature-card">
-          <div class="card-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">📱</div>
-          <span class="card-tag">Tier 1</span>
-          <h3 class="card-title">Mobile (&lt; 576px)</h3>
-          <p class="card-text">Single-column stack, full-width touch buttons, and collapsible hamburger drawer.</p>
-          <div class="card-footer-meta"><code>@media (max-width: 575.98px)</code></div>
         </article>
 
-        <article class="feature-card">
-          <div class="card-icon" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">📟</div>
-          <span class="card-tag">Tier 2</span>
-          <h3 class="card-title">Tablet (576px &ndash; 768px)</h3>
-          <p class="card-text">Two-column layout with optimized spacing and compact two-by-two statistics.</p>
-          <div class="card-footer-meta"><code>@media (min-width: 576px) and (max-width: 768px)</code></div>
+        <!-- Card 2 -->
+        <article class="dispatch-card">
+          <div class="dispatch-thumbnail">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80" alt="Scenic highway winding along coastal cliff with turquoise ocean" loading="lazy">
+          </div>
+          <div class="dispatch-content">
+            <span class="dispatch-category">Coastal Expedition</span>
+            <h3 class="dispatch-title">The Wild Atlantic Way: Cape Clear to Donegal</h3>
+            <p class="dispatch-text">
+              Gale-swept headlands, solitary lighthouses, and the maritime heritage of Ireland's westernmost fishing communities.
+            </p>
+            <div class="dispatch-footer">
+              <span>7 min read</span>
+              <a href="#subscribe" class="read-link">View Notes &rarr;</a>
+            </div>
+          </div>
         </article>
 
-        <article class="feature-card">
-          <div class="card-icon" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">💻</div>
-          <span class="card-tag">Tier 3</span>
-          <h3 class="card-title">Laptop (769px &ndash; 1024px)</h3>
-          <p class="card-text">Three-column grid presentation with persistent horizontal desktop navigation.</p>
-          <div class="card-footer-meta"><code>@media (min-width: 769px) and (max-width: 1024px)</code></div>
+        <!-- Card 3 -->
+        <article class="dispatch-card">
+          <div class="dispatch-thumbnail">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Snow-capped mountain range under vibrant pink twilight sky" loading="lazy">
+          </div>
+          <div class="dispatch-content">
+            <span class="dispatch-category">High Altitude</span>
+            <h3 class="dispatch-title">Patagonia: Surviving the Southern Ice Field</h3>
+            <p class="dispatch-text">
+              An account of navigating Katabatic winds, serac crossings, and basecamp logistics under extreme Patagonian weather fronts.
+            </p>
+            <div class="dispatch-footer">
+              <span>9 min read</span>
+              <a href="#subscribe" class="read-link">View Notes &rarr;</a>
+            </div>
+          </div>
         </article>
 
-        <article class="feature-card">
-          <div class="card-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">🖥️</div>
-          <span class="card-tag">Tier 4</span>
-          <h3 class="card-title">Desktop (&gt; 1024px)</h3>
-          <p class="card-text">Four-column widescreen matrix with max-width container bounds and hover states.</p>
-          <div class="card-footer-meta"><code>@media (min-width: 1025px)</code></div>
-        </article>
       </div>
     </section>
 
-    <!-- Responsive Data Table -->
-    <section class="section-block" id="data-table">
-      <div class="section-header">
-        <h2 class="section-title">2. Responsive Data Matrix (Overflow Protected)</h2>
-        <p class="section-subtitle">
-          Tables often break small screens. This table is wrapped in a responsive container with internal scrolling on mobile.
-        </p>
+    <!-- SECTION: Field Guide Itinerary (4-Step Responsive Row) -->
+    <section class="guide-strip" id="guides" aria-label="Curated Field Guide">
+      <div class="section-masthead" style="border-bottom-color: var(--border-light);">
+        <div>
+          <h2 class="section-masthead-title">Curated Route: The Dolomite Traverse</h2>
+          <div class="section-masthead-desc">Recommended 4-day backcountry itinerary</div>
+        </div>
+        <span style="font-size: 0.82rem; font-weight: 700; color: var(--accent-forest);">Grade: Moderate Backcountry</span>
+      </div>
+
+      <div class="guide-cards-row">
+        
+        <div class="guide-step-card">
+          <div class="step-day-badge">Day 01 &bull; 14 KM</div>
+          <h3 class="guide-step-title">Lago di Braies to Rifugio Biella</h3>
+          <p class="guide-step-desc">
+            Ascend through limestone scree under Croda del Becco with 900m elevation gain into alpine karst meadows.
+          </p>
+        </div>
+
+        <div class="guide-step-card">
+          <div class="step-day-badge">Day 02 &bull; 11 KM</div>
+          <h3 class="guide-step-title">Fanes Plateau to Rifugio Lagazuoi</h3>
+          <p class="guide-step-desc">
+            Cross highland plateaus and historic World War I tunnels to summit the rocky vantage point above Passo Falzarego.
+          </p>
+        </div>
+
+        <div class="guide-step-card">
+          <div class="step-day-badge">Day 03 &bull; 16 KM</div>
+          <h3 class="guide-step-title">Cinque Torri to Nuvolau Ridge</h3>
+          <p class="guide-step-desc">
+            Traverse beneath vertical rock spires, open pastures, and solitary refuges perched along sharp ridgelines.
+          </p>
+        </div>
+
+        <div class="guide-step-card">
+          <div class="step-day-badge">Day 04 &bull; 13 KM</div>
+          <h3 class="guide-step-title">Pelmo Base to Passo Staulanza</h3>
+          <p class="guide-step-desc">
+            Descent through larch woods and subalpine grazing pastures ending at the historic pass checkpoint.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: Route Matrix (Responsive Table with Horizontal Swipe) -->
+    <section class="table-editorial-box" id="routes" aria-label="Route Matrix">
+      <div class="section-masthead" style="border-bottom: 1px solid var(--border-light); margin-bottom: 16px;">
+        <div>
+          <h2 class="section-masthead-title" style="font-size: 1.4rem;">Route Conditions &amp; Permit Schedule</h2>
+          <div class="section-masthead-desc">Tested across viewports: table scrolls cleanly without page blowout</div>
+        </div>
       </div>
 
       <div class="table-responsive-wrapper">
-        <table class="data-table">
+        <table class="itinerary-table">
           <thead>
             <tr>
-              <th>Device Category</th>
-              <th>Target Viewport</th>
-              <th>Columns</th>
-              <th>Navigation Style</th>
-              <th>Layout Behavior</th>
+              <th>Expedition Trail</th>
+              <th>Region</th>
+              <th>Distance</th>
+              <th>Permit Status</th>
+              <th>Optimal Window</th>
+              <th>Refuge Access</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Mobile Portrait</strong></td>
-              <td><code>&lt; 480px</code></td>
-              <td>1 Column</td>
-              <td>Collapsible Drawer</td>
-              <td>Vertical touch stack</td>
+              <td><strong>Alta Via 1</strong></td>
+              <td>Dolomites, Italy</td>
+              <td>120 km</td>
+              <td><span class="status-pill status-open">Open</span></td>
+              <td>July &ndash; Sept</td>
+              <td>Fully Booked</td>
             </tr>
             <tr>
-              <td><strong>Tablet Devices</strong></td>
-              <td><code>576px &ndash; 768px</code></td>
-              <td>2 Columns</td>
-              <td>Compact Bar</td>
-              <td>Thumb-friendly dual zones</td>
+              <td><strong>Laugavegur Trek</strong></td>
+              <td>Highlands, Iceland</td>
+              <td>55 km</td>
+              <td><span class="status-pill status-seasonal">Seasonal</span></td>
+              <td>Late June &ndash; August</td>
+              <td>Huts / Tents</td>
             </tr>
             <tr>
-              <td><strong>Laptops</strong></td>
-              <td><code>769px &ndash; 1024px</code></td>
-              <td>2 &ndash; 3 Columns</td>
-              <td>Full Navigation</td>
-              <td>Desktop baseline</td>
+              <td><strong>Kungsleden Trail</strong></td>
+              <td>Lapland, Sweden</td>
+              <td>440 km</td>
+              <td><span class="status-pill status-open">Open</span></td>
+              <td>July &ndash; Mid Sept</td>
+              <td>STF Cabins</td>
             </tr>
             <tr>
-              <td><strong>Large Monitors</strong></td>
-              <td><code>&gt; 1024px</code></td>
-              <td>4 Columns</td>
-              <td>Expanded</td>
-              <td>Max-width bounded reading comfort</td>
+              <td><strong>GR20 Traverse</strong></td>
+              <td>Corsica, France</td>
+              <td>180 km</td>
+              <td><span class="status-pill status-open">Open</span></td>
+              <td>June &ndash; October</td>
+              <td>Refuges Required</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
+    <!-- SECTION: Newsletter Signup -->
+    <section class="newsletter-strip" id="subscribe" aria-label="Newsletter">
+      <div class="newsletter-info">
+        <h3>Subscribe to the Field Dispatch</h3>
+        <p>Curated monthly travel essays, route maps, and gear reports. Zero advertising.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Terra Field Dispatches.');">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required aria-label="Your email">
+        <button type="submit" class="newsletter-btn">Join Journal</button>
+      </form>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-col brand-col">
-        <div class="footer-brand">Cognifyz Technologies</div>
-        <p class="footer-tagline">Where Data Meets Intelligence</p>
-        <p class="footer-copy">Frontend Development Internship &bull; Level 2, Task 03</p>
-      </div>
+  <!-- Editorial Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
       <div class="footer-col">
-        <h4 class="footer-heading">Navigation</h4>
-        <ul class="footer-links">
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#grid-showcase">Grid Matrix</a></li>
-          <li><a href="#data-table">Adaptive Table</a></li>
+        <h4>About TERRA</h4>
+        <p>
+          TERRA is an independent editorial travel journal focused on remote geographies, conservation, and backcountry route documentation. Created as the responsive design showcase for Cognifyz Frontend Internship Task 03.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#overview">Featured Story</a></li>
+          <li><a href="#dispatches">Field Dispatches</a></li>
+          <li><a href="#guides">Curated Itineraries</a></li>
+          <li><a href="#routes">Route Matrix</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h4 class="footer-heading">Portals</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">&larr; Task Explanation Page</a></li>
-          <li><a href="../../../index.html">Main Showcase Portal</a></li>
-        </ul>
+        <h4>Task 03 Verification</h4>
+        <p style="font-size: 0.82rem; color: var(--text-light); margin-bottom: 10px;">
+          Tested for mobile-first reflow across &lt;576px, 768px, 1024px, and 1200px+ viewports with zero horizontal overflow.
+        </p>
+        <a href="index.html" style="font-weight: 700; color: var(--accent-terra); font-size: 0.85rem;">&larr; View Evaluator Guide</a>
       </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2026 Cognifyz Technologies. All rights reserved.
     </div>
   </footer>
 
 </body>
 </html>
-

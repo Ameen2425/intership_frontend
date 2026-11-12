@@ -3,110 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 04: Interactive Color Controller | Cognifyz Technologies</title>
+  <title>Task 04: Interactive Color Playground | Cognifyz Technologies</title>
   <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body id="page-body">
 
-  <header class="app-header">
-    <div class="header-container">
-      <div class="brand">
-        <a href="../../../index.html" class="brand-link">
-          <span class="brand-badge">COGNIFYZ</span>
-          <span class="brand-text">Frontend Internship</span>
-        </a>
-      </div>
-      <div class="header-actions">
-        <a href="index.html" class="return-portal-btn">&larr; Task Explanation</a>
-        <a href="../../../index.html" class="return-portal-btn">Main Portal</a>
-      </div>
+  <!-- Top Utility Ribbon -->
+  <header class="top-nav">
+    <div class="brand-label">
+      <span class="brand-badge">COGNIFYZ</span>
+      <span>Interactive Color Studio &bull; Task 04</span>
     </div>
+    <nav class="nav-links">
+      <a href="index.html">&larr; Task Explanation</a>
+      <a href="../../../index.html">Main Portfolio</a>
+    </nav>
   </header>
 
-  <main class="main-content">
-    <div class="control-card">
-      <div class="card-header">
-        <div class="task-badge">Level 2 &bull; Task 04</div>
-        <h1 class="card-title">Interactive Background Controller</h1>
-        <p class="card-subtitle">
-          Use the buttons and palette controls below to dynamically change the page background color via JavaScript.
-        </p>
-      </div>
+  <!-- Interactive Stage -->
+  <main class="playground-stage">
+    
+    <div class="control-dock">
+      
+      <header class="dock-header">
+        <span class="dock-level-pill">Level 2: Intermediate &bull; DOM Event Playground</span>
+        <h1 class="dock-title">Dynamic Color Canvas</h1>
+        <p class="dock-subtitle">Interact with the buttons below to smoothly transform the canvas background color.</p>
+      </header>
 
-      <!-- Current Color Monitor -->
-      <section class="color-monitor" aria-label="Selected Color Monitor">
-        <div class="color-swatch-preview" id="active-swatch-preview"></div>
-        <div class="color-values">
-          <div class="color-val-group">
-            <span class="val-label">HEX VALUE</span>
-            <span class="val-code" id="hex-code-display">#0A0F1D</span>
-          </div>
-          <div class="color-val-group">
-            <span class="val-label">RGB FORMAT</span>
-            <span class="val-code" id="rgb-code-display">rgb(10, 15, 29)</span>
-          </div>
-          <div class="color-val-group">
-            <span class="val-label">CONTRAST MODE</span>
-            <span class="val-badge" id="contrast-mode-display">Light Text</span>
+      <!-- Prominent Active Color Readout Card -->
+      <section class="color-readout-card" aria-live="polite" aria-label="Active Color Information">
+        <div class="readout-preview-dot" id="active-swatch-preview"></div>
+        <div class="readout-data">
+          <div class="readout-hex" id="hex-code-display">#F4F4F5</div>
+          <div class="readout-meta">
+            <span class="readout-rgb" id="rgb-code-display">rgb(244, 244, 245)</span>
+            <span class="contrast-pill" id="contrast-mode-display">Light Canvas</span>
           </div>
         </div>
-        <button id="copy-color-btn" class="copy-btn">
-          <span>📋</span>
-          <span id="copy-btn-text">Copy HEX</span>
+        <button id="copy-color-btn" class="copy-button" title="Copy HEX to Clipboard">
+          <span>Copy</span>
         </button>
       </section>
 
-      <!-- Primary Action Controls -->
-      <section class="primary-controls">
-        <button id="random-color-btn" class="btn btn-interactive">
-          <span>✨</span>
+      <!-- Primary Action Buttons -->
+      <section class="action-buttons-group">
+        <button id="random-color-btn" class="btn-primary-random">
+          <span>🎲</span>
           <span>Generate Random Color</span>
         </button>
-        <button id="reset-color-btn" class="btn btn-reset">
-          <span>↺ Reset to Default</span>
+        <button id="reset-color-btn" class="btn-secondary-reset">
+          <span>↺ Reset</span>
         </button>
       </section>
 
-      <!-- Preset Theme Palettes -->
-      <section class="palette-section">
-        <h2 class="section-heading">Preset Color Palettes</h2>
-        <div class="palette-grid" id="palette-grid">
-          <!-- Populated by JavaScript -->
+      <!-- Preset Palette Swatches -->
+      <section class="palette-block">
+        <span class="palette-label">Preset Color Palette</span>
+        <div class="swatches-grid" id="swatches-grid">
+          <!-- Populated dynamically via JavaScript -->
         </div>
       </section>
 
-      <!-- Custom OS Color Picker -->
-      <section class="custom-picker-section">
-        <label for="native-color-picker" class="picker-label">
-          <span>Custom Color Picker:</span>
-          <div class="picker-wrapper">
-            <input type="color" id="native-color-picker" value="#0a0f1d" aria-label="Custom color picker">
-            <span class="picker-instruction">Choose any custom color</span>
-          </div>
+      <!-- Custom Picker & History -->
+      <section class="picker-history-row">
+        <label class="custom-picker-wrapper" for="native-color-picker">
+          <span>Custom Picker:</span>
+          <input type="color" id="native-color-picker" class="color-input-bubble" value="#f4f4f5" aria-label="Choose custom color">
         </label>
+
+        <div class="history-block">
+          <span class="history-label">Session:</span>
+          <div class="history-dots-container" id="history-dots">
+            <!-- Recent color dots injected here -->
+          </div>
+        </div>
       </section>
 
-      <!-- Recent Color History -->
-      <section class="history-section">
-        <div class="history-header">
-          <h3 class="history-title">Recent Colors (This Session)</h3>
-          <button id="clear-history-btn" class="clear-history-btn">Clear</button>
-        </div>
-        <div class="history-pills" id="history-pills">
-          <span class="history-empty">Click "Generate Random Color" or select a preset to log colors here.</span>
-        </div>
-      </section>
     </div>
+
   </main>
 
-  <!-- Copy Toast Notification -->
-  <div id="toast" class="toast" role="alert" aria-live="polite">
-    <span class="toast-icon">✓</span>
-    <span id="toast-message">Color copied to clipboard!</span>
-  </div>
+  <div class="copied-toast" id="copied-toast">HEX code copied to clipboard!</div>
 
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -1,103 +1,63 @@
 // ==========================================================================
-// COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
-// SASS PREPROCESSING ARCHITECTURE: _mixins.scss
+// FOUNDRY DESIGN SYSTEM - SCSS MIXINS & FUNCTIONS (_mixins.scss)
 // ==========================================================================
 
 @use "sass:math";
-@use "sass:map";
 @use "variables" as *;
 
-// --- SASS FUNCTIONS ---
-
-// Function: Convert pixel values to rem units
-@function to-rem($pixel) {
-  @return math.div($pixel, 16) * 1rem;
+// Pixel to REM mathematical conversion function
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
 }
 
-// Function: Opacity tinting shortcut
-@function alpha-color($color, $alpha: 0.5) {
-  @return rgba($color, $alpha);
-}
-
-// --- SASS MIXINS ---
-
-// Mixin: Flexbox layout helper
-@mixin flex($justify: flex-start, $align: stretch, $direction: row, $wrap: nowrap) {
+// Flexbox layout shorthand helper
+@mixin flex($justify: flex-start, $align: stretch, $direction: row) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
-  flex-wrap: $wrap;
 }
 
-// Mixin: Quick center with flex
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-// Mixin: Glassmorphic surface
-@mixin glassmorphism($blur: 14px, $opacity: 0.82) {
-  background: rgba($color-navy-card, $opacity);
-  backdrop-filter: blur($blur);
-  -webkit-backdrop-filter: blur($blur);
-  border: $border-glass;
-}
-
-// Mixin: Gradient text clip
-@mixin gradient-text($gradient: $gradient-primary) {
-  background: $gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-// Mixin: Responsive breakpoint manager using modern sass:map
+// Media Query Breakpoints Mixin
 @mixin respond-to($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    $value: map.get($breakpoints, $breakpoint);
-    @media (max-width: $value) {
-      @content;
-    }
-  } @else {
-    @warn "Unknown breakpoint `#{$breakpoint}`. Please check `$breakpoints` map in _variables.scss.";
+  @if $breakpoint == 'mobile' {
+    @media (max-width: 576px) { @content; }
+  } @else if $breakpoint == 'tablet' {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == 'laptop' {
+    @media (max-width: 1024px) { @content; }
   }
 }
 
-// Mixin: Button variant generator
-@mixin btn-variant($bg-color, $text-color, $border-color: transparent) {
-  background: $bg-color;
-  color: $text-color;
-  border: 1px solid $border-color;
-  transition: $transition-base;
+// Reusable Button Variant Generator Mixin
+@mixin button-variant($bg, $color, $border: transparent, $hover-bg: null) {
+  background-color: $bg;
+  color: $color;
+  border: 1px solid $border;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba($bg-color, 0.4);
-    filter: brightness(1.1);
+    @if $hover-bg != null {
+      background-color: $hover-bg;
+    } @else {
+      background-color: darken($bg, 6%);
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($bg, 0.25);
   }
 
   &:active {
-    transform: translateY(0);
-    filter: brightness(0.95);
+    transform: translateY(1px);
   }
 }
 
-// Mixin: Custom Scrollbar
-@mixin custom-scrollbar($width: 6px, $track-color: $color-navy-dark, $thumb-color: $color-slate-border) {
-  &::-webkit-scrollbar {
-    width: $width;
-    height: $width;
-  }
-  &::-webkit-scrollbar-track {
-    background: $track-color;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: $thumb-color;
-    border-radius: $border-radius-pill;
-    &:hover {
-      background: $color-cyan;
-    }
-  }
+// Accessible Card Container Mixin
+@mixin card-surface($padding: $space-5, $radius: $radius-md) {
+  background-color: $color-white;
+  border: $border-subtle;
+  border-radius: $radius;
+  padding: $padding;
+  box-shadow: $shadow-sm;
 }

@@ -1,168 +1,105 @@
 /*
   ==========================================================================
-  COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
+  COGNIFYZ TECHNOLOGIES - MAIN SHOWCASE RESPONSIVE STYLESHEET
   FILE: css/responsive.css
   ==========================================================================
 */
 
-/* 1. LAPTOP & SMALL DESKTOP (max-width: 1024px) */
 @media (max-width: 1024px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .hero-subheading {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-actions {
-    justify-content: center;
-  }
-
-  .hero-stats-row {
-    justify-content: center;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .about-visual {
-    order: -1;
-    display: flex;
-    justify-content: center;
-  }
-
   .levels-matrix {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-}
-
-/* 2. TABLET BREAKPOINT (max-width: 768px) */
-@media (max-width: 768px) {
-  .hamburger-btn {
-    display: flex;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-color);
-    padding: 24px;
-    flex-direction: column;
-    gap: 20px;
-    box-shadow: var(--shadow-lg);
-    display: none;
-    animation: slideDown 0.3s ease forwards;
-  }
-
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .nav-menu.open {
-    display: flex;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 16px;
-    text-align: center;
-  }
-
-  .nav-link {
-    display: block;
-    padding: 10px 0;
-    font-size: 1.05rem;
-  }
-
-  .section {
-    padding: 60px 0;
   }
 
   .tasks-grid {
     grid-template-columns: 1fr;
   }
 
-  .overview-dashboard {
-    padding: 24px 20px;
+  .tech-matrix {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .dashboard-header {
+  .docs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-editorial-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-rule);
+    padding: 20px 24px;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-menu.open {
+    display: block;
+  }
+
+  .nav-links {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 16px;
   }
 
-  .progress-widget {
-    width: 100%;
+  .about-grid {
+    grid-template-columns: 1fr;
   }
 
   .about-pillars {
     grid-template-columns: 1fr;
   }
-}
 
-/* 3. MOBILE BREAKPOINT (max-width: 576px) */
-@media (max-width: 575.98px) {
-  .hero-section {
-    padding: 40px 0;
+  .tech-matrix {
+    grid-template-columns: 1fr;
   }
 
   .hero-title {
-    font-size: 2.2rem;
-    letter-spacing: -1px;
+    font-size: 2.1rem;
   }
+}
 
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
-  }
-
-  .hero-stats-row {
-    flex-direction: column;
-    gap: 18px;
-    align-items: center;
-  }
-
+@media (max-width: 576px) {
   .levels-matrix {
     grid-template-columns: 1fr;
   }
 
-  .tech-grid {
+  .docs-grid {
     grid-template-columns: 1fr;
   }
 
-  .footer-top {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .footer-bottom {
+  .hero-actions {
     flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .task-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-btn-group {
+    width: 100%;
+  }
+
+  .btn-task {
+    flex: 1;
     text-align: center;
   }
-
-  .filter-btn {
-    font-size: 0.75rem;
-    padding: 6px 14px;
-  }
 }
-

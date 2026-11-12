@@ -3,182 +3,385 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 08: Sass Preprocessor Architecture | Cognifyz Technologies</title>
+  <title>Foundry Design System &amp; Style Guide | Task 08 Sass Preprocessing</title>
   <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
-  
-  <!-- Compiled CSS generated from scss/styles.scss via Dart Sass -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Navigation Bar (Styled via SCSS Components) -->
-  <nav class="site-nav">
-    <div class="site-nav__container">
-      <a href="../../../index.html" class="site-nav__brand">
-        <span class="site-nav__brand-badge">SASS ENGINE</span>
-        <span class="site-nav__brand-title">Cognifyz SCSS Hub</span>
+  <!-- Design System Top Navbar -->
+  <header class="system-nav" role="banner">
+    <div class="system-nav__inner">
+      <a href="#overview" class="system-nav__brand">
+        <span class="system-nav__tag">FOUNDRY</span>
+        <span>Cognifyz Design System</span>
       </a>
-      <div>
-        <a href="index.html" class="site-nav__portal-link" style="margin-right: 10px;">&larr; Task Explanation</a>
-        <a href="../../../index.html" class="site-nav__portal-link">Main Portal</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Banner (Styled via SCSS Mixins & Variables) -->
-  <header class="hero-banner">
-    <div class="hero-banner__wrapper">
-      <div class="hero-banner__badge-group">
-        <span class="feature-panel__tag feature-panel__tag--partials">Level 4 &bull; Task 08</span>
-        <span class="feature-panel__tag feature-panel__tag--mixins">Dart Sass Engine</span>
-      </div>
-      <h1 class="hero-banner__title">
-        CSS Preprocessing with <span class="accent-gradient">Sass / SCSS</span>
-      </h1>
-      <p class="hero-banner__subtitle">
-        Architecting design tokens, modular partials, reusable mixins, and automated compilation pipelines using Dart Sass.
-      </p>
-      <div>
-        <a href="#code-architecture" class="btn-sass btn-sass--primary">Inspect Architecture</a>
-        <a href="#compilation-pipeline" class="btn-sass btn-sass--outline">View Build Pipeline</a>
-      </div>
+      <nav class="system-nav__links" aria-label="Style Guide Navigation">
+        <a href="#tokens-color">Color Tokens</a>
+        <a href="#tokens-typography">Typography</a>
+        <a href="#tokens-spacing">Spacing Scale</a>
+        <a href="#components">Components</a>
+        <a href="#architecture">SCSS Partials</a>
+        <a href="index.html">&larr; Task Explanation</a>
+        <a href="../../../index.html">Main Portal</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Main Showcase Grid -->
-  <main class="main-wrapper" id="code-architecture">
-    
-    <div class="section-intro">
-      <h2 class="section-intro__heading">Sass Architectural Pillars</h2>
-      <p class="section-intro__sub">
-        Demonstrating how SCSS partials, design tokens, mixins, and BEM nesting combine into maintainable stylesheets.
+  <!-- Main System Content Container -->
+  <main class="system-container" id="overview">
+
+    <!-- Design System Masthead -->
+    <header class="system-hero">
+      <span class="system-hero__tagline">Level 4: Expert &bull; Task 08 Modular Sass Preprocessing</span>
+      <h1 class="system-hero__title">Foundry Living Style Guide &amp; Design Tokens</h1>
+      <p class="system-hero__desc">
+        A structured frontend design system architected with modular Sass partials (<code>_variables.scss</code>, <code>_mixins.scss</code>, <code>_components.scss</code>). Demonstrating reusable tokens, parametric mixins, and BEM component nesting.
       </p>
-    </div>
+    </header>
 
-    <div class="sass-grid">
-      
-      <!-- Panel 1: Variables -->
-      <article class="feature-panel">
-        <div class="feature-panel__header">
-          <span class="feature-panel__tag feature-panel__tag--variables">Design Tokens</span>
-          <span style="font-size: 1.2rem;">🎨</span>
+    <!-- SECTION 1: Color Tokens & Palette -->
+    <section class="specimen-section" id="tokens-color" aria-label="Color System">
+      <h2 class="specimen-section__title">1. Color Tokens &amp; Semantic Palette</h2>
+      <p class="specimen-section__desc">
+        Brand, neutral, and semantic status colors declared as centralized Sass variables in <code>_variables.scss</code>.
+      </p>
+
+      <div class="swatches-palette-grid">
+        
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #2563eb;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Brand Primary</div>
+            <div class="color-token-card__hex">#2563eb</div>
+            <div class="color-token-card__token">$color-brand-primary</div>
+          </div>
         </div>
-        <h3 class="feature-panel__title">1. Reusable Variables</h3>
-        <p class="feature-panel__desc">
-          Centralized brand tokens for colors, spacing, typography, and breakpoints declared in <code>_variables.scss</code>.
-        </p>
-        <pre class="feature-panel__code-block"><code>// _variables.scss
-$color-navy-dark:  #0a0f1d;
-$color-cyan:       #38bdf8;
-$color-indigo:     #6366f1;
-$spacing-4:        1rem;
-$border-radius-lg: 16px;</code></pre>
-      </article>
 
-      <!-- Panel 2: Mixins & Functions -->
-      <article class="feature-panel">
-        <div class="feature-panel__header">
-          <span class="feature-panel__tag feature-panel__tag--mixins">Mixins &amp; Math</span>
-          <span style="font-size: 1.2rem;">⚙️</span>
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #1d4ed8;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Primary Dark</div>
+            <div class="color-token-card__hex">#1d4ed8</div>
+            <div class="color-token-card__token">$color-brand-primary-dark</div>
+          </div>
         </div>
-        <h3 class="feature-panel__title">2. Parametric Mixins</h3>
-        <p class="feature-panel__desc">
-          Reusable mixins for glassmorphism, responsive media queries, and <code>to-rem()</code> math conversion functions.
-        </p>
-        <pre class="feature-panel__code-block"><code>// _mixins.scss
-@mixin glassmorphism($blur: 14px) {
-  background: rgba($color-navy-card, 0.85);
-  backdrop-filter: blur($blur);
-  border: $border-glass;
-}
 
-@function to-rem($pixel) {
-  @return math.div($pixel, 16) * 1rem;
-}</code></pre>
-      </article>
-
-      <!-- Panel 3: Nested Selectors & BEM -->
-      <article class="feature-panel">
-        <div class="feature-panel__header">
-          <span class="feature-panel__tag feature-panel__tag--nesting">BEM &amp; Scope</span>
-          <span style="font-size: 1.2rem;">🌳</span>
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #0f172a;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Slate 900 (Ink)</div>
+            <div class="color-token-card__hex">#0f172a</div>
+            <div class="color-token-card__token">$color-slate-900</div>
+          </div>
         </div>
-        <h3 class="feature-panel__title">3. Nested Selectors &amp; '&amp;'</h3>
-        <p class="feature-panel__desc">
-          Clean DOM nesting with pseudo-states (<code>&:hover</code>) and BEM element/modifier scoping without repeating class names.
-        </p>
-        <pre class="feature-panel__code-block"><code>// _components.scss
-.btn-sass {
-  display: inline-flex;
-  &--primary {
-    @include btn-variant($color-cyan, #050811);
-  }
-  &:hover {
-    transform: translateY(-2px);
-  }
-}</code></pre>
-      </article>
 
-      <!-- Panel 4: Partials & @use -->
-      <article class="feature-panel">
-        <div class="feature-panel__header">
-          <span class="feature-panel__tag feature-panel__tag--partials">Modularity</span>
-          <span style="font-size: 1.2rem;">📦</span>
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #64748b;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Slate 500 (Muted)</div>
+            <div class="color-token-card__hex">#64748b</div>
+            <div class="color-token-card__token">$color-slate-500</div>
+          </div>
         </div>
-        <h3 class="feature-panel__title">4. Partials &amp; @use Directive</h3>
-        <p class="feature-panel__desc">
-          Organizing stylesheets into modular files imported via <code>@use</code> to prevent global namespace pollution.
-        </p>
-        <pre class="feature-panel__code-block"><code>// styles.scss
-@use "variables" as *;
-@use "mixins" as *;
-@use "components" as *;</code></pre>
-      </article>
 
-    </div>
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #16a34a;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Success Emerald</div>
+            <div class="color-token-card__hex">#16a34a</div>
+            <div class="color-token-card__token">$color-success</div>
+          </div>
+        </div>
 
-    <!-- Compilation Pipeline Workflow -->
-    <section class="pipeline-flow" id="compilation-pipeline">
-      <div class="feature-panel__header">
-        <span class="feature-panel__tag feature-panel__tag--partials">Build Workflow</span>
-        <span style="color: var(--color-cyan); font-family: monospace; font-size: 0.82rem;">package.json scripts</span>
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #d97706;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Warning Amber</div>
+            <div class="color-token-card__hex">#d97706</div>
+            <div class="color-token-card__token">$color-warning</div>
+          </div>
+        </div>
+
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #dc2626;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Danger Crimson</div>
+            <div class="color-token-card__hex">#dc2626</div>
+            <div class="color-token-card__token">$color-danger</div>
+          </div>
+        </div>
+
+        <div class="color-token-card">
+          <div class="color-token-card__preview" style="background-color: #0284c7;"></div>
+          <div class="color-token-card__details">
+            <div class="color-token-card__name">Info Cyan</div>
+            <div class="color-token-card__hex">#0284c7</div>
+            <div class="color-token-card__token">$color-info</div>
+          </div>
+        </div>
+
       </div>
-      <h3 style="color: #ffffff; margin-top: 8px;">Dart Sass Build &amp; Watch Lifecycle</h3>
-      <p style="color: #94a3b8; font-size: 0.9rem;">
-        The development process leverages npm scripts to compile SCSS partials into standard cross-browser CSS in real time:
+    </section>
+
+    <!-- SECTION 2: Typography Scale & Specimens -->
+    <section class="specimen-section" id="tokens-typography" aria-label="Typography System">
+      <h2 class="specimen-section__title">2. Typography Scale &amp; Type Hierarchy</h2>
+      <p class="specimen-section__desc">
+        Fluid modular typographic scale configured in rem units with standardized font-weight tokens.
       </p>
 
-      <div class="pipeline-flow__steps">
-        <div class="pipeline-flow__step-card">
-          <span class="step-num">STEP 01</span>
-          <h4>Authoring SCSS</h4>
-          <p>Developers write structured SCSS in <code>_variables.scss</code>, <code>_mixins.scss</code>, and <code>_components.scss</code>.</p>
+      <div style="overflow-x: auto;">
+        <table class="type-specimen-table">
+          <thead>
+            <tr>
+              <th>Specimen</th>
+              <th>Token Name</th>
+              <th>Size / Line Height</th>
+              <th>Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span style="font-size: 2.2rem; font-weight: 800; line-height: 1.2;">Display Title</span></td>
+              <td><code class="type-token">$font-size-display</code></td>
+              <td>2.5rem (40px) / 1.2</td>
+              <td>800 ($font-weight-black)</td>
+            </tr>
+            <tr>
+              <td><span style="font-size: 1.75rem; font-weight: 700;">Heading 1 &mdash; Primary Section</span></td>
+              <td><code class="type-token">$font-size-h1</code></td>
+              <td>2rem (32px) / 1.25</td>
+              <td>700 ($font-weight-bold)</td>
+            </tr>
+            <tr>
+              <td><span style="font-size: 1.35rem; font-weight: 700;">Heading 2 &mdash; Sub-Component</span></td>
+              <td><code class="type-token">$font-size-h2</code></td>
+              <td>1.5rem (24px) / 1.3</td>
+              <td>700 ($font-weight-bold)</td>
+            </tr>
+            <tr>
+              <td><span style="font-size: 1.15rem; font-weight: 600;">Heading 3 &mdash; Card Heading</span></td>
+              <td><code class="type-token">$font-size-h3</code></td>
+              <td>1.25rem (20px) / 1.4</td>
+              <td>600 ($font-weight-semibold)</td>
+            </tr>
+            <tr>
+              <td><span style="font-size: 1rem;">Body Copy &mdash; Clear and legible article text.</span></td>
+              <td><code class="type-token">$font-size-body</code></td>
+              <td>1rem (16px) / 1.6</td>
+              <td>400 ($font-weight-regular)</td>
+            </tr>
+            <tr>
+              <td><span style="font-size: 0.875rem; color: #64748b;">Small Text &mdash; Secondary captions and timestamps.</span></td>
+              <td><code class="type-token">$font-size-small</code></td>
+              <td>0.875rem (14px) / 1.5</td>
+              <td>400 ($font-weight-regular)</td>
+            </tr>
+            <tr>
+              <td><code style="font-family: var(--font-mono); font-size: 0.8rem; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">const token = "$space-4";</code></td>
+              <td><code class="type-token">$font-family-mono</code></td>
+              <td>0.8rem (13px)</td>
+              <td>500 ($font-weight-medium)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Spacing Scale Examples -->
+    <section class="specimen-section" id="tokens-spacing" aria-label="Spacing System">
+      <h2 class="specimen-section__title">3. Spacing Scale Tokens</h2>
+      <p class="specimen-section__desc">
+        A mathematical 4px baseline grid ensuring consistent rhythm across padding, margin, and layout gaps.
+      </p>
+
+      <div class="spacing-specimen-row">
+        
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 4px; height: 32px;"></div>
+          <div>$space-1</div>
+          <div style="color: #94a3b8;">4px</div>
         </div>
-        <div class="pipeline-flow__step-card">
-          <span class="step-num">STEP 02</span>
-          <h4>NPM Build Command</h4>
-          <p>Run <code>npm run build:sass</code> to invoke Dart Sass and generate expanded CSS with source maps.</p>
+
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 8px; height: 32px;"></div>
+          <div>$space-2</div>
+          <div style="color: #94a3b8;">8px</div>
         </div>
-        <div class="pipeline-flow__step-card">
-          <span class="step-num">STEP 03</span>
-          <h4>Live Watcher</h4>
-          <p>Run <code>npm run watch:sass</code> to automatically recompile when any SCSS partial is modified.</p>
+
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 12px; height: 32px;"></div>
+          <div>$space-3</div>
+          <div style="color: #94a3b8;">12px</div>
         </div>
-        <div class="pipeline-flow__step-card">
-          <span class="step-num">STEP 04</span>
-          <h4>Browser Output</h4>
-          <p>The compiled <code>css/styles.css</code> file is linked directly to HTML with full browser compatibility.</p>
+
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 16px; height: 32px;"></div>
+          <div>$space-4</div>
+          <div style="color: #94a3b8;">16px</div>
         </div>
+
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 24px; height: 32px;"></div>
+          <div>$space-5</div>
+          <div style="color: #94a3b8;">24px</div>
+        </div>
+
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 32px; height: 32px;"></div>
+          <div>$space-6</div>
+          <div style="color: #94a3b8;">32px</div>
+        </div>
+
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 48px; height: 32px;"></div>
+          <div>$space-8</div>
+          <div style="color: #94a3b8;">48px</div>
+        </div>
+
+        <div class="spacing-bar-item">
+          <div class="spacing-bar-item__box" style="width: 64px; height: 32px;"></div>
+          <div>$space-10</div>
+          <div style="color: #94a3b8;">64px</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: Reusable Component Library -->
+    <section class="specimen-section" id="components" aria-label="Component Showcase">
+      <h2 class="specimen-section__title">4. Reusable SCSS Component Library</h2>
+      <p class="specimen-section__desc">
+        Components defined via <code>_components.scss</code> consuming variables and <code>@include button-variant()</code> mixins.
+      </p>
+
+      <!-- Button Variations -->
+      <div style="margin-bottom: 28px;">
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Button Variations (BEM + Mixins):</h4>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+          <button class="btn btn--primary">Primary Button</button>
+          <button class="btn btn--secondary">Secondary</button>
+          <button class="btn btn--outline">Outline Action</button>
+          <button class="btn btn--danger">Danger Action</button>
+          <button class="btn btn--ghost">Ghost Link</button>
+          <button class="btn btn--primary btn--pill">Pill Shape</button>
+          <button class="btn btn--primary btn--sm">Small Button</button>
+          <button class="btn btn--primary btn--lg">Large Button</button>
+        </div>
+      </div>
+
+      <!-- Badge System -->
+      <div style="margin-bottom: 28px;">
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Badges &amp; Status Chips:</h4>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <span class="badge badge--primary">Primary Token</span>
+          <span class="badge badge--success">✓ Verified Active</span>
+          <span class="badge badge--warning">⚠ Pending Audit</span>
+          <span class="badge badge--danger">✕ Build Error</span>
+          <span class="badge badge--primary badge--pill">Pill Badge</span>
+        </div>
+      </div>
+
+      <!-- Alert Callouts -->
+      <div style="margin-bottom: 28px;">
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Alert Containers:</h4>
+        <div class="alert alert--info">
+          <strong>Information Notice:</strong> SCSS partials cleanly decouple design tokens from component logic.
+        </div>
+        <div class="alert alert--success">
+          <strong>Success State:</strong> Dart Sass compilation executed cleanly with 0 syntax warnings.
+        </div>
+        <div class="alert alert--warning">
+          <strong>Deprecation Warning:</strong> Legacy node-sass has been superseded by standard Dart Sass.
+        </div>
+      </div>
+
+      <!-- Reusable Card Component -->
+      <div>
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Structured Card Component:</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <article class="card">
+            <header class="card__header">
+              <h5 class="card__title">Modular Architecture</h5>
+              <span class="badge badge--success">Clean SCSS</span>
+            </header>
+            <div class="card__body">
+              Stylesheets are structured cleanly into single-responsibility partials prefixed with underscores. The main <code>styles.scss</code> serves as an import manifest.
+            </div>
+            <footer class="card__footer">
+              <button class="btn btn--secondary btn--sm">Inspect Mixins</button>
+            </footer>
+          </article>
+
+          <article class="card">
+            <header class="card__header">
+              <h5 class="card__title">Design Consistency</h5>
+              <span class="badge badge--primary">Design Tokens</span>
+            </header>
+            <div class="card__body">
+              Colors, spacing, and typographic scales are centralized. Updating a single token in <code>_variables.scss</code> cascades throughout every component.
+            </div>
+            <footer class="card__footer">
+              <button class="btn btn--primary btn--sm">View Variables</button>
+            </footer>
+          </article>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 5: SCSS Code Architecture Inspector -->
+    <section class="specimen-section" id="architecture" aria-label="SCSS Architecture">
+      <h2 class="specimen-section__title">5. Sass Architectural Source Code</h2>
+      <p class="specimen-section__desc">
+        Review the actual partial implementations showing parametric mixins, mathematical functions, and BEM selector nesting.
+      </p>
+
+      <div class="code-inspector-card">
+        <div class="code-inspector-card__header">scss/_mixins.scss &bull; Parametric Mixin Definition</div>
+        <pre><code>// Reusable Button Variant Generator Mixin
+@mixin button-variant($bg, $color, $border: transparent, $hover-bg: null) {
+  background-color: $bg;
+  color: $color;
+  border: 1px solid $border;
+
+  &:hover {
+    @if $hover-bg != null {
+      background-color: $hover-bg;
+    } @else {
+      background-color: darken($bg, 6%);
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($bg, 0.25);
+  }
+}</code></pre>
+      </div>
+
+      <div class="code-inspector-card">
+        <div class="code-inspector-card__header">scss/_components.scss &bull; BEM Selector Nesting</div>
+        <pre><code>.btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-family-sans;
+  padding: $space-2 $space-4;
+  border-radius: $radius-md;
+
+  &--primary {
+    @include button-variant($color-brand-primary, $color-white, $color-brand-primary);
+  }
+
+  &--danger {
+    @include button-variant($color-danger, $color-white, $color-danger);
+  }
+}</code></pre>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="brand-statement">Cognifyz Technologies &bull; Task 08: CSS Preprocessing with Sass</div>
-    <div>Compiled via Dart Sass &bull; Node.js Architecture</div>
-  </footer>
-
 </body>
 </html>
-

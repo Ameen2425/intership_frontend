@@ -127,14 +127,22 @@
           <span class="code-lang-badge">SCSS</span>
         </div>
         <div class="code-content">
-<pre><code><span class="syn-kw">@function</span> <span class="syn-fn">to-rem</span>($pixel) {
-  <span class="syn-kw">@return</span> math.div($pixel, <span class="syn-val">16</span>) * <span class="syn-val">1rem</span>;
+<pre><code><span class="syn-kw">@function</span> <span class="syn-fn">rem</span>($px, $base: 16) {
+  <span class="syn-kw">@return</span> math.div($px, $base) * <span class="syn-val">1rem</span>;
 }
 
-<span class="syn-kw">@mixin</span> <span class="syn-fn">glassmorphism</span>($blur: <span class="syn-val">14px</span>) {
-  <span class="syn-attr">background</span>: rgba($color-navy-card, <span class="syn-val">0.85</span>);
-  <span class="syn-attr">backdrop-filter</span>: blur($blur);
-  <span class="syn-attr">border</span>: <span class="syn-val">1px solid rgba(255, 255, 255, 0.14)</span>;
+<span class="syn-kw">@mixin</span> <span class="syn-fn">button-variant</span>($bg, $color, $border: transparent, $hover-bg: null) {
+  <span class="syn-attr">background-color</span>: $bg;
+  <span class="syn-attr">color</span>: $color;
+  <span class="syn-attr">border</span>: <span class="syn-val">1px solid $border</span>;
+
+  <span class="syn-kw">&amp;:hover</span> {
+    <span class="syn-kw">@if</span> $hover-bg != null {
+      <span class="syn-attr">background-color</span>: $hover-bg;
+    } <span class="syn-kw">@else</span> {
+      <span class="syn-attr">background-color</span>: darken($bg, 6%);
+    }
+  }
 }</code></pre>
         </div>
       </div>
@@ -145,10 +153,14 @@
           <span class="code-lang-badge">Compiled CSS</span>
         </div>
         <div class="code-content">
-<pre><code><span class="syn-tag">.feature-panel</span> {
-  <span class="syn-attr">background</span>: <span class="syn-val">rgba(15, 23, 42, 0.85)</span>;
-  <span class="syn-attr">backdrop-filter</span>: <span class="syn-val">blur(12px)</span>;
-  <span class="syn-attr">border</span>: <span class="syn-val">1px solid rgba(255, 255, 255, 0.14)</span>;
+<pre><code><span class="syn-tag">.btn--primary</span> {
+  <span class="syn-attr">background-color</span>: <span class="syn-val">#2563eb</span>;
+  <span class="syn-attr">color</span>: <span class="syn-val">#ffffff</span>;
+  <span class="syn-attr">border</span>: <span class="syn-val">1px solid #2563eb</span>;
+}
+<span class="syn-tag">.btn--primary:hover</span> {
+  <span class="syn-attr">background-color</span>: <span class="syn-val">#1d4ed8</span>;
+  <span class="syn-attr">border-color</span>: <span class="syn-val">#1d4ed8</span>;
 }</code></pre>
         </div>
       </div>

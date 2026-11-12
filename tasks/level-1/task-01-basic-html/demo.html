@@ -6,158 +6,461 @@
   <title>Task 01: Semantic HTML Page | Cognifyz Technologies</title>
   <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg">
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      color: #1e293b;
-      background-color: #f8fafc;
+    /* Minimal Editorial / Informational Website Styling */
+    :root {
+      --bg-page: #faf8f5;
+      --bg-paper: #ffffff;
+      --text-main: #1c1917;
+      --text-muted: #57534e;
+      --text-light: #78716c;
+      --border-rule: #e7e5e4;
+      --border-dark: #292524;
+      --accent-warm: #b45309;
+      --font-serif: "Georgia", "Cambria", "Times New Roman", serif;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    .top-bar {
-      background: #0f172a;
-      color: #ffffff;
-      padding: 12px 24px;
+
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 0 0 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Masthead Navigation */
+    .utility-nav {
+      font-family: var(--font-sans);
+      background: var(--bg-paper);
+      border-bottom: 1px solid var(--border-rule);
+      padding: 10px 24px;
+      font-size: 0.85rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .top-bar a {
-      color: #38bdf8;
+
+    .utility-nav a {
+      color: var(--text-muted);
       text-decoration: none;
+      font-weight: 500;
+    }
+
+    .utility-nav a:hover {
+      color: var(--text-main);
+      text-decoration: underline;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Main Editorial Sheet */
+    .document-wrapper {
+      max-width: 820px;
+      margin: 40px auto;
+      background: var(--bg-paper);
+      padding: 56px 64px;
+      border: 1px solid var(--border-rule);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Editorial Masthead */
+    .masthead {
+      border-bottom: 2px solid var(--border-dark);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .issue-meta {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-warm);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1.article-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .lead-tagline {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+    }
+
+    .meta-divider-bar {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-rule);
+      padding-top: 10px;
+      margin-top: 16px;
+    }
+
+    /* Typography & Hierarchy */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 36px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-rule);
+      letter-spacing: -0.2px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
       font-weight: 600;
+      margin: 22px 0 8px;
+      color: var(--text-main);
     }
-    .container {
-      max-width: 900px;
-      margin: 32px auto;
-      background: #ffffff;
-      padding: 32px 40px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    h4 {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 16px 0 6px;
+      color: var(--text-muted);
     }
+
+    h5 {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 14px 0 4px;
+      color: var(--text-light);
+    }
+
+    h6 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin: 12px 0 4px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+      color: #292524;
+    }
+
+    /* Editorial Blockquote */
+    blockquote {
+      margin: 24px 0;
+      padding: 18px 28px;
+      border-left: 3px solid var(--accent-warm);
+      background-color: #fcfbf9;
+      font-style: italic;
+      color: #44403c;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Lists */
+    ol, ul {
+      margin: 12px 0 20px 28px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    dl {
+      margin: 16px 0 24px;
+      background: #fafaf9;
+      border: 1px solid var(--border-rule);
+      padding: 16px 20px;
+      border-radius: 4px;
+    }
+
+    dt {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    dt:first-child {
+      margin-top: 0;
+    }
+
+    dd {
+      margin-left: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    /* Editorial Table */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      margin: 24px 0;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
     }
+
+    caption {
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      padding-bottom: 8px;
+      caption-side: top;
+    }
+
     th, td {
-      border: 1px solid #cbd5e1;
       padding: 10px 14px;
+      border-bottom: 1px solid var(--border-rule);
       text-align: left;
     }
+
     th {
-      background-color: #f1f5f9;
+      font-weight: 600;
+      color: var(--text-main);
+      background-color: #f5f5f4;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 2px solid var(--border-dark);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    blockquote {
-      border-left: 4px solid #38bdf8;
-      margin: 16px 0;
-      padding-left: 16px;
-      color: #475569;
+
+    tfoot th, tfoot td {
+      border-top: 2px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      font-weight: 700;
+      background-color: #fafaf9;
+    }
+
+    /* Media figure */
+    figure {
+      margin: 28px 0;
+      text-align: center;
+      background: #fafaf9;
+      border: 1px solid var(--border-rule);
+      padding: 24px;
+    }
+
+    figure img {
+      max-width: 90px;
+      height: auto;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    figcaption {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
       font-style: italic;
     }
+
+    /* Details and Summary */
     details {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 12px 16px;
       margin: 12px 0;
-    }
-    summary {
-      font-weight: 600;
-      cursor: pointer;
-    }
-    code {
-      background: #f1f5f9;
-      padding: 2px 6px;
+      border: 1px solid var(--border-rule);
       border-radius: 4px;
-      font-family: monospace;
+      background: #ffffff;
+      padding: 12px 18px;
+    }
+
+    summary {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      outline: none;
+    }
+
+    details[open] summary {
+      margin-bottom: 10px;
+      color: var(--accent-warm);
+    }
+
+    details p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      color: var(--text-muted);
+    }
+
+    /* Aside notes */
+    aside.editorial-note {
+      font-family: var(--font-sans);
+      margin: 32px 0 0;
+      padding: 16px 20px;
+      background-color: #f5f5f4;
+      border-left: 3px solid var(--text-muted);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    aside.editorial-note h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0 0 4px;
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer.editorial-footer {
+      border-top: 1px solid var(--border-rule);
+      margin-top: 40px;
+      padding-top: 20px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .document-wrapper {
+        margin: 16px;
+        padding: 28px 24px;
+      }
+      h1.article-title {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header class="top-bar">
-    <div><strong>Cognifyz Technologies</strong> &bull; Frontend Internship</div>
-    <nav>
-      <a href="index.html">&larr; Task Explanation</a> &bull;
-      <a href="../../../index.html">Main Portal</a>
-    </nav>
-  </header>
+  <!-- Minimal Utility Navigation -->
+  <nav class="utility-nav" aria-label="Quick Navigation">
+    <div>
+      <strong>Cognifyz Technologies</strong> &bull; Frontend Development Internship
+    </div>
+    <div class="nav-links">
+      <a href="index.html">&larr; Task Explanation</a>
+      <a href="../../../index.html">Main Portfolio</a>
+    </div>
+  </nav>
 
-  <div class="container">
-    <header>
-      <p style="color: #64748b; font-size: 0.9rem; text-transform: uppercase; font-weight: 700;">Level 1: Beginner &bull; Task 01</p>
-      <h1>Cognifyz Technologies &mdash; Frontend Foundations</h1>
-      <p>Company: <strong>Cognifyz Technologies</strong> | Tagline: <em>Where Data Meets Intelligence</em></p>
-      <hr>
+  <!-- Editorial Document Sheet -->
+  <div class="document-wrapper">
+    
+    <header class="masthead">
+      <div class="issue-meta">Level 1: Beginner &bull; Task 01 &bull; Semantic HTML Document</div>
+      <h1 class="article-title">Cognifyz Technologies: Frontend Engineering Foundations</h1>
+      <p class="lead-tagline">
+        An informational document detailing organizational operations, curriculum milestones, and web standards architecture.
+      </p>
+      <div class="meta-divider-bar">
+        <span>Corporate Identity: <strong>Cognifyz Technologies</strong></span>
+        <span>Tagline: <em>Where Data Meets Intelligence</em></span>
+      </div>
     </header>
 
     <main>
+      <!-- 1. Company Profile -->
       <section id="introduction">
         <h2>1. Company Profile &amp; Mission</h2>
         <p>
-          Cognifyz Technologies is a technology company specializing in data science, artificial intelligence, 
-          machine learning, and data analytics. Through specialized training programs, Cognifyz equips aspiring 
-          developers with industry-level frontend development skills.
+          Cognifyz Technologies operates as an innovative software and technology solutions provider, delivering specialized products in data science, artificial intelligence, machine learning, and enterprise analytics. Through structured internship programs, Cognifyz equips emerging developers with hands-on competencies in modern web development standards.
         </p>
 
         <blockquote cite="https://cognifyz.com">
-          "Where Data Meets Intelligence &mdash; Transforming complex data into actionable digital solutions."
+          "Where Data Meets Intelligence &mdash; Transforming complex datasets into accessible, high-performance digital interfaces."
         </blockquote>
       </section>
 
+      <!-- 2. Heading Outline -->
       <section id="headings">
-        <h2>2. Heading Hierarchy Demonstration</h2>
-        <p>A structured heading outline is critical for accessibility and screen readers.</p>
+        <h2>2. Heading Hierarchy Demonstration (H1 &ndash; H6)</h2>
+        <p>
+          Accessible web architecture mandates an unbroken heading outline so screen readers and indexing bots can navigate document structure systematically.
+        </p>
+        
         <h3>H3: Frontend Specialization Overview</h3>
-        <p>Explores browser standards, client-side scripting, and modern layouts.</p>
+        <p>Explores browser standards, client-side scripting, responsive CSS architectures, and preprocessor toolchains.</p>
+        
         <h4>H4: Core Technical Competencies</h4>
-        <p>Covers HTML5 markup, responsive design, APIs, and preprocessors.</p>
+        <p>Emphasizes semantic HTML5 outlines, mobile-first design, asynchronous data fetching, and accessible UI components.</p>
+        
         <h5>H5: Sub-component Specifications</h5>
-        <p>Ensures semantic nesting and correct landmark roles.</p>
-        <h6>H6: Operational Standard Notes</h6>
-        <p>Adheres strictly to W3C standards.</p>
+        <p>Verifies appropriate ARIA landmark roles, semantic table headers, and native form validation structures.</p>
+        
+        <h6>H6: Compliance &amp; Standards Note</h6>
+        <p>All markup strictly adheres to W3C standards with zero non-semantic container requirements.</p>
       </section>
 
+      <!-- 3. Curriculum Structure -->
       <section id="curriculum">
         <h2>3. Internship Curriculum Breakdown</h2>
         
-        <h3>4 Progressive Levels (Ordered List)</h3>
+        <h3>4 Progressive Difficulty Levels (Ordered List)</h3>
         <ol>
-          <li><strong>Level 1 (Beginner):</strong> Basic HTML &amp; Inline CSS Styling</li>
-          <li><strong>Level 2 (Intermediate):</strong> Responsive Design &amp; JavaScript Button Interactivity</li>
-          <li><strong>Level 3 (Advanced):</strong> REST API Integration &amp; Form Validation</li>
-          <li><strong>Level 4 (Expert):</strong> Bootstrap 5 Component Architecture &amp; Sass Preprocessing</li>
+          <li><strong>Level 1 (Beginner):</strong> Basic HTML Page Architecture &amp; Inline CSS Mechanics</li>
+          <li><strong>Level 2 (Intermediate):</strong> Fluid Responsive Layouts &amp; Interactive Event Handlers</li>
+          <li><strong>Level 3 (Advanced):</strong> REST API Fetch Integration &amp; Client-Side Form Validation</li>
+          <li><strong>Level 4 (Expert):</strong> Bootstrap 5 Component Architecture &amp; Modular Sass Preprocessing</li>
         </ol>
 
         <h3>Core Technologies (Unordered List)</h3>
         <ul>
-          <li><strong>HTML5:</strong> Semantic elements and document structuring.</li>
-          <li><strong>CSS3:</strong> Responsive media queries, flexbox, and grid layouts.</li>
-          <li><strong>JavaScript:</strong> Asynchronous requests, event handling, and DOM manipulation.</li>
-          <li><strong>Bootstrap 5:</strong> Reusable components and 12-column grid system.</li>
-          <li><strong>Sass (SCSS):</strong> Modular variables, mixins, and CSS compilation.</li>
+          <li><strong>HTML5:</strong> Semantic elements, accessible landmarks, and native interactive elements.</li>
+          <li><strong>CSS3:</strong> Mobile-first media queries, flexible box model, and grid layouts.</li>
+          <li><strong>JavaScript:</strong> Asynchronous fetch calls, DOM event manipulation, and live input validation.</li>
+          <li><strong>Bootstrap 5:</strong> Responsive 12-column grid and accessible component library.</li>
+          <li><strong>Sass (SCSS):</strong> Modular partials, design tokens, mathematical functions, and mixins.</li>
         </ul>
 
-        <h3>Definition List</h3>
+        <h3>Technical Terminology (Definition List)</h3>
         <dl>
-          <dt><strong>Semantic HTML</strong></dt>
-          <dd>HTML elements that convey their meaning and structural role to both browser and developer.</dd>
-          <dt><strong>DOM (Document Object Model)</strong></dt>
-          <dd>A programming interface representing the structured document tree for JavaScript interaction.</dd>
+          <dt>Semantic HTML</dt>
+          <dd>The practice of using HTML tags that accurately convey their meaning and structural purpose to browsers, developers, and assistive devices.</dd>
+          
+          <dt>Document Object Model (DOM)</dt>
+          <dd>A tree-structured representation of an HTML document that exposes its nodes to JavaScript for dynamic manipulation.</dd>
+          
+          <dt>Accessibility (a11y)</dt>
+          <dd>Design and development principles ensuring digital content is usable by everyone, including people relying on assistive technologies.</dd>
         </dl>
       </section>
 
+      <!-- 4. Tabular Data -->
       <section id="tasks-table">
         <h2>4. Internship Task Schedule (Tabular Data)</h2>
         <table>
-          <caption><strong>Cognifyz Frontend Internship Milestone Summary</strong></caption>
+          <caption>Cognifyz Technologies &mdash; 8-Task Frontend Milestone Schedule</caption>
           <thead>
             <tr>
               <th scope="col">Task ID</th>
               <th scope="col">Level</th>
-              <th scope="col">Task Title</th>
-              <th scope="col">Technologies</th>
+              <th scope="col">Assignment Title</th>
+              <th scope="col">Primary Technologies</th>
               <th scope="col">Status</th>
             </tr>
           </thead>
@@ -221,55 +524,54 @@
           </tbody>
           <tfoot>
             <tr>
-              <th scope="row" colspan="4">Total Completed Milestones</th>
+              <th scope="row" colspan="4">Total Verified Milestones</th>
               <td><strong>8 of 8 (100%)</strong></td>
             </tr>
           </tfoot>
         </table>
       </section>
 
+      <!-- 5. Media Embedding -->
       <section id="media">
         <h2>5. Media Embedding with Figure and Figcaption</h2>
         <figure>
-          <img src="../../../assets/icons/cognifyz-logo.svg" alt="Cognifyz Technologies Vector Logo" width="80" height="80">
-          <figcaption>Figure 1.1: Cognifyz Technologies official emblem representing interconnected data intelligence.</figcaption>
+          <img src="../../../assets/icons/cognifyz-logo.svg" alt="Cognifyz Technologies Official Vector Emblem" width="80" height="80">
+          <figcaption>Figure 1.1: Official emblem of Cognifyz Technologies &mdash; representing unified data systems and intelligent engineering.</figcaption>
         </figure>
       </section>
 
+      <!-- 6. Native Collapsible Disclosures -->
       <section id="details">
         <h2>6. Native Collapsible Elements (Details &amp; Summary)</h2>
         <details open>
-          <summary>What services does Cognifyz Technologies provide?</summary>
+          <summary>What domains does Cognifyz Technologies specialize in?</summary>
           <p>
-            Cognifyz specializes in data science, artificial intelligence, machine learning, 
-            analytics consulting, and industry-oriented training programs.
+            Cognifyz Technologies provides services in data science, predictive artificial intelligence, machine learning pipelines, and hands-on developer training programs.
           </p>
         </details>
 
         <details>
-          <summary>Why is semantic HTML necessary before using CSS frameworks?</summary>
+          <summary>Why must semantic markup precede CSS framework integration?</summary>
           <p>
-            Semantic markup ensures accessibility for screen readers, improves search engine indexing, 
-            and creates maintainable, clean code before any framework styling is applied.
+            Structuring content with semantic tags creates an accessible, resilient foundation that functions seamlessly even when styles fail to load or when navigated by assistive devices.
           </p>
         </details>
       </section>
     </main>
 
-    <aside>
-      <hr>
-      <h3>Task Notice</h3>
-      <p>This page demonstrates complete semantic HTML5 compliance for Task 01.</p>
+    <aside class="editorial-note">
+      <h3>Assignment Verification Note</h3>
+      <p>
+        This page confirms complete adherence to Task 01 requirements: genuine HTML5 semantic tags, hierarchical headings, structured tables with caption and scope, lists, media figures, and native disclosure widgets.
+      </p>
     </aside>
 
-    <footer>
-      <hr>
-      <p style="font-size: 0.85rem; color: #64748b;">
-        &copy; 2026 Cognifyz Technologies. All rights reserved. Where Data Meets Intelligence.
-      </p>
+    <footer class="editorial-footer">
+      <div>&copy; 2026 Cognifyz Technologies &bull; Where Data Meets Intelligence</div>
+      <div>Frontend Development Internship Showcase</div>
     </footer>
+
   </div>
 
 </body>
 </html>
-

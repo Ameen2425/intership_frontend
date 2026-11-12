@@ -1,6 +1,7 @@
 /**
- * Cognifyz Technologies - Task 06: Form Styling & Validation
- * Real-time client-side validation with regex, password entropy, and summary modal.
+ * Cognifyz Technologies - Task 06: Candidate Registration Form Validation
+ * Clean, standard JavaScript validation logic for inputs, regex checks,
+ * password entropy rating, and accessible submission feedback.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const phoneInput = document.getElementById('phone');
   const passwordInput = document.getElementById('password');
   const confirmPasswordInput = document.getElementById('confirm-password');
+  const trackSelect = document.getElementById('track');
   const messageInput = document.getElementById('message');
   const termsCheckbox = document.getElementById('terms');
   const clearBtn = document.getElementById('clear-btn');
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const togglePasswordBtn = document.getElementById('toggle-password-btn');
   const toggleConfirmPasswordBtn = document.getElementById('toggle-confirm-password-btn');
   const charCounter = document.getElementById('char-counter');
-  const strengthMeterBar = document.getElementById('strength-meter-bar');
+  const strengthBarFill = document.getElementById('strength-bar-fill');
   const strengthLabel = document.getElementById('strength-label');
   const strengthHint = document.getElementById('strength-hint');
 
@@ -28,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Regex patterns
   const NAME_REGEX = /^[a-zA-Z\s]{3,50}$/;
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  const PHONE_REGEX = /^\+?(\d[\d-. ]+)?(\([\d-. ]+\))?[\d-. ]{10,15}$/;
 
   function setFieldState(groupId, isValid, customMsg = null) {
     const group = document.getElementById(groupId);
@@ -100,44 +101,41 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  // Calculate password strength score based on length, cases, numbers, and symbols
   function evaluatePasswordStrength(val) {
     let score = 0;
-    if (val.length >= 8) score += 1;
-    if (/[A-Z]/.test(val)) score += 1;
-    if (/[0-9]/.test(val)) score += 1;
-    if (/[^A-Za-z0-9]/.test(val)) score += 1;
+    if (val.length >= 8) score++;
+    if (val.length >= 12) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
 
-    if (val.length === 0) {
-      strengthMeterBar.style.width = '0%';
-      strengthMeterBar.style.backgroundColor = '#334155';
+    if (!val) {
+      strengthBarFill.style.width = '0%';
+      strengthBarFill.style.backgroundColor = '#e2e8f0';
       strengthLabel.textContent = 'None';
       strengthLabel.style.color = 'var(--text-muted)';
-      strengthHint.textContent = 'Min. 8 chars, 1 uppercase, 1 digit, 1 symbol';
-    } else if (score <= 1) {
-      strengthMeterBar.style.width = '25%';
-      strengthMeterBar.style.backgroundColor = '#ef4444';
+      strengthHint.textContent = 'Use uppercase, digits & symbols';
+      return score;
+    }
+
+    if (score <= 2) {
+      strengthBarFill.style.width = '30%';
+      strengthBarFill.style.backgroundColor = '#ef4444';
       strengthLabel.textContent = 'Weak';
-      strengthLabel.style.color = '#ef4444';
-      strengthHint.textContent = 'Add uppercase, numbers, and symbols';
-    } else if (score === 2) {
-      strengthMeterBar.style.width = '50%';
-      strengthMeterBar.style.backgroundColor = '#f59e0b';
-      strengthLabel.textContent = 'Fair';
-      strengthLabel.style.color = '#f59e0b';
-      strengthHint.textContent = 'Add symbols to strengthen';
-    } else if (score === 3) {
-      strengthMeterBar.style.width = '75%';
-      strengthMeterBar.style.backgroundColor = '#38bdf8';
-      strengthLabel.textContent = 'Good';
-      strengthLabel.style.color = '#38bdf8';
-      strengthHint.textContent = 'Strong combination';
+      strengthLabel.style.color = '#dc2626';
+      strengthHint.textContent = 'Add numbers and special characters';
+    } else if (score <= 4) {
+      strengthBarFill.style.width = '70%';
+      strengthBarFill.style.backgroundColor = '#f59e0b';
+      strengthLabel.textContent = 'Moderate';
+      strengthLabel.style.color = '#d97706';
+      strengthHint.textContent = 'Good start &bull; Add more symbols';
     } else {
-      strengthMeterBar.style.width = '100%';
-      strengthMeterBar.style.backgroundColor = '#10b981';
-      strengthLabel.textContent = 'Excellent';
-      strengthLabel.style.color = '#10b981';
-      strengthHint.textContent = 'Secure password';
+      strengthBarFill.style.width = '100%';
+      strengthBarFill.style.backgroundColor = '#16a34a';
+      strengthLabel.textContent = 'Strong';
+      strengthLabel.style.color = '#16a34a';
+      strengthHint.textContent = 'Strong password criteria met';
     }
 
     return score;
@@ -158,14 +156,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function validateConfirmPassword() {
-    const passwordVal = passwordInput.value;
-    const confirmVal = confirmPasswordInput.value;
-
-    if (!confirmVal) {
+    const pwd = passwordInput.value;
+    const confirm = confirmPasswordInput.value;
+    if (!confirm) {
       setFieldState('group-confirm-password', false, 'Please confirm your password.');
       return false;
     }
-    if (confirmVal !== passwordVal) {
+    if (pwd !== confirm) {
       setFieldState('group-confirm-password', false, 'Passwords do not match.');
       return false;
     }
@@ -173,24 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  function validateGender() {
-    const selected = document.querySelector('input[name="gender"]:checked');
-    if (!selected) {
-      setFieldState('group-gender', false, 'Please select your gender.');
-      return false;
-    }
-    setFieldState('group-gender', true);
-    return true;
-  }
-
   function validateMessage() {
     const val = messageInput.value.trim();
     if (!val) {
-      setFieldState('group-message', false, 'Message is required.');
+      setFieldState('group-message', false, 'Statement of interest is required.');
       return false;
     }
     if (val.length < 20) {
-      setFieldState('group-message', false, `Message must be at least 20 characters (currently ${val.length}).`);
+      setFieldState('group-message', false, `Please enter at least 20 characters (current: ${val.length}).`);
       return false;
     }
     setFieldState('group-message', true);
@@ -199,98 +186,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function validateTerms() {
     if (!termsCheckbox.checked) {
-      setFieldState('group-terms', false, 'You must agree before submitting.');
+      setFieldState('group-terms', false, 'You must agree to the guidelines to continue.');
       return false;
     }
     setFieldState('group-terms', true);
     return true;
   }
 
-  function setupPasswordToggle(btn, input) {
-    btn.addEventListener('click', () => {
-      const isPassword = input.getAttribute('type') === 'password';
-      input.setAttribute('type', isPassword ? 'text' : 'password');
-      btn.textContent = isPassword ? '🙈' : '👁️';
-    });
-  }
-  setupPasswordToggle(togglePasswordBtn, passwordInput);
-  setupPasswordToggle(toggleConfirmPasswordBtn, confirmPasswordInput);
+  // Real-time listener attachments
+  fullnameInput.addEventListener('blur', validateFullName);
+  fullnameInput.addEventListener('input', () => {
+    if (fullnameInput.parentElement.parentElement.classList.contains('has-error')) {
+      validateFullName();
+    }
+  });
 
-  // Live input events
-  fullnameInput.addEventListener('input', validateFullName);
-  emailInput.addEventListener('input', validateEmail);
-  phoneInput.addEventListener('input', validatePhone);
+  emailInput.addEventListener('blur', validateEmail);
+  emailInput.addEventListener('input', () => {
+    if (emailInput.parentElement.parentElement.classList.contains('has-error')) {
+      validateEmail();
+    }
+  });
+
+  phoneInput.addEventListener('blur', validatePhone);
+  phoneInput.addEventListener('input', () => {
+    if (phoneInput.parentElement.parentElement.classList.contains('has-error')) {
+      validatePhone();
+    }
+  });
 
   passwordInput.addEventListener('input', () => {
     evaluatePasswordStrength(passwordInput.value);
-    validatePassword();
-    if (confirmPasswordInput.value) validateConfirmPassword();
+    if (passwordInput.parentElement.parentElement.classList.contains('has-error')) {
+      validatePassword();
+    }
+    if (confirmPasswordInput.value) {
+      validateConfirmPassword();
+    }
   });
+  passwordInput.addEventListener('blur', validatePassword);
 
-  confirmPasswordInput.addEventListener('input', validateConfirmPassword);
-
-  document.querySelectorAll('input[name="gender"]').forEach(radio => {
-    radio.addEventListener('change', validateGender);
+  confirmPasswordInput.addEventListener('blur', validateConfirmPassword);
+  confirmPasswordInput.addEventListener('input', () => {
+    if (confirmPasswordInput.parentElement.parentElement.classList.contains('has-error')) {
+      validateConfirmPassword();
+    }
   });
 
   messageInput.addEventListener('input', () => {
-    const count = messageInput.value.length;
-    charCounter.textContent = `${count} / 500 characters`;
-    charCounter.style.color = count >= 480 ? '#ef4444' : 'var(--text-muted)';
-    validateMessage();
+    charCounter.textContent = messageInput.value.length;
+    if (messageInput.parentElement.classList.contains('has-error')) {
+      validateMessage();
+    }
   });
+  messageInput.addEventListener('blur', validateMessage);
 
   termsCheckbox.addEventListener('change', validateTerms);
 
-  // Clear Form
-  clearBtn.addEventListener('click', () => {
-    if (confirm('Clear all form fields?')) {
-      form.reset();
-      [
-        'group-fullname', 'group-email', 'group-phone', 
-        'group-password', 'group-confirm-password', 
-        'group-gender', 'group-message', 'group-terms'
-      ].forEach(clearFieldState);
-      evaluatePasswordStrength('');
-      charCounter.textContent = '0 / 500 characters';
-    }
+  // Peek toggles
+  togglePasswordBtn.addEventListener('click', () => {
+    const isPwd = passwordInput.type === 'password';
+    passwordInput.type = isPwd ? 'text' : 'password';
+    togglePasswordBtn.textContent = isPwd ? '🙈' : '👁️';
   });
 
-  // Form Submit
+  toggleConfirmPasswordBtn.addEventListener('click', () => {
+    const isPwd = confirmPasswordInput.type === 'password';
+    confirmPasswordInput.type = isPwd ? 'text' : 'password';
+    toggleConfirmPasswordBtn.textContent = isPwd ? '🙈' : '👁️';
+  });
+
+  // Clear button
+  clearBtn.addEventListener('click', () => {
+    form.reset();
+    ['group-fullname', 'group-email', 'group-phone', 'group-password', 'group-confirm-password', 'group-track', 'group-message', 'group-terms'].forEach(clearFieldState);
+    charCounter.textContent = '0';
+    evaluatePasswordStrength('');
+  });
+
+  // Form Submission
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const isValid = validateFullName() && validateEmail() && validatePhone() && 
-                    validatePassword() && validateConfirmPassword() && 
-                    validateGender() && validateMessage() && validateTerms();
+    const isNameValid = validateFullName();
+    const isEmailValid = validateEmail();
+    const isPhoneValid = validatePhone();
+    const isPwdValid = validatePassword();
+    const isConfirmValid = validateConfirmPassword();
+    const isMsgValid = validateMessage();
+    const isTermsValid = validateTerms();
 
-    if (!isValid) {
-      const firstError = document.querySelector('.form-group.has-error');
+    if (isNameValid && isEmailValid && isPhoneValid && isPwdValid && isConfirmValid && isMsgValid && isTermsValid) {
+      submissionSummary.innerHTML = `
+        <div><strong>Applicant Name:</strong> ${fullnameInput.value.trim()}</div>
+        <div><strong>Email Address:</strong> ${emailInput.value.trim()}</div>
+        <div><strong>Contact Phone:</strong> ${phoneInput.value.trim()}</div>
+        <div><strong>Chosen Specialization:</strong> ${trackSelect.options[trackSelect.selectedIndex].text}</div>
+        <div><strong>Statement:</strong> ${messageInput.value.trim()}</div>
+        <div style="margin-top: 8px; color: var(--color-success); font-weight: 700;">✓ Verified against client-side validation rules</div>
+      `;
+      successModal.classList.add('open');
+    } else {
+      const firstError = document.querySelector('.form-group.has-error input, .form-group.has-error textarea');
       if (firstError) {
-        const input = firstError.querySelector('input, textarea');
-        if (input) input.focus();
+        firstError.focus();
       }
-      return;
     }
-
-    const selectedGender = document.querySelector('input[name="gender"]:checked').value;
-    submissionSummary.innerHTML = `
-      <div class="summary-item"><span class="summary-label">Full Name:</span><span class="summary-val">${fullnameInput.value.trim()}</span></div>
-      <div class="summary-item"><span class="summary-label">Email:</span><span class="summary-val">${emailInput.value.trim()}</span></div>
-      <div class="summary-item"><span class="summary-label">Phone:</span><span class="summary-val">${phoneInput.value.trim()}</span></div>
-      <div class="summary-item"><span class="summary-label">Gender:</span><span class="summary-val">${selectedGender}</span></div>
-      <div class="summary-item"><span class="summary-label">Message Length:</span><span class="summary-val">${messageInput.value.trim().length} chars</span></div>
-      <div class="summary-item"><span class="summary-label">Submission Time:</span><span class="summary-val">${new Date().toLocaleTimeString()}</span></div>
-    `;
-
-    successModal.style.display = 'flex';
   });
 
   closeSuccessModalBtn.addEventListener('click', () => {
-    successModal.style.display = 'none';
+    successModal.classList.remove('open');
   });
 
   successModal.addEventListener('click', (e) => {
-    if (e.target === successModal) successModal.style.display = 'none';
+    if (e.target === successModal) {
+      successModal.classList.remove('open');
+    }
   });
 });

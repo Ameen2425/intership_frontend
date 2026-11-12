@@ -1,85 +1,74 @@
 // ==========================================================================
-// COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
-// SASS PREPROCESSING ARCHITECTURE: _variables.scss
+// FOUNDRY DESIGN SYSTEM - SCSS DESIGN TOKENS (_variables.scss)
 // ==========================================================================
 
-// --- BRAND COLOR SYSTEM ---
-$color-navy-darkest:  #050811;
-$color-navy-dark:     #0a0f1d;
-$color-navy-card:     #0f172a;
-$color-navy-card-alt: #1e293b;
-$color-slate-border:  #334155;
+// Color Palette: Brand Primary
+$color-brand-primary:      #2563eb;
+$color-brand-primary-dark: #1d4ed8;
+$color-brand-primary-light:#3b82f6;
+$color-brand-primary-subtle:#eff6ff;
 
-$color-cyan:          #38bdf8;
-$color-indigo:        #6366f1;
-$color-purple:        #a855f7;
-$color-pink:          #ec4899;
-$color-emerald:       #10b981;
-$color-amber:         #f59e0b;
+// Color Palette: Neutrals & Slate
+$color-slate-900: #0f172a;
+$color-slate-800: #1e293b;
+$color-slate-700: #334155;
+$color-slate-600: #475569;
+$color-slate-500: #64748b;
+$color-slate-400: #94a3b8;
+$color-slate-300: #cbd5e1;
+$color-slate-200: #e2e8f0;
+$color-slate-100: #f1f5f9;
+$color-slate-50:  #f8fafc;
+$color-white:     #ffffff;
 
-$color-text-primary:   #f8fafc;
-$color-text-secondary: #94a3b8;
-$color-text-muted:     #64748b;
+// Color Palette: Semantics & Status
+$color-success:        #16a34a;
+$color-success-subtle: #dcfce7;
+$color-warning:        #d97706;
+$color-warning-subtle: #fef3c7;
+$color-danger:         #dc2626;
+$color-danger-subtle:  #fee2e2;
+$color-info:           #0284c7;
+$color-info-subtle:    #e0f2fe;
 
-// --- GRADIENTS ---
-$gradient-primary: linear-gradient(135deg, $color-cyan 0%, $color-indigo 50%, $color-purple 100%);
-$gradient-accent:  linear-gradient(135deg, $color-indigo 0%, $color-pink 100%);
-$gradient-surface: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+// Typography Tokens
+$font-family-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+$font-family-mono: 'JetBrains Mono', Consolas, monospace;
 
-// --- TYPOGRAPHY ---
-$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$font-family-mono: Consolas, Monaco, "Courier New", Courier, monospace;
+$font-size-display: 2.5rem;   // 40px
+$font-size-h1:      2rem;     // 32px
+$font-size-h2:      1.5rem;   // 24px
+$font-size-h3:      1.25rem;  // 20px
+$font-size-body:    1rem;     // 16px
+$font-size-small:   0.875rem; // 14px
+$font-size-xs:      0.75rem;  // 12px
 
-$font-size-base: 1rem;       // 16px
-$font-size-xs:   0.75rem;    // 12px
-$font-size-sm:   0.875rem;   // 14px
-$font-size-md:   1rem;       // 16px
-$font-size-lg:   1.25rem;    // 20px
-$font-size-xl:   1.75rem;    // 28px
-$font-size-2xl:  2.5rem;     // 40px
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-semibold:600;
+$font-weight-bold:    700;
+$font-weight-black:   800;
 
-$font-weight-light:  300;
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-bold:   700;
-$font-weight-black:  900;
+// Spacing Scale (4px baseline)
+$space-1:  0.25rem;  // 4px
+$space-2:  0.5rem;   // 8px
+$space-3:  0.75rem;  // 12px
+$space-4:  1rem;     // 16px
+$space-5:  1.5rem;   // 24px
+$space-6:  2rem;     // 32px
+$space-8:  3rem;     // 48px
+$space-10: 4rem;     // 64px
 
-// --- SPACING SCALE ---
-$spacing-1: 0.25rem;  // 4px
-$spacing-2: 0.5rem;   // 8px
-$spacing-3: 0.75rem;  // 12px
-$spacing-4: 1rem;     // 16px
-$spacing-5: 1.5rem;   // 24px
-$spacing-6: 2rem;     // 32px
-$spacing-7: 3rem;     // 48px
-$spacing-8: 4rem;     // 64px
+// Borders & Radii
+$radius-sm:   4px;
+$radius-md:   8px;
+$radius-lg:   12px;
+$radius-full: 9999px;
 
-// --- BORDERS & RADIUS ---
-$border-radius-sm: 6px;
-$border-radius-md: 10px;
-$border-radius-lg: 16px;
-$border-radius-xl: 24px;
-$border-radius-pill: 9999px;
+$border-subtle: 1px solid $color-slate-200;
+$border-strong: 1px solid $color-slate-300;
 
-$border-subtle: 1px solid rgba(255, 255, 255, 0.08);
-$border-glass:  1px solid rgba(255, 255, 255, 0.14);
-
-// --- SHADOWS ---
-$shadow-sm:  0 2px 4px rgba(0, 0, 0, 0.2);
-$shadow-md:  0 4px 12px rgba(0, 0, 0, 0.35);
-$shadow-lg:  0 10px 25px rgba(0, 0, 0, 0.5);
-$shadow-glow: 0 0 20px rgba(56, 189, 248, 0.3);
-
-// --- TRANSITIONS ---
-$transition-fast: 0.18s ease;
-$transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-$transition-slow: 0.45s ease;
-
-// --- RESPONSIVE BREAKPOINTS MAP ---
-$breakpoints: (
-  'mobile':  576px,
-  'tablet':  768px,
-  'laptop':  1024px,
-  'desktop': 1200px
-);
-
+// Elevation Shadows
+$shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.06);

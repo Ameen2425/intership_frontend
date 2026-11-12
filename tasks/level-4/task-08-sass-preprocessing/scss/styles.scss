@@ -1,120 +1,258 @@
 // ==========================================================================
-// COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
-// SASS PREPROCESSING ARCHITECTURE: styles.scss (MAIN MANIFEST)
+// FOUNDRY DESIGN SYSTEM - MAIN SCSS STYLESHEET (styles.scss)
 // ==========================================================================
 
 @use "variables" as *;
 @use "mixins" as *;
 @use "components" as *;
 
-// --- RESET & BASE DOCUMENT STYLES ---
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  font-family: $font-family-base;
-  background-color: $color-navy-dark;
-  color: $color-text-primary;
-  line-height: 1.6;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  @include custom-scrollbar(8px);
-}
-
 body {
-  min-height: 100vh;
-  @include flex(flex-start, stretch, column);
+  font-family: $font-family-sans;
+  background-color: $color-slate-50;
+  color: $color-slate-800;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-// --- MAIN PAGE LAYOUT ---
-.main-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: $spacing-6 $spacing-5;
-  width: 100%;
-}
+// Navigation Bar
+.system-nav {
+  background: $color-white;
+  border-bottom: $border-subtle;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: $space-3 $space-5;
 
-.section-intro {
-  text-align: center;
-  margin-bottom: $spacing-6;
-
-  &__heading {
-    font-size: to-rem(32);
-    font-weight: $font-weight-black;
-    color: $color-text-primary;
-    margin-bottom: $spacing-2;
-  }
-
-  &__sub {
-    color: $color-text-secondary;
-    font-size: $font-size-md;
-    max-width: 680px;
+  &__inner {
+    max-width: 1140px;
     margin: 0 auto;
-  }
-}
-
-// --- WORKFLOW COMPARISON MATRIX ---
-.pipeline-flow {
-  @include glassmorphism(14px, 0.88);
-  border-radius: $border-radius-lg;
-  padding: $spacing-5;
-  margin-bottom: $spacing-6;
-
-  &__steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: $spacing-4;
-    margin-top: $spacing-4;
+    @include flex(space-between, center);
+    flex-wrap: wrap;
+    gap: $space-3;
   }
 
-  &__step-card {
-    background: rgba($color-navy-darkest, 0.6);
-    border: 1px solid $color-slate-border;
-    border-radius: $border-radius-md;
-    padding: $spacing-4;
-    position: relative;
+  &__brand {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-body;
+    color: $color-slate-900;
+    text-decoration: none;
+    @include flex(flex-start, center);
+    gap: $space-2;
+  }
 
-    .step-num {
-      position: absolute;
-      top: 12px;
-      right: 14px;
-      font-size: $font-size-xs;
-      font-family: $font-family-mono;
-      color: $color-cyan;
-      font-weight: $font-weight-bold;
-    }
+  &__tag {
+    background: $color-slate-900;
+    color: $color-white;
+    font-size: $font-size-xs;
+    font-family: $font-family-mono;
+    padding: 3px $space-2;
+    border-radius: $radius-sm;
+  }
 
-    h4 {
-      font-size: $font-size-md;
-      color: $color-text-primary;
-      margin-bottom: $spacing-2;
-    }
+  &__links a {
+    color: $color-slate-600;
+    text-decoration: none;
+    font-size: $font-size-small;
+    font-weight: $font-weight-semibold;
+    margin-left: $space-4;
 
-    p {
-      font-size: $font-size-xs;
-      color: $color-text-secondary;
-      line-height: 1.5;
+    &:hover {
+      color: $color-slate-900;
     }
   }
 }
 
-// --- FOOTER ---
-.site-footer {
-  background: $color-navy-darkest;
-  border-top: $border-subtle;
-  padding: $spacing-5;
-  margin-top: auto;
+// Main Documentation Layout
+.system-container {
+  max-width: 1140px;
+  margin: $space-6 auto $space-10;
+  padding: 0 $space-5;
+}
+
+// Design System Hero Header
+.system-hero {
+  border-bottom: 2px solid $color-slate-900;
+  padding-bottom: $space-5;
+  margin-bottom: $space-8;
+
+  &__tagline {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $color-brand-primary;
+    margin-bottom: $space-2;
+    display: block;
+  }
+
+  &__title {
+    font-size: $font-size-display;
+    font-weight: $font-weight-black;
+    color: $color-slate-900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: $space-3;
+  }
+
+  &__desc {
+    font-size: $font-size-body;
+    color: $color-slate-600;
+    max-width: 760px;
+    line-height: 1.6;
+  }
+}
+
+// Specimen Section Wrappers
+.specimen-section {
+  background: $color-white;
+  border: $border-subtle;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  margin-bottom: $space-6;
+  box-shadow: $shadow-sm;
+
+  &__title {
+    font-size: $font-size-h2;
+    font-weight: $font-weight-bold;
+    color: $color-slate-900;
+    margin-bottom: $space-2;
+  }
+
+  &__desc {
+    font-size: $font-size-small;
+    color: $color-slate-500;
+    margin-bottom: $space-5;
+  }
+}
+
+// Color Palette Grid
+.swatches-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $space-4;
+}
+
+.color-token-card {
+  border: $border-subtle;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  &__preview {
+    height: 72px;
+    width: 100%;
+  }
+
+  &__details {
+    padding: $space-3;
+    background: $color-white;
+  }
+
+  &__name {
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    color: $color-slate-900;
+  }
+
+  &__hex {
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    color: $color-slate-500;
+  }
+
+  &__token {
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    color: $color-brand-primary;
+    margin-top: 2px;
+  }
+}
+
+// Typography Specimen Table
+.type-specimen-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: $space-3 $space-4;
+    text-align: left;
+    border-bottom: $border-subtle;
+  }
+
+  th {
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    color: $color-slate-500;
+    background: $color-slate-50;
+  }
+
+  .type-token {
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    color: $color-brand-primary;
+  }
+}
+
+// Spacing Specimen Row
+.spacing-specimen-row {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-4;
+  flex-wrap: wrap;
+  padding: $space-4;
+  background: $color-slate-50;
+  border: $border-subtle;
+  border-radius: $radius-md;
+}
+
+.spacing-bar-item {
   text-align: center;
+  font-family: $font-family-mono;
   font-size: $font-size-xs;
-  color: $color-text-muted;
+  color: $color-slate-600;
 
-  .brand-statement {
-    color: $color-text-secondary;
-    font-size: $font-size-sm;
-    margin-bottom: $spacing-1;
+  &__box {
+    background: $color-brand-primary;
+    border-radius: 2px;
+    margin: 0 auto $space-2;
   }
 }
 
+// Code Block Inspector
+.code-inspector-card {
+  background: $color-slate-900;
+  border-radius: $radius-md;
+  overflow: hidden;
+  margin-top: $space-4;
+
+  &__header {
+    background: $color-slate-800;
+    padding: $space-2 $space-4;
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    color: $color-slate-300;
+  }
+
+  pre {
+    padding: $space-4;
+    color: #e2e8f0;
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+}
+
+@include respond-to('mobile') {
+  .specimen-section {
+    padding: $space-4;
+  }
+  .system-hero__title {
+    font-size: 1.85rem;
+  }
+}

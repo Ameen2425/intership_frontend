@@ -1,219 +1,165 @@
 // ==========================================================================
-// COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
-// SASS PREPROCESSING ARCHITECTURE: _components.scss
+// FOUNDRY DESIGN SYSTEM - REUSABLE COMPONENTS (_components.scss)
 // ==========================================================================
 
 @use "variables" as *;
 @use "mixins" as *;
 
-// --- COMPONENT: NAVIGATION BAR ---
-.site-nav {
-  @include glassmorphism(16px, 0.9);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: $border-subtle;
-  padding: $spacing-3 $spacing-5;
-
-  &__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    @include flex(space-between, center);
-  }
-
-  &__brand {
-    @include flex(flex-start, center);
-    gap: $spacing-3;
-    text-decoration: none;
-
-    &-badge {
-      background: $gradient-primary;
-      color: $color-navy-darkest;
-      font-weight: $font-weight-black;
-      font-size: $font-size-xs;
-      padding: $spacing-1 $spacing-2;
-      border-radius: $border-radius-sm;
-      letter-spacing: 0.5px;
-    }
-
-    &-title {
-      color: $color-text-primary;
-      font-weight: $font-weight-bold;
-      font-size: $font-size-md;
-    }
-  }
-
-  &__portal-link {
-    color: $color-cyan;
-    text-decoration: none;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-medium;
-    padding: $spacing-2 $spacing-4;
-    border: 1px solid alpha-color($color-cyan, 0.3);
-    border-radius: $border-radius-sm;
-    transition: $transition-fast;
-
-    &:hover {
-      background: $color-cyan;
-      color: $color-navy-darkest;
-    }
-  }
-}
-
-// --- COMPONENT: HERO BANNER ---
-.hero-banner {
-  padding: $spacing-7 $spacing-5;
-  background: radial-gradient(circle at 85% 15%, alpha-color($color-indigo, 0.2), transparent 50%),
-              radial-gradient(circle at 15% 85%, alpha-color($color-cyan, 0.15), transparent 50%);
-  border-bottom: $border-subtle;
-
-  &__wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  &__badge-group {
-    @include flex-center;
-    gap: $spacing-2;
-    margin-bottom: $spacing-3;
-  }
-
-  &__title {
-    font-size: to-rem(42);
-    font-weight: $font-weight-black;
-    color: $color-text-primary;
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-    margin-bottom: $spacing-3;
-
-    @include respond-to('mobile') {
-      font-size: to-rem(30);
-    }
-
-    .accent-gradient {
-      @include gradient-text($gradient-primary);
-    }
-  }
-
-  &__subtitle {
-    font-size: $font-size-lg;
-    color: $color-text-secondary;
-    max-width: 720px;
-    margin: 0 auto $spacing-5;
-  }
-}
-
-// --- COMPONENT: SASS DEMO SHOWCASE CARDS ---
-.sass-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: $spacing-5;
-  margin-bottom: $spacing-6;
-}
-
-.feature-panel {
-  @include glassmorphism(12px, 0.85);
-  border-radius: $border-radius-lg;
-  padding: $spacing-5;
-  transition: $transition-base;
-  position: relative;
-  overflow: hidden;
-
-  &:hover {
-    transform: translateY(-4px);
-    border-color: alpha-color($color-cyan, 0.4);
-    box-shadow: $shadow-lg;
-  }
-
-  &__header {
-    @include flex(space-between, center);
-    margin-bottom: $spacing-3;
-  }
-
-  &__tag {
-    font-size: $font-size-xs;
-    font-weight: $font-weight-bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: $spacing-1 $spacing-2;
-    border-radius: $border-radius-pill;
-
-    &--variables {
-      background: alpha-color($color-cyan, 0.15);
-      color: $color-cyan;
-      border: 1px solid alpha-color($color-cyan, 0.3);
-    }
-
-    &--mixins {
-      background: alpha-color($color-indigo, 0.15);
-      color: $color-indigo;
-      border: 1px solid alpha-color($color-indigo, 0.3);
-    }
-
-    &--nesting {
-      background: alpha-color($color-pink, 0.15);
-      color: $color-pink;
-      border: 1px solid alpha-color($color-pink, 0.3);
-    }
-
-    &--partials {
-      background: alpha-color($color-emerald, 0.15);
-      color: $color-emerald;
-      border: 1px solid alpha-color($color-emerald, 0.3);
-    }
-  }
-
-  &__title {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-    color: $color-text-primary;
-    margin-bottom: $spacing-2;
-  }
-
-  &__desc {
-    color: $color-text-secondary;
-    font-size: $font-size-sm;
-    margin-bottom: $spacing-4;
-    line-height: 1.6;
-  }
-
-  &__code-block {
-    background: $color-navy-darkest;
-    border: 1px solid $color-slate-border;
-    border-radius: $border-radius-md;
-    padding: $spacing-3;
-    font-family: $font-family-mono;
-    font-size: $font-size-xs;
-    color: #e2e8f0;
-    overflow-x: auto;
-    @include custom-scrollbar(4px);
-  }
-}
-
-// --- COMPONENT: BUTTONS ---
-.btn-sass {
+// --- BUTTONS ---
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-2;
-  padding: $spacing-3 $spacing-5;
-  border-radius: $border-radius-md;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-bold;
+  gap: $space-2;
+  font-family: $font-family-sans;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semibold;
+  padding: $space-2 $space-4;
+  border-radius: $radius-md;
   cursor: pointer;
   text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  line-height: 1.4;
 
   &--primary {
-    @include btn-variant($color-cyan, $color-navy-darkest);
+    @include button-variant($color-brand-primary, $color-white, $color-brand-primary, $color-brand-primary-dark);
+  }
+
+  &--secondary {
+    @include button-variant($color-slate-100, $color-slate-800, $color-slate-300, $color-slate-200);
   }
 
   &--outline {
-    @include btn-variant(transparent, $color-text-primary, $color-slate-border);
+    @include button-variant($color-white, $color-brand-primary, $color-brand-primary, $color-brand-primary-subtle);
+  }
+
+  &--danger {
+    @include button-variant($color-danger, $color-white, $color-danger, darken(#dc2626, 8%));
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-slate-600;
+    border: 1px solid transparent;
+
     &:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: $color-cyan;
+      background-color: $color-slate-100;
+      color: $color-slate-900;
     }
+  }
+
+  &--pill {
+    border-radius: $radius-full;
+  }
+
+  &--sm {
+    padding: $space-1 $space-3;
+    font-size: $font-size-xs;
+  }
+
+  &--lg {
+    padding: $space-3 $space-6;
+    font-size: $font-size-body;
   }
 }
 
+// --- BADGES & CHIPS ---
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  padding: 2px $space-2;
+  border-radius: $radius-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &--primary {
+    background-color: $color-brand-primary-subtle;
+    color: $color-brand-primary-dark;
+    border: 1px solid $color-brand-primary-light;
+  }
+
+  &--success {
+    background-color: $color-success-subtle;
+    color: $color-success;
+    border: 1px solid lighten($color-success, 25%);
+  }
+
+  &--warning {
+    background-color: $color-warning-subtle;
+    color: $color-warning;
+    border: 1px solid lighten($color-warning, 25%);
+  }
+
+  &--danger {
+    background-color: $color-danger-subtle;
+    color: $color-danger;
+    border: 1px solid lighten($color-danger, 25%);
+  }
+
+  &--pill {
+    border-radius: $radius-full;
+    padding: 3px $space-3;
+  }
+}
+
+// --- CARDS ---
+.card {
+  @include card-surface();
+
+  &__header {
+    border-bottom: $border-subtle;
+    padding-bottom: $space-3;
+    margin-bottom: $space-4;
+    @include flex(space-between, center);
+  }
+
+  &__title {
+    font-size: $font-size-h3;
+    font-weight: $font-weight-bold;
+    color: $color-slate-900;
+  }
+
+  &__body {
+    color: $color-slate-600;
+    font-size: $font-size-small;
+    line-height: 1.6;
+  }
+
+  &__footer {
+    border-top: $border-subtle;
+    padding-top: $space-3;
+    margin-top: $space-4;
+    @include flex(flex-end, center);
+  }
+}
+
+// --- ALERTS ---
+.alert {
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  font-size: $font-size-small;
+  line-height: 1.5;
+  margin-bottom: $space-4;
+  border: 1px solid transparent;
+
+  &--info {
+    background-color: $color-info-subtle;
+    color: $color-info;
+    border-color: lighten($color-info, 30%);
+  }
+
+  &--success {
+    background-color: $color-success-subtle;
+    color: darken($color-success, 8%);
+    border-color: lighten($color-success, 30%);
+  }
+
+  &--warning {
+    background-color: $color-warning-subtle;
+    color: darken($color-warning, 8%);
+    border-color: lighten($color-warning, 30%);
+  }
+}

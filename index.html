@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cognifyz Technologies Front-End Development Internship Showcase - Complete 8-Task Production Project featuring HTML5, CSS3, JavaScript ES6+, Bootstrap 5, REST API, and Sass.">
-  <meta name="keywords" content="Cognifyz Technologies, Frontend Internship, Web Development, Portfolio, HTML5, CSS3, JavaScript, Bootstrap 5, Sass, Fetch API">
+  <meta name="description" content="Cognifyz Technologies Front-End Development Internship Showcase - Complete 8-task portfolio covering HTML5, CSS3, JavaScript ES6+, Bootstrap 5, REST API, and Sass.">
   <meta name="author" content="Cognifyz Frontend Development Intern">
 
-  <title>Cognifyz Frontend Internship Showcase | Where Data Meets Intelligence</title>
+  <title>Cognifyz Frontend Internship Showcase | Engineering Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 
   <link rel="stylesheet" href="css/main.css">
@@ -15,33 +14,31 @@
 </head>
 <body>
 
-  <div class="ambient-glow glow-top-right"></div>
-  <div class="ambient-glow glow-bottom-left"></div>
-
-  <!-- Navbar -->
+  <!-- Navigation Bar -->
   <header class="site-navbar" role="banner">
     <div class="container navbar-inner">
-      <a href="#home" class="nav-brand" aria-label="Cognifyz Technologies Home">
+      <a href="#home" class="nav-brand" aria-label="Cognifyz Technologies Portfolio Home">
         <img src="assets/icons/cognifyz-logo.svg" alt="Cognifyz Technologies" class="brand-icon">
         <div class="brand-info">
-          <span class="brand-name">Cognifyz</span>
-          <span class="brand-tagline">Where Data Meets Intelligence</span>
+          <span class="brand-name">Cognifyz Frontend Lab</span>
+          <span class="brand-tagline">Internship Showcase</span>
         </div>
       </a>
 
       <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About Cognifyz</a></li>
-          <li><a href="#overview" class="nav-link">Internship Track</a></li>
+          <li><a href="#home" class="nav-link active">Overview</a></li>
+          <li><a href="#curriculum" class="nav-link">4 Levels</a></li>
           <li><a href="#tasks" class="nav-link">All 8 Tasks</a></li>
-          <li><a href="#technologies" class="nav-link">Technologies</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#technologies" class="nav-link">Tech Stack</a></li>
+          <li><a href="#about" class="nav-link">About Cognifyz</a></li>
+          <li><a href="#documentation" class="nav-link">Documentation</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle Mobile Navigation" aria-expanded="false">
+        <a href="#tasks" class="nav-cta">View 8 Tasks &darr;</a>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle Navigation Menu">
           <span></span>
           <span></span>
           <span></span>
@@ -50,22 +47,24 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Editorial Layout) -->
   <section class="hero-section" id="home">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-badge-pill">
-            <span class="pulse-dot"></span>
-            <span>Front-End Development Internship Showcase</span>
+      <div class="hero-editorial-layout">
+        
+        <div class="hero-main-column">
+          <div class="hero-meta-kicker">
+            <span class="kicker-dot"></span>
+            <span>Cognifyz Technologies &bull; Frontend Development Track</span>
           </div>
+
           <h1 class="hero-title">
-            Building the Future <br>of the <span class="gradient-text">Modern Web</span>
+            Eight Practical Frontend Assignments, Built from Foundations to Architecture.
           </h1>
+
           <p class="hero-subheading">
-            My Front-End Development Journey with <strong>Cognifyz Technologies</strong>. 
-            A comprehensive, production-ready showcase featuring 8 specialized implementations across 
-            HTML5, CSS3, JavaScript ES6+, Bootstrap 5, public REST APIs, and modular Sass architecture.
+            A comprehensive work showcase completed during the Cognifyz Technologies frontend internship. 
+            Rather than generic dashboard templates, each of the eight assignments has been engineered with its own distinct visual design, purpose-driven layout, and standalone working code.
           </p>
 
           <div class="hero-actions">
@@ -73,195 +72,119 @@
               <span>Explore All 8 Tasks</span>
               <span>&rarr;</span>
             </a>
-            <a href="#technologies" class="btn btn-secondary">
-              <span>View Tech Stack</span>
+            <a href="#curriculum" class="btn btn-secondary">
+              <span>View 4-Level Syllabus</span>
             </a>
           </div>
+        </div>
 
-          <div class="hero-stats-row">
-            <div class="hero-stat-item">
-              <span class="stat-number" data-target="4" data-suffix="">4</span>
-              <span class="stat-label">Internship Levels</span>
+        <aside class="hero-dispatch-card">
+          <div class="dispatch-eyebrow">Internship Project Brief</div>
+          <h2 class="dispatch-headline">Curriculum &amp; Deliverables</h2>
+          <p class="dispatch-text">
+            All assignments progress through four stages: semantic document structuring, inline and responsive CSS styling, DOM event manipulation, public API consumption, client-side validation, Bootstrap 5 enterprise components, and a modular Sass design system.
+          </p>
+          <div class="dispatch-milestones-summary">
+            <div class="mini-stat">
+              <span class="mini-stat-val">8</span>
+              <span class="mini-stat-label">Tasks Built</span>
             </div>
-            <div class="hero-stat-item">
-              <span class="stat-number" data-target="8" data-suffix="">8</span>
-              <span class="stat-label">Specialized Tasks</span>
+            <div class="mini-stat">
+              <span class="mini-stat-val">4</span>
+              <span class="mini-stat-label">Skill Levels</span>
             </div>
-            <div class="hero-stat-item">
-              <span class="stat-number" data-target="100" data-suffix="%">100%</span>
-              <span class="stat-label">Implementation</span>
+            <div class="mini-stat">
+              <span class="mini-stat-val">100%</span>
+              <span class="mini-stat-label">Independent UIs</span>
             </div>
-            <div class="hero-stat-item">
-              <span class="stat-number" data-target="0" data-suffix="">0</span>
-              <span class="stat-label">Console Errors</span>
+            <div class="mini-stat">
+              <span class="mini-stat-val">Pure</span>
+              <span class="mini-stat-label">Standards-Based</span>
             </div>
           </div>
-        </div>
+        </aside>
 
-        <div class="hero-visual-wrapper">
-          <img src="assets/images/hero-illustration.svg" alt="Cognifyz Frontend Development Architecture" class="hero-illustration">
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="section" id="about">
+  <!-- Curriculum Levels Section -->
+  <section class="section section-alt" id="curriculum">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Corporate Background</span>
-        <h2 class="section-title">About Cognifyz Technologies</h2>
+        <span class="section-tag">Progressive Curriculum</span>
+        <h2 class="section-title">The Four Skill Levels</h2>
         <p class="section-desc">
-          Empowering organizations and incubating next-generation engineering talent at the intersection of data and intelligent software.
+          Structured to move deliberately from foundational markup to preprocessed design systems and enterprise component architectures.
         </p>
       </div>
 
-      <div class="about-grid">
-        <div class="about-content">
-          <p class="about-lead">
-            Cognifyz Technologies is a technology company specializing in data science, artificial intelligence, 
-            machine learning, and data analytics solutions.
+      <div class="levels-matrix">
+        
+        <div class="level-card">
+          <span class="level-number">Level 1 &bull; Beginner</span>
+          <h4>Foundations</h4>
+          <p class="level-desc">
+            Document outlines, accessibility landmarks, heading hierarchy (H1&ndash;H6), structured tables, and inline CSS specificity mechanics.
           </p>
-          <p class="about-text">
-            Cognifyz delivers innovative technology solutions that help global enterprises turn complex data into actionable intelligence. 
-            Through its distinguished internship and professional training programs, Cognifyz bridges academic foundations with production-grade 
-            standards, equipping developers with real-world software engineering competencies.
-          </p>
-
-          <div class="about-pillars">
-            <div class="pillar-card">
-              <div class="pillar-icon">🤖</div>
-              <div class="pillar-info">
-                <h4>AI &amp; Machine Learning</h4>
-                <p>Predictive modeling, automated workflows, and data-driven intelligence.</p>
-              </div>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">📊</div>
-              <div class="pillar-info">
-                <h4>Data Science &amp; Analytics</h4>
-                <p>Advanced statistical analysis and high-throughput data processing.</p>
-              </div>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">🎓</div>
-              <div class="pillar-info">
-                <h4>Talent Incubation</h4>
-                <p>Rigorous industry internships training developers to build enterprise software.</p>
-              </div>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">🌐</div>
-              <div class="pillar-info">
-                <h4>Modern Web Systems</h4>
-                <p>High-performance, accessible, responsive client-side architectures.</p>
-              </div>
-            </div>
-          </div>
+          <ul class="level-task-list">
+            <li><span class="check-dot">✓</span> Task 01: Basic HTML Page</li>
+            <li><span class="check-dot">✓</span> Task 02: Inline CSS Styling</li>
+          </ul>
         </div>
 
-        <div class="about-visual">
-          <img src="assets/images/about-illustration.svg" alt="Cognifyz Ecosystem and AI Intelligence Flow">
+        <div class="level-card">
+          <span class="level-number">Level 2 &bull; Intermediate</span>
+          <h4>Responsiveness &amp; Events</h4>
+          <p class="level-desc">
+            Mobile-first media query breakpoints, CSS Grid fluid reflow, zero horizontal overflow, and DOM event-driven state changes.
+          </p>
+          <ul class="level-task-list">
+            <li><span class="check-dot">✓</span> Task 03: Responsive Design</li>
+            <li><span class="check-dot">✓</span> Task 04: Interactive Button</li>
+          </ul>
         </div>
+
+        <div class="level-card">
+          <span class="level-number">Level 3 &bull; Advanced</span>
+          <h4>APIs &amp; Client Logic</h4>
+          <p class="level-desc">
+            Asynchronous data fetching via Fetch API, reader thread modals, live filtering, and real-time form validation with regex.
+          </p>
+          <ul class="level-task-list">
+            <li><span class="check-dot">✓</span> Task 05: REST API Integration</li>
+            <li><span class="check-dot">✓</span> Task 06: Form Validation &amp; UX</li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <span class="level-number">Level 4 &bull; Expert</span>
+          <h4>Components &amp; Sass</h4>
+          <p class="level-desc">
+            Bootstrap 5 corporate operations dashboard, design tokens, mathematical SCSS functions, parametric mixins, and BEM partials.
+          </p>
+          <ul class="level-task-list">
+            <li><span class="check-dot">✓</span> Task 07: Component Styling</li>
+            <li><span class="check-dot">✓</span> Task 08: Sass Preprocessing</li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Internship Track & Dashboard -->
-  <section class="section" id="overview">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Curriculum Matrix</span>
-        <h2 class="section-title">Internship Roadmap &amp; Progress</h2>
-        <p class="section-desc">
-          Four progressive difficulty levels engineered to build comprehensive mastery from semantic markup to advanced preprocessed component frameworks.
-        </p>
-      </div>
-
-      <div class="overview-dashboard">
-        <div class="dashboard-header">
-          <div class="dashboard-title-group">
-            <h3>Cognifyz Internship Evaluation Dashboard</h3>
-            <p>Track: Front-End Development &bull; Milestone Verification Status: Fully Verified (8 of 8 Tasks)</p>
-          </div>
-          <div class="progress-widget">
-            <div class="progress-label-row">
-              <span style="color: var(--text-main);">Overall Completion</span>
-              <span style="color: var(--accent-cyan);">100% (8 / 8)</span>
-            </div>
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="levels-matrix">
-          <div class="level-card">
-            <span class="level-number">Level 1 &bull; Beginner</span>
-            <h4>Foundations</h4>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">
-              Mastering semantic document outlines, WAI-ARIA standards, and granular inline styling mechanics.
-            </p>
-            <ul class="level-task-list">
-              <li><span class="check">✓</span> Task 01: Basic HTML Page</li>
-              <li><span class="check">✓</span> Task 02: Inline CSS Styling</li>
-            </ul>
-          </div>
-
-          <div class="level-card">
-            <span class="level-number">Level 2 &bull; Intermediate</span>
-            <h4>Responsiveness &amp; Events</h4>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">
-              Implementing mobile-first media query breakpoints, fluid grids, and event-driven JavaScript state changes.
-            </p>
-            <ul class="level-task-list">
-              <li><span class="check">✓</span> Task 03: Responsive Design</li>
-              <li><span class="check">✓</span> Task 04: Interactive Button</li>
-            </ul>
-          </div>
-
-          <div class="level-card">
-            <span class="level-number">Level 3 &bull; Advanced</span>
-            <h4>API &amp; Client Logic</h4>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">
-              Asynchronous Fetch API data ingestion, skeleton UX, error resilience, and real-time form validation.
-            </p>
-            <ul class="level-task-list">
-              <li><span class="check">✓</span> Task 05: Public REST API</li>
-              <li><span class="check">✓</span> Task 06: Form Validation</li>
-            </ul>
-          </div>
-
-          <div class="level-card">
-            <span class="level-number">Level 4 &bull; Expert</span>
-            <h4>Components &amp; Sass</h4>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">
-              Bootstrap 5 component library elevation, design token management, and modular Sass preprocessor pipelines.
-            </p>
-            <ul class="level-task-list">
-              <li><span class="check">✓</span> Task 07: Component Styling</li>
-              <li><span class="check">✓</span> Task 08: Sass Preprocessing</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- All 8 Tasks Showcase -->
+  <!-- All 8 Tasks Showcase Section -->
   <section class="section" id="tasks">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Production Implementations</span>
-        <h2 class="section-title">The 8 Internship Tasks</h2>
+        <span class="section-tag">Distinct Visual Identities</span>
+        <h2 class="section-title">The Eight Specialized Tasks</h2>
         <p class="section-desc">
-          Every task has been individually engineered in its own isolated directory with complete code, dedicated task explanation pages, and working demonstrations.
+          Each task has its own visual language, purpose, and isolated folder structure with a dedicated explanation guide and standalone demo.
         </p>
       </div>
 
+      <!-- Task Level Filter Bar -->
       <div class="task-filter-bar">
         <button class="filter-btn active" data-filter="all">All Tasks (8)</button>
         <button class="filter-btn" data-filter="level-1">Level 1: Beginner (2)</button>
@@ -270,252 +193,221 @@
         <button class="filter-btn" data-filter="level-4">Level 4: Expert (2)</button>
       </div>
 
+      <!-- Tasks Grid -->
       <div class="tasks-grid">
         
-        <!-- Task 01 -->
+        <!-- TASK 01 CARD -->
         <article class="task-card" data-level="level-1">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 01</span>
-            <span class="task-level-badge">Level 1 &bull; Beginner</span>
+          <div class="task-visual-banner task-banner-01">
+            <span class="banner-meta-tag" style="color: #b45309;">Level 1 &bull; Task 01 &bull; Editorial Document</span>
+            <div class="banner-title-preview">Cognifyz Engineering Bulletin</div>
           </div>
-          <h3 class="task-card-title">Basic HTML5 Semantic Architecture</h3>
-          <p class="task-card-desc">
-            Complete semantic document structure demonstrating heading hierarchies (H1&ndash;H6), structured tabular data, native details/summary disclosure widgets, accessible figures, and detailed code commentary.
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">HTML5</span>
-            <span class="tech-tag-pill">Semantic Web</span>
-            <span class="tech-tag-pill">WAI-ARIA</span>
-            <span class="tech-tag-pill">Accessibility</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-1/task-01-basic-html/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-1/task-01-basic-html/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">Basic HTML Page Architecture</h3>
+            <p class="task-card-desc">
+              Designed as a clean editorial informational document. Features semantic HTML5 landmarks, strict H1&ndash;H6 headings hierarchy, milestone data tables with <code>thead</code>/<code>tbody</code>/<code>tfoot</code>, and native <code>&lt;details&gt;</code> disclosures requiring zero JavaScript.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">HTML5</span>
+              <span class="tech-tag-pill">Semantic Tags</span>
+              <span class="tech-tag-pill">Table Architecture</span>
+              <span class="tech-tag-pill">Details &amp; Summary</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-1/task-01-basic-html/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-1/task-01-basic-html/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- Task 02 -->
+        <!-- TASK 02 CARD -->
         <article class="task-card" data-level="level-1">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 02</span>
-            <span class="task-level-badge">Level 1 &bull; Beginner</span>
+          <div class="task-visual-banner task-banner-02">
+            <span class="banner-meta-tag" style="color: #ff5a5f;">Level 1 &bull; Task 02 &bull; Creative CSS Playground</span>
+            <div class="banner-title-preview">Specificity: (1, 0, 0, 0)</div>
           </div>
-          <h3 class="task-card-title">Inline CSS Styling Demonstration</h3>
-          <p class="task-card-desc">
-            Comprehensive demonstration of styles applied directly via HTML <code>style</code> attributes. Showcases typography, gradients, flexbox layouts, box shadows, borders, and CSS specificity hierarchy (1, 0, 0, 0).
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">HTML5</span>
-            <span class="tech-tag-pill">Inline CSS</span>
-            <span class="tech-tag-pill">Specificity</span>
-            <span class="tech-tag-pill">Flexbox</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-1/task-02-inline-css/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-1/task-02-inline-css/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">Inline CSS Styling Playground</h3>
+            <p class="task-card-desc">
+              Designed as a vibrant CSS styling workbench. Demonstrates typography treatments, solid fills, linear gradients, box model geometry, and a side-by-side unstyled versus inline-styled comparison applied 100% via HTML <code>style</code> attributes.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">HTML5</span>
+              <span class="tech-tag-pill">style Attribute</span>
+              <span class="tech-tag-pill">CSS Specificity</span>
+              <span class="tech-tag-pill">Box Model</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-1/task-02-inline-css/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-1/task-02-inline-css/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- Task 03 -->
+        <!-- TASK 03 CARD -->
         <article class="task-card" data-level="level-2">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 03</span>
-            <span class="task-level-badge">Level 2 &bull; Intermediate</span>
+          <div class="task-visual-banner task-banner-03">
+            <span class="banner-meta-tag" style="color: #ffffff;">Level 2 &bull; Task 03 &bull; Travel &amp; Lifestyle Journal</span>
+            <div class="banner-title-preview">TERRA: The Field Guide</div>
           </div>
-          <h3 class="task-card-title">Responsive Design &amp; Media Queries</h3>
-          <p class="task-card-desc">
-            Fluid cross-device architecture featuring 4 media query tiers (Mobile, Tablet, Laptop, Desktop), zero horizontal overflow, pure CSS mobile drawer, adaptive table wrapper, and real-time breakpoint indicator badge.
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">CSS3</span>
-            <span class="tech-tag-pill">Media Queries</span>
-            <span class="tech-tag-pill">CSS Grid</span>
-            <span class="tech-tag-pill">Zero Overflow</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-2/task-03-responsive-design/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-2/task-03-responsive-design/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">Fluid Responsive Design</h3>
+            <p class="task-card-desc">
+              A real-world travel publication demonstrating authentic responsive reflow. Features an editorial hero layout, 3-column dispatches grid, pure CSS mobile navigation drawer, horizontally scrollable itinerary table, and a live CSS breakpoint badge.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">CSS3</span>
+              <span class="tech-tag-pill">Media Queries</span>
+              <span class="tech-tag-pill">CSS Grid</span>
+              <span class="tech-tag-pill">Zero Overflow</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-2/task-03-responsive-design/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-2/task-03-responsive-design/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- Task 04 -->
+        <!-- TASK 04 CARD -->
         <article class="task-card" data-level="level-2">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 04</span>
-            <span class="task-level-badge">Level 2 &bull; Intermediate</span>
+          <div class="task-visual-banner task-banner-04">
+            <span class="banner-meta-tag" style="color: #71717a;">Level 2 &bull; Task 04 &bull; Minimal Color Canvas</span>
+            <div class="banner-title-preview">#C2593F &bull; rgb(194, 89, 63)</div>
           </div>
-          <h3 class="task-card-title">Interactive Button &amp; Dynamic State</h3>
-          <p class="task-card-desc">
-            Event-driven background controller featuring random hex generation, preset Cognifyz palettes, native color picker, luminance-based WCAG text contrast adaptation, copy-to-clipboard, history pills, and reset controller.
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">JavaScript ES6+</span>
-            <span class="tech-tag-pill">DOM Events</span>
-            <span class="tech-tag-pill">Contrast Mode</span>
-            <span class="tech-tag-pill">Luminance</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-2/task-04-interactive-button/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-2/task-04-interactive-button/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">Interactive Button &amp; Dynamic State</h3>
+            <p class="task-card-desc">
+              A minimalist, focus-driven color playground. Features random hex generation, preset tactile swatches, a native OS color picker, WCAG perceived luminance contrast check, clipboard copy, smooth CSS transitions, and an instant reset action.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">JavaScript ES6+</span>
+              <span class="tech-tag-pill">DOM Events</span>
+              <span class="tech-tag-pill">Contrast Mode</span>
+              <span class="tech-tag-pill">Smooth Transitions</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-2/task-04-interactive-button/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-2/task-04-interactive-button/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- Task 05 -->
+        <!-- TASK 05 CARD -->
         <article class="task-card" data-level="level-3">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 05</span>
-            <span class="task-level-badge">Level 3 &bull; Advanced</span>
+          <div class="task-visual-banner task-banner-05">
+            <span class="banner-meta-tag" style="color: #c2410c;">Level 3 &bull; Task 05 &bull; Real Blog &amp; Content Explorer</span>
+            <div class="banner-title-preview">THE DISPATCH &bull; /posts</div>
           </div>
-          <h3 class="task-card-title">Public REST API Integration</h3>
-          <p class="task-card-desc">
-            Asynchronous data ingestion from JSONPlaceholder using Fetch API and async/await. Features skeleton loader animations, live keyword search, author filtering, pagination, latency tracking, and comment thread modals.
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">Fetch API</span>
-            <span class="tech-tag-pill">Async/Await</span>
-            <span class="tech-tag-pill">REST JSON</span>
-            <span class="tech-tag-pill">Skeleton UX</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-3/task-05-api-integration/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-3/task-05-api-integration/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">Public REST API Integration</h3>
+            <p class="task-card-desc">
+              A clean technical publication consuming 100 live posts from JSONPlaceholder using Fetch API and async/await. Features real-time search filtering, author dropdowns, clean pagination, skeleton loading states, and reader discussion thread modals.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">Fetch API</span>
+              <span class="tech-tag-pill">Async/Await</span>
+              <span class="tech-tag-pill">JSONPlaceholder</span>
+              <span class="tech-tag-pill">Pagination</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-3/task-05-api-integration/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-3/task-05-api-integration/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- Task 06 -->
+        <!-- TASK 06 CARD -->
         <article class="task-card" data-level="level-3">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 06</span>
-            <span class="task-level-badge">Level 3 &bull; Advanced</span>
+          <div class="task-visual-banner task-banner-06">
+            <span class="banner-meta-tag" style="color: #2563eb;">Level 3 &bull; Task 06 &bull; Accessible Registration Form</span>
+            <div class="banner-title-preview">✓ Live Inline Validation</div>
           </div>
-          <h3 class="task-card-title">Form Validation &amp; UX Architecture</h3>
-          <p class="task-card-desc">
-            Candidate application form with live validation on input and blur. Features regex format validation for email &amp; phone, live 4-tier password strength bar, password peek toggle, character counter, and success modal.
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">Form Validation</span>
-            <span class="tech-tag-pill">Regex</span>
-            <span class="tech-tag-pill">Strength Meter</span>
-            <span class="tech-tag-pill">ARIA</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-3/task-06-form-validation/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-3/task-06-form-validation/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">Form Validation &amp; UX Architecture</h3>
+            <p class="task-card-desc">
+              A professional candidate application form designed for usability and accessibility. Features clear fieldset hierarchy, high-contrast focus rings, regex validation for name/email/phone, dynamic password entropy meter, peek toggles, and summary modal feedback.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">Form Validation</span>
+              <span class="tech-tag-pill">Regex</span>
+              <span class="tech-tag-pill">Strength Meter</span>
+              <span class="tech-tag-pill">Accessibility (a11y)</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-3/task-06-form-validation/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-3/task-06-form-validation/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- Task 07 -->
+        <!-- TASK 07 CARD -->
         <article class="task-card" data-level="level-4">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 07</span>
-            <span class="task-level-badge">Level 4 &bull; Expert</span>
+          <div class="task-visual-banner task-banner-07">
+            <span class="banner-meta-tag" style="color: #0f172a;">Level 4 &bull; Task 07 &bull; Corporate Operations Console</span>
+            <div class="banner-title-preview">Bootstrap 5 Operations UI</div>
           </div>
-          <h3 class="task-card-title">Component-Based Styling (Bootstrap 5)</h3>
-          <p class="task-card-desc">
-            Production UI built with Bootstrap 5 components elevated into a bespoke Cognifyz SaaS theme. Demonstrates responsive 12-column grid, interactive modals, navigation pills tabs, collapsible accordion, tooltips, and toasts.
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">Bootstrap 5</span>
-            <span class="tech-tag-pill">Grid System</span>
-            <span class="tech-tag-pill">Modals</span>
-            <span class="tech-tag-pill">Accordions</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-4/task-07-component-styling/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-4/task-07-component-styling/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">Component-Based Styling (Bootstrap 5)</h3>
+            <p class="task-card-desc">
+              A clean corporate business operations dashboard demonstrating Bootstrap 5's native capabilities. Utilizes the responsive 12-column grid, navbar, KPI metric cards, dismissible alerts, interactive nav tabs, data table, creation modal, and live toast notifications.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">Bootstrap 5</span>
+              <span class="tech-tag-pill">12-Col Grid</span>
+              <span class="tech-tag-pill">Modals &amp; Tabs</span>
+              <span class="tech-tag-pill">Tables &amp; Toasts</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-4/task-07-component-styling/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-4/task-07-component-styling/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- Task 08 -->
+        <!-- TASK 08 CARD -->
         <article class="task-card" data-level="level-4">
-          <div class="task-card-header">
-            <span class="task-id-badge">TASK 08</span>
-            <span class="task-level-badge">Level 4 &bull; Expert</span>
+          <div class="task-visual-banner task-banner-08">
+            <span class="banner-meta-tag" style="color: #60a5fa;">Level 4 &bull; Task 08 &bull; Living Style Guide</span>
+            <div class="banner-title-preview">Foundry SCSS Design Tokens</div>
           </div>
-          <h3 class="task-card-title">CSS Preprocessing with Sass (SCSS)</h3>
-          <p class="task-card-desc">
-            Modular Sass architecture structured with partials (<code>_variables.scss</code>, <code>_mixins.scss</code>, <code>_components.scss</code>). Demonstrates mathematical functions, glassmorphic mixins, BEM nesting, and npm compilation scripts.
-          </p>
-          <div class="task-tech-tags">
-            <span class="tech-tag-pill">Sass (SCSS)</span>
-            <span class="tech-tag-pill">Dart Sass</span>
-            <span class="tech-tag-pill">Partials</span>
-            <span class="tech-tag-pill">Mixins</span>
-          </div>
-          <div class="task-card-footer">
-            <span class="task-status-indicator">
-              <span>●</span> Completed
-            </span>
-            <div style="display: flex; gap: 8px;">
-              <a href="tasks/level-4/task-08-sass-preprocessing/index.html" class="open-task-btn" title="View Detailed Explanation">
-                <span>Explanation &rarr;</span>
-              </a>
-              <a href="tasks/level-4/task-08-sass-preprocessing/demo.html" target="_blank" rel="noopener noreferrer" class="open-task-btn" style="background: rgba(255,255,255,0.06); color: var(--text-main);" title="Launch Standalone Demo">
-                <span>Demo ↗</span>
-              </a>
+          <div class="task-card-body">
+            <h3 class="task-card-title">CSS Preprocessing with Sass (SCSS)</h3>
+            <p class="task-card-desc">
+              A living frontend design system and style guide. Organizes design tokens across modular partials (<code>_variables.scss</code>, <code>_mixins.scss</code>, <code>_components.scss</code>). Demonstrates typography scales, spacing grids, button variants, and BEM selector nesting.
+            </p>
+            <div class="task-tech-tags">
+              <span class="tech-tag-pill">Dart Sass</span>
+              <span class="tech-tag-pill">SCSS Partials</span>
+              <span class="tech-tag-pill">Mixins &amp; Tokens</span>
+              <span class="tech-tag-pill">Style Guide</span>
+            </div>
+            <div class="task-card-footer">
+              <span class="task-status-indicator">● Completed &amp; Verified</span>
+              <div class="task-btn-group">
+                <a href="tasks/level-4/task-08-sass-preprocessing/index.html" class="btn-task btn-task-explain">Explanation &rarr;</a>
+                <a href="tasks/level-4/task-08-sass-preprocessing/demo.html" target="_blank" rel="noopener noreferrer" class="btn-task btn-task-demo">Live Demo ↗</a>
+              </div>
             </div>
           </div>
         </article>
@@ -524,194 +416,172 @@
     </div>
   </section>
 
-  <!-- Technologies Section -->
-  <section class="section" id="technologies">
+  <!-- Technology Stack Section -->
+  <section class="section section-alt" id="technologies">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Technology Stack</span>
-        <h2 class="section-title">Core Engineering Foundations</h2>
+        <span class="section-tag">Core Tooling</span>
+        <h2 class="section-title">Technologies &amp; Architecture</h2>
         <p class="section-desc">
-          Building high-performance client applications using standard vanilla web technologies and industry-standard preprocessing tools.
+          Core web standards and modern frontend tooling employed throughout the internship assignments.
         </p>
       </div>
 
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-icon-wrapper">
-            <img src="assets/icons/html5.svg" alt="HTML5">
+      <div class="tech-matrix">
+        <div class="tech-box">
+          <div class="tech-icon-bar">
+            <img src="assets/icons/html5.svg" alt="HTML5" class="tech-icon-img">
+            <h4>HTML5 Standards</h4>
           </div>
-          <h3 class="tech-title">HTML5 Semantic Standards</h3>
-          <p class="tech-desc">
-            Accessible document blueprints, semantic landmark roles, clean heading hierarchies, and WAI-ARIA compliance.
-          </p>
-          <div class="tech-meter">
-            <div class="tech-meter-fill" style="width: 100%; background: #e34f26;"></div>
-          </div>
+          <p>Semantic landmarks, document outlines, accessibility tags, native interactive details, and structured tabular data.</p>
         </div>
 
-        <div class="tech-card">
-          <div class="tech-icon-wrapper">
-            <img src="assets/icons/css3.svg" alt="CSS3">
+        <div class="tech-box">
+          <div class="tech-icon-bar">
+            <img src="assets/icons/css3.svg" alt="CSS3" class="tech-icon-img">
+            <h4>CSS3 &amp; Media Queries</h4>
           </div>
-          <h3 class="tech-title">CSS3 &amp; Media Queries</h3>
-          <p class="tech-desc">
-            Fluid layout algorithms with CSS Grid, Flexbox, custom properties, glassmorphism, and responsive breakpoints.
-          </p>
-          <div class="tech-meter">
-            <div class="tech-meter-fill" style="width: 100%; background: #1572b6;"></div>
-          </div>
+          <p>Fluid responsive grid layouts, flexible box model, inline specificity mechanics, custom properties, and zero overflow.</p>
         </div>
 
-        <div class="tech-card">
-          <div class="tech-icon-wrapper">
-            <img src="assets/icons/javascript.svg" alt="JavaScript">
+        <div class="tech-box">
+          <div class="tech-icon-bar">
+            <img src="assets/icons/javascript.svg" alt="JavaScript" class="tech-icon-img">
+            <h4>JavaScript ES6+</h4>
           </div>
-          <h3 class="tech-title">JavaScript (ES6+)</h3>
-          <p class="tech-desc">
-            Asynchronous event loops, DOM manipulation, regular expression validation, and accessible dynamic UI updates.
-          </p>
-          <div class="tech-meter">
-            <div class="tech-meter-fill" style="width: 100%; background: #f7df1e;"></div>
-          </div>
+          <p>Standard DOM event manipulation, async/await Fetch API requests, client-side input regex validation, and state handling.</p>
         </div>
 
-        <div class="tech-card">
-          <div class="tech-icon-wrapper">
-            <img src="assets/icons/bootstrap.svg" alt="Bootstrap 5">
+        <div class="tech-box">
+          <div class="tech-icon-bar">
+            <img src="assets/icons/bootstrap.svg" alt="Bootstrap" class="tech-icon-img">
+            <h4>Bootstrap 5.3</h4>
           </div>
-          <h3 class="tech-title">Bootstrap 5 Framework</h3>
-          <p class="tech-desc">
-            Component-driven rapid interface composition, 12-column responsive grid, and custom dark SaaS theme elevation.
-          </p>
-          <div class="tech-meter">
-            <div class="tech-meter-fill" style="width: 100%; background: #7952b3;"></div>
-          </div>
+          <p>Production 12-column responsive grid, interactive modals, accessible tab navigation, data tables, and live toasts.</p>
         </div>
 
-        <div class="tech-card">
-          <div class="tech-icon-wrapper">
-            <img src="assets/icons/api.svg" alt="REST API">
+        <div class="tech-box">
+          <div class="tech-icon-bar">
+            <img src="assets/icons/sass.svg" alt="Sass" class="tech-icon-img">
+            <h4>Dart Sass (SCSS)</h4>
           </div>
-          <h3 class="tech-title">Fetch API &amp; REST Ingestion</h3>
-          <p class="tech-desc">
-            Modern asynchronous data fetching with async/await, latency measurement, error fallbacks, and modal discussion streams.
-          </p>
-          <div class="tech-meter">
-            <div class="tech-meter-fill" style="width: 100%; background: #06b6d4;"></div>
-          </div>
+          <p>Modular partials architecture, centralized design tokens, mathematical pixel-to-rem conversions, and parametric mixins.</p>
         </div>
 
-        <div class="tech-card">
-          <div class="tech-icon-wrapper">
-            <img src="assets/icons/sass.svg" alt="Sass">
+        <div class="tech-box">
+          <div class="tech-icon-bar">
+            <img src="assets/icons/api.svg" alt="API" class="tech-icon-img">
+            <h4>REST JSON APIs</h4>
           </div>
-          <h3 class="tech-title">Sass (SCSS) Preprocessor</h3>
-          <p class="tech-desc">
-            Maintainable CSS architecture using variables, partials, nested selectors, mixins, and automated Dart Sass build scripts.
-          </p>
-          <div class="tech-meter">
-            <div class="tech-meter-fill" style="width: 100%; background: #cf649a;"></div>
-          </div>
+          <p>Asynchronous data consumption from JSONPlaceholder, pagination mechanics, latency monitoring, and reader modals.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer" id="contact">
+  <!-- About Cognifyz Technologies -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand-col">
-          <div class="nav-brand">
-            <img src="assets/icons/cognifyz-logo.svg" alt="Cognifyz Logo" class="brand-icon">
-            <div class="brand-info">
-              <span class="brand-name">Cognifyz Technologies</span>
-              <span class="brand-tagline">Where Data Meets Intelligence</span>
+      <div class="about-grid">
+        <div>
+          <span class="section-tag">Organization Background</span>
+          <h2 class="section-title">About Cognifyz Technologies</h2>
+          <p class="about-text">
+            Cognifyz Technologies is a technology solutions company specializing in data science, artificial intelligence, machine learning, and enterprise web solutions.
+          </p>
+          <p class="about-text">
+            Through its student and graduate developer training programs, Cognifyz bridges academic theory with practical engineering standards. This internship track challenges developers to build robust, accessible, and maintainable client-side software.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar-box">
+              <h5>Artificial Intelligence</h5>
+              <p>Predictive modeling, automated workflows, and data processing solutions.</p>
+            </div>
+            <div class="pillar-box">
+              <h5>Developer Training</h5>
+              <p>Practical software internships cultivating hands-on frontend engineering skills.</p>
             </div>
           </div>
-          <p class="footer-desc">
-            Official Front-End Development Internship Project Submission. A complete 8-task portfolio demonstrating professional frontend engineering standards.
-          </p>
-          <div class="footer-social-links">
-            <a href="https://cognifyz.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Cognifyz Official Website">🌐</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub Repository Placeholder">💻</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn Profile Placeholder">🔗</a>
-            <a href="#" class="social-link open-contact-btn" title="Contact Intern">✉️</a>
+        </div>
+
+        <div class="about-media-box">
+          <img src="assets/images/about-illustration.svg" alt="Cognifyz Technologies Engineering Flow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentation Section -->
+  <section class="section section-alt" id="documentation">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Project Documentation</span>
+        <h2 class="section-title">Reference Guides &amp; Verification</h2>
+        <p class="section-desc">
+          Comprehensive project documentation detailing the curriculum, testing workflows, and deployment procedures.
+        </p>
+      </div>
+
+      <div class="docs-grid">
+        <a href="documentation/internship-overview.md" class="doc-link-card">
+          <div>
+            <h5>Internship Overview</h5>
+            <p>Complete curriculum breakdown, objectives, and deliverables across all 4 levels.</p>
           </div>
-        </div>
+          <span class="doc-arrow">Read Guide &rarr;</span>
+        </a>
 
-        <div class="footer-col">
-          <h4>Tasks: Level 1 &amp; 2</h4>
-          <ul class="footer-nav-list">
-            <li><a href="tasks/level-1/task-01-basic-html/index.html">Task 01: Basic HTML</a></li>
-            <li><a href="tasks/level-1/task-02-inline-css/index.html">Task 02: Inline CSS</a></li>
-            <li><a href="tasks/level-2/task-03-responsive-design/index.html">Task 03: Responsive Design</a></li>
-            <li><a href="tasks/level-2/task-04-interactive-button/index.html">Task 04: Interactive Button</a></li>
-          </ul>
-        </div>
+        <a href="documentation/testing-guide.md" class="doc-link-card">
+          <div>
+            <h5>Testing Guide</h5>
+            <p>Step-by-step verification instructions and test cases for each assignment.</p>
+          </div>
+          <span class="doc-arrow">Read Guide &rarr;</span>
+        </a>
 
-        <div class="footer-col">
-          <h4>Tasks: Level 3 &amp; 4</h4>
-          <ul class="footer-nav-list">
-            <li><a href="tasks/level-3/task-05-api-integration/index.html">Task 05: REST API Fetch</a></li>
-            <li><a href="tasks/level-3/task-06-form-validation/index.html">Task 06: Form Validation</a></li>
-            <li><a href="tasks/level-4/task-07-component-styling/index.html">Task 07: Bootstrap 5 Hub</a></li>
-            <li><a href="tasks/level-4/task-08-sass-preprocessing/index.html">Task 08: Sass SCSS Pipeline</a></li>
-          </ul>
-        </div>
+        <a href="documentation/task-completion-checklist.md" class="doc-link-card">
+          <div>
+            <h5>Milestone Checklist</h5>
+            <p>Verification matrix detailing all functional requirements and implementation files.</p>
+          </div>
+          <span class="doc-arrow">Read Guide &rarr;</span>
+        </a>
 
-        <div class="footer-col">
-          <h4>Documentation</h4>
-          <ul class="footer-nav-list">
-            <li><a href="README.md">Project README</a></li>
-            <li><a href="documentation/internship-overview.md">Internship Overview</a></li>
-            <li><a href="documentation/task-completion-checklist.md">Task Checklist</a></li>
-            <li><a href="documentation/testing-guide.md">Testing Guide</a></li>
-          </ul>
+        <a href="documentation/github-pages-deployment.md" class="doc-link-card">
+          <div>
+            <h5>Deployment Guide</h5>
+            <p>Instructions for serving the project locally or hosting via GitHub Pages.</p>
+          </div>
+          <span class="doc-arrow">Read Guide &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Cognifyz Technologies</div>
+          <div class="footer-sub">Frontend Development Internship Showcase &bull; 8 Tasks Completed</div>
         </div>
+        <nav class="footer-nav" aria-label="Footer Quick Navigation">
+          <a href="#home">Top</a>
+          <a href="#curriculum">Curriculum</a>
+          <a href="#tasks">All 8 Tasks</a>
+          <a href="#technologies">Tech Stack</a>
+          <a href="#documentation">Docs</a>
+        </nav>
       </div>
 
       <div class="footer-bottom">
-        <div>
-          &copy; 2026 Cognifyz Technologies. All rights reserved. &bull; Tagline: <em>Where Data Meets Intelligence</em>.
-        </div>
-        <div>
-          Cognifyz Technologies Front-End Development Internship Submission
-        </div>
+        <div>&copy; 2026 Cognifyz Technologies &bull; Where Data Meets Intelligence.</div>
+        <div>Built with pure HTML5, CSS3, JavaScript ES6+, Bootstrap 5, and Sass.</div>
       </div>
     </div>
   </footer>
-
-  <!-- Contact Modal -->
-  <div id="contact-modal" class="modal-backdrop" role="dialog" aria-modal="true" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
-    <div style="background: #0f172a; border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; width: 100%; max-width: 500px; padding: 32px; box-shadow: 0 25px 50px rgba(0,0,0,0.8);">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h3 style="color: #ffffff; margin: 0; font-size: 1.3rem;">Evaluation Inquiries / Feedback</h3>
-        <button id="close-contact-modal" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;">✕</button>
-      </div>
-      <form id="contact-form">
-        <div style="margin-bottom: 16px;">
-          <label style="display: block; font-size: 0.85rem; color: #cbd5e1; margin-bottom: 6px;">Evaluator Name</label>
-          <input type="text" required placeholder="Cognifyz Evaluator" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #ffffff;">
-        </div>
-        <div style="margin-bottom: 16px;">
-          <label style="display: block; font-size: 0.85rem; color: #cbd5e1; margin-bottom: 6px;">Email Address</label>
-          <input type="email" required placeholder="evaluator@cognifyz.com" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #ffffff;">
-        </div>
-        <div style="margin-bottom: 20px;">
-          <label style="display: block; font-size: 0.85rem; color: #cbd5e1; margin-bottom: 6px;">Evaluation Notes</label>
-          <textarea rows="4" required placeholder="Feedback or evaluation remarks regarding this project..." style="width: 100%; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #ffffff; resize: vertical;"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">
-          Send Feedback Message &rarr;
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <div id="contact-toast" class="toast" role="alert" style="position: fixed; bottom: 30px; right: 30px; background: #0f172a; border: 1px solid var(--accent-cyan); color: #ffffff; padding: 14px 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 3000; display: none;">
-    ✓ Thank you! Your feedback has been recorded for the internship project evaluation.
-  </div>
 
   <script src="js/navigation.js"></script>
   <script src="js/main.js"></script>

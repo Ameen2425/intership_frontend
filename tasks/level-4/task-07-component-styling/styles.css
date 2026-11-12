@@ -1,203 +1,142 @@
 /*
   ==========================================================================
-  COGNIFYZ TECHNOLOGIES - FRONT-END DEVELOPMENT INTERNSHIP
-  TASK 07: BOOTSTRAP 5 CUSTOM THEME ELEVATION
+  TASK 07: PROFESSIONAL BUSINESS DASHBOARD (BOOTSTRAP 5)
+  Clean, corporate enterprise UI demonstrating genuine Bootstrap 5 components.
   ==========================================================================
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-  --bg-dark-base: #0a0f1d;
-  --bg-dark-navy: #0f172a;
-  --bg-card: rgba(15, 23, 42, 0.85);
-  --border-card: rgba(255, 255, 255, 0.12);
-  --color-cyan: #38bdf8;
-  --color-indigo: #6366f1;
-  --color-purple: #a855f7;
-  --color-pink: #ec4899;
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bs-body-bg: #f3f4f8;
+  --bs-body-color: #1e293b;
 }
 
 body {
-  background-color: var(--bg-dark-base);
-  color: #f8fafc;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  overflow-x: hidden;
+  font-family: var(--bs-body-font-family);
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Backgrounds & Card Overrides */
-.bg-dark-navy {
-  background-color: var(--bg-dark-navy) !important;
+/* Corporate Top Navbar */
+.navbar-corporate {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
 }
 
-.bg-card-dark {
-  background-color: var(--bg-card) !important;
-  backdrop-filter: blur(12px);
-}
-
-.border-card {
-  border-color: var(--border-card) !important;
-}
-
-.border-cyan {
-  border-color: var(--color-cyan) !important;
-}
-
-.text-cyan {
-  color: var(--color-cyan) !important;
-}
-
-.text-indigo {
-  color: var(--color-indigo) !important;
-}
-
-.text-pink {
-  color: var(--color-pink) !important;
-}
-
-.bg-indigo-subtle {
-  background-color: rgba(99, 102, 241, 0.15) !important;
-}
-
-.border-indigo {
-  border-color: rgba(99, 102, 241, 0.35) !important;
-}
-
-.bg-pink-subtle {
-  background-color: rgba(236, 72, 153, 0.15) !important;
-}
-
-.border-pink {
-  border-color: rgba(236, 72, 153, 0.35) !important;
-}
-
-/* Brand Pill */
-.brand-pill {
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-indigo));
-  color: #0b1120;
+.brand-badge-square {
+  background-color: #0f172a;
+  color: #ffffff;
   font-weight: 800;
   font-size: 0.75rem;
   padding: 4px 8px;
-  border-radius: 6px;
-  letter-spacing: 0.5px;
+  border-radius: 4px;
 }
 
-/* Custom Gradient Buttons */
-.btn-gradient {
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-indigo));
-  color: #ffffff;
-  font-weight: 600;
-  border: none;
-  transition: all 0.25s ease;
-}
-
-.btn-gradient:hover {
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
-}
-
-.btn-outline-cyan {
-  color: var(--color-cyan);
-  border-color: var(--color-cyan);
-}
-
-.btn-outline-cyan:hover {
-  background-color: var(--color-cyan);
-  color: #0b1120;
-}
-
-.btn-cyan {
-  background-color: var(--color-cyan);
-  color: #0b1120;
-  font-weight: 600;
-}
-
-.btn-cyan:hover {
-  background-color: #0284c7;
-  color: #ffffff;
-}
-
-.btn-outline-pink {
-  color: var(--color-pink);
-  border-color: var(--color-pink);
-}
-
-.btn-outline-pink:hover {
-  background-color: var(--color-pink);
-  color: #ffffff;
-}
-
-/* Custom Hero Glow */
-.hero-block {
-  background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.15), transparent 60%),
-              radial-gradient(circle at 10% 80%, rgba(56, 189, 248, 0.12), transparent 60%);
-  border-bottom: 1px solid var(--border-card);
-}
-
-/* Custom Card Hover Lift */
-.hover-lift {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-cyan) !important;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4) !important;
-}
-
-/* Custom Dropdown */
-.custom-dropdown {
-  background-color: var(--bg-dark-navy);
-  border: 1px solid var(--border-card);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-.custom-dropdown .dropdown-item:hover {
-  background-color: rgba(56, 189, 248, 0.15);
-  color: var(--color-cyan);
-}
-
-/* Custom Nav Pills */
-.custom-pills .nav-link {
-  color: #94a3b8;
+/* Metric KPI Cards */
+.kpi-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.kpi-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.kpi-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.kpi-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+/* Table Card */
+.dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.dashboard-card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.table > :not(caption) > * > * {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+.avatar-initial {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #334155;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Nav Tabs custom overrides */
+.nav-tabs .nav-link {
+  color: #64748b;
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 8px 16px;
-  transition: all 0.2s ease;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 16px;
 }
 
-.custom-pills .nav-link.active {
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-indigo));
-  color: #ffffff;
+.nav-tabs .nav-link:hover {
+  color: #0f172a;
+  border-color: transparent;
 }
 
-/* Custom Accordion */
-.custom-accordion .accordion-button:not(.collapsed) {
-  background-color: rgba(56, 189, 248, 0.1);
-  color: var(--color-cyan);
-  box-shadow: none;
+.nav-tabs .nav-link.active {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+  background: transparent;
 }
 
-.custom-accordion .accordion-button::after {
-  filter: invert(1);
+/* Toast container positioning */
+.toast-container {
+  z-index: 1090;
 }
-
-/* Progress bar */
-.progress-dark {
-  background-color: #334155;
-  height: 8px;
-  border-radius: 9999px;
-}
-
-.bg-gradient-cyan {
-  background: linear-gradient(90deg, var(--color-cyan), var(--color-indigo));
-}
-
-/* Custom Alert */
-.alert-cyan {
-  background-color: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  color: #f8fafc;
-  border-radius: 12px;
-}
-
