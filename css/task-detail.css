@@ -531,16 +531,92 @@ body {
   margin-top: 48px;
 }
 
+/* Responsive Media Queries */
 @media (max-width: 768px) {
+  .evaluator-header {
+    padding: 10px 16px;
+  }
+
+  .evaluator-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
+
   .page-container {
     padding: 0 16px;
-    margin-top: 20px;
+    margin: 20px auto 48px;
   }
+
   .task-hero-card,
   .detail-section {
-    padding: 20px;
+    padding: 22px 18px;
+    border-radius: 10px;
   }
+
   .task-main-heading {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
+  }
+
+  .section-heading {
+    font-size: 1.2rem;
+  }
+
+  .demo-preview-frame iframe {
+    height: 480px;
+  }
+
+  .demo-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-open-demo {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 0 12px;
+  }
+
+  .task-hero-card,
+  .detail-section {
+    padding: 18px 14px;
+  }
+
+  .task-main-heading {
+    font-size: 1.4rem;
+  }
+
+  .meta-pill {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .demo-preview-frame iframe {
+    height: 420px;
+  }
+
+  .code-content {
+    padding: 12px 14px;
+  }
+
+  .code-content pre {
+    font-size: 0.78rem;
   }
 }

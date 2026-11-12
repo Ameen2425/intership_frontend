@@ -401,16 +401,62 @@ body {
 }
 
 @media (max-width: 600px) {
+  .top-nav {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .playground-stage {
+    padding: 20px 14px;
+  }
   .control-dock {
-    padding: 24px;
+    padding: 22px 18px;
+    gap: 20px;
+    border-radius: 16px;
+  }
+  .dock-title {
+    font-size: 1.45rem;
+  }
+  .color-readout-card {
+    padding: 14px 16px;
+    gap: 12px;
   }
   .swatches-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
   }
   .action-buttons-group {
     flex-direction: column;
+    gap: 10px;
   }
   .readout-hex {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+  }
+  .picker-history-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links a {
+    margin-left: 0;
+    margin-right: 14px;
+  }
+  .color-readout-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .copy-button {
+    width: 100%;
+    justify-content: center;
+  }
+  .swatches-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

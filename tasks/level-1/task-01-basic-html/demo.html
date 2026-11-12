@@ -218,13 +218,21 @@
       margin-bottom: 8px;
     }
 
+    /* Responsive Table Wrapper */
+    .table-scroll-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 24px 0;
+    }
+
     /* Editorial Table */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 24px 0;
       font-family: var(--font-sans);
       font-size: 0.9rem;
+      min-width: 520px;
     }
 
     caption {
@@ -347,10 +355,41 @@
     @media (max-width: 768px) {
       .document-wrapper {
         margin: 16px;
-        padding: 28px 24px;
+        padding: 28px 20px;
       }
       h1.article-title {
-        font-size: 1.8rem;
+        font-size: 1.85rem;
+      }
+      .utility-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 16px;
+      }
+      .meta-divider-bar {
+        flex-direction: column;
+        gap: 6px;
+      }
+      .editorial-footer {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .document-wrapper {
+        margin: 8px;
+        padding: 20px 14px;
+      }
+      h1.article-title {
+        font-size: 1.55rem;
+      }
+      p, li {
+        font-size: 0.95rem;
+      }
+      blockquote {
+        padding: 14px 18px;
+        font-size: 1rem;
       }
     }
   </style>
@@ -453,6 +492,7 @@
       <!-- 4. Tabular Data -->
       <section id="tasks-table">
         <h2>4. Internship Task Schedule (Tabular Data)</h2>
+        <div class="table-scroll-wrapper">
         <table>
           <caption>Cognifyz Technologies &mdash; 8-Task Frontend Milestone Schedule</caption>
           <thead>
@@ -529,6 +569,7 @@
             </tr>
           </tfoot>
         </table>
+        </div>
       </section>
 
       <!-- 5. Media Embedding -->
