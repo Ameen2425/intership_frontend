@@ -27,8 +27,8 @@ Cognifyz_Frontend_Internship/
 │
 ├── index.html                           # Master Editorial Portfolio Showcase
 ├── README.md                            # Primary Project Documentation
-├── package.json                         # Build configurations & dependencies
 ├── .gitignore                           # Git version control exclusions
+├── .nojekyll                            # GitHub Pages Jekyll bypass
 │
 ├── assets/
 │   ├── images/                          # Vector diagrams & visual illustrations
@@ -136,30 +136,21 @@ python -m http.server 3000
 ```
 Open your browser and navigate to: **`http://localhost:3000`**
 
-### Option 2: Using Node / NPM
-```bash
-# Start local server
-npm start
-```
+### Option 2: Direct File Opening / VS Code Live Server
+Because this project is built entirely with standard web technologies (zero node dependencies or build requirements), you can also right-click `index.html` and choose **"Open with Live Server"** or simply double-click `index.html` to view in any modern browser.
 
 ---
 
-## 🎨 How to Compile and Watch Sass
+## 🎨 Sass Source & Compilation
 
-The project uses modern **Dart Sass**. Compilation scripts are configured in `package.json`:
+The Task 08 design system includes modular SCSS source files and pre-compiled CSS:
 
-```bash
-# Compile SCSS partials to expanded CSS with source maps:
-npm run build:sass
-
-# Compile minified production CSS:
-npm run build:sass:min
-
-# Start live file watcher for active SCSS development:
-npm run watch:sass
-```
-
-The pre-compiled `css/styles.css` file is included out-of-the-box so the project renders immediately without running a build command.
+- **SCSS Source:** Located in `tasks/level-4/task-08-sass-preprocessing/scss/` (`_variables.scss`, `_mixins.scss`, `_components.scss`, and `styles.scss`).
+- **Compiled CSS:** Ready-to-use CSS is already included in `tasks/level-4/task-08-sass-preprocessing/css/styles.css`.
+- **Optional Recompilation:** If you have Dart Sass installed, recompile at any time with:
+  ```bash
+  npx sass tasks/level-4/task-08-sass-preprocessing/scss/styles.scss tasks/level-4/task-08-sass-preprocessing/css/styles.css
+  ```
 
 ---
 

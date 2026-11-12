@@ -93,12 +93,36 @@ img, svg, video, iframe {
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0;
   }
 
-  .nav-cta {
-    padding: 6px 12px;
-    font-size: 0.75rem;
+  .nav-actions .nav-cta {
+    display: none !important;
+  }
+
+  .mobile-nav-cta-item {
+    display: block;
+    margin-top: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-rule);
+  }
+
+  .mobile-drawer-btn {
+    display: block;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background: var(--text-primary);
+    color: var(--text-inverse);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  .mobile-drawer-btn:hover {
+    background: var(--accent-terra);
+    color: #ffffff;
   }
 
   .hero-section {
@@ -280,10 +304,6 @@ img, svg, video, iframe {
    TINY SMARTPHONES (max-width: 380px)
    ========================================================================== */
 @media (max-width: 380px) {
-  .nav-cta {
-    display: none; /* preserve header space for brand + hamburger */
-  }
-
   .hero-title {
     font-size: 1.65rem;
   }
